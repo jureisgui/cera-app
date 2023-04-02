@@ -39,6 +39,8 @@ const AnswersRoute = require('./routes/answers');
 app.use('/answers', AnswersRoute);
 const LoginsRoute = require('./routes/logins');
 app.use('/logins', LoginsRoute);
+const ListingsRoute = require('./routes/listings');
+app.use('/listings', ListingsRoute);
 
 app.listen(PORT, () => {
   console.log("listening on port 4000");
