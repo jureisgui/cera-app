@@ -33,6 +33,13 @@ app.get("/", (res, req) => {
 // this below 'UserRoute' is a variable for this project (not syntax)
 const UsersRoute = require('./routes/users');
 app.use('/users', UsersRoute);
+const QuestionsRoute = require('./routes/questions');
+app.use('/questions', QuestionsRoute);
+const AnswersRoute = require('./routes/answers');
+app.use('/answers', AnswersRoute);
+const LoginsRoute = require('./routes/logins');
+app.use('/logins', LoginsRoute);
+
 app.listen(PORT, () => {
   console.log("listening on port 4000");
 });
