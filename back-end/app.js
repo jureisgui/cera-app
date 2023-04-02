@@ -13,7 +13,7 @@ app.use(function(req, res, next){
 });
 //DATABASE
 // **** change this below DB link to your mongoDB cluster ****
-const DB = "mongodb+srv://cera-app:LktaHasY9Af9OoNy@ceraapp.mdsjlrn.mongodb.net/?retryWrites=true&w=majority";
+const DB = "mongodb+srv://cera-app:LktaHasY9Af9OoNy@ceraapp.mdsjlrn.mongodb.net/CeraApp?retryWrites=true&w=majority";
 const PORT = 4000;
 mongoose.connect(
     DB,

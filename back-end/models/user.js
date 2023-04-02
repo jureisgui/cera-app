@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema({
     address: {
         type: String,
         required: true},
-    profile_image: {
+    seller_image: {
         type: String,
         required: false},
     seller_name: {
