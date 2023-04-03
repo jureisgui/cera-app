@@ -1,5 +1,5 @@
 <script setup>
-
+import Header from './components/Header.vue'
 </script>
 
 <template>
@@ -8,7 +8,7 @@
 
 
 <!-- Tin's Test Section -->
-
+<Header />
 <!--  -->
 
 <!-- Matt's Test Section -->
