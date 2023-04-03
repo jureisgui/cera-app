@@ -1,7 +1,7 @@
 <template>
     <footer>
         <div>
-            <img src="../assets/img/clay_logo.svg" alt="Cera logo">
+            <img src="../assets/img/clay_logo-01.svg" alt="Cera logo">
         </div>
         <div class="footer-columns body_text">
             <router-link to='/shop'>Shop</router-link>
@@ -13,9 +13,9 @@
             <a href="#">Policies</a>
             <a href="#">Support</a>
         </div>
-        <div class="footer-columns">
-            <span>Download app button</span>
-            <span>Download app button</span>     
+        <div class="footer-columns body_text">
+            <span class="app-button">Download app <img class="app-icons" src="../assets/icons/android.svg" alt="Android icon"> </span>
+            <span class="app-button">Download app <img class="app-icons" src="../assets/icons/apple.svg" alt="Apple icon"> </span>     
         </div>
         <div class="social-icons">
             <img src="../assets/icons/facebook.svg" alt="Facebook icon">
@@ -30,9 +30,10 @@
     footer{
         display: flex;
         background-color: #444739;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         flex-wrap: wrap;
+        padding: 3em;
     }
 
     .footer-columns{
@@ -40,15 +41,34 @@
         flex-direction: column;
     }
 
+    footer img{
+        max-width: 100px;
+    }
+    
     .social-icons{
         display: flex;
         height: 30px;
         width: 30px;
     }
 
+    .app-icons{
+        width: 25px;
+        height: 25px;
+        padding: 0.1em;
+    }
+
     a{
         text-decoration: none;
         color: #FFF;
+    }
+
+    .app-button{
+        color: #FFF;
+        display: flex;
+        align-items: center;
+        padding: 0.5em;
+        border: 1px solid;
+        border-radius: 113px;
     }
     
 </style>
