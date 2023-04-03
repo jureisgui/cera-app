@@ -26,10 +26,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 90px;
+    height: 105px;
     background-color: #444739;
     color: #fff;
-    padding: 0 20px;
+    padding: 0 10%;
   }
   
   .links_container {
@@ -41,6 +41,10 @@
   a {
       text-decoration: none;
       color: #fff;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
   
   input {
@@ -70,7 +74,7 @@
   }
   
   .logo_container {
-      width: 110px;
+      width: 50px;
   }
   
   </style>
