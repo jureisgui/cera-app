@@ -25,7 +25,7 @@ import transparentHeader from './components/TransparentHeader.vue'
 
 <!-- Kyla's Test Section -->
 <transparentHeader/>
-
+<sort_by_button/>
 <!--  -->
  
 </template>
