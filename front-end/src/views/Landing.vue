@@ -1,7 +1,5 @@
 <template>
-  <div class="landing_header">
-   LANDING PLACEHOLDER
-  </div>
+  <FeaturedArtist />
 </template>
 
 <style scoped>
@@ -9,5 +7,5 @@
 </style>
 
 <script setup>
-
+import FeaturedArtist from '../components/LandingComponents/FeaturedArtist.vue'
 </script>
