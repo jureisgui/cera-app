@@ -23,10 +23,19 @@
         <input type="text" />
         <span class="material-symbols-outlined">search</span>
       </div>
-      <span class="material-symbols-outlined heart" v-if="Logged_in"> favorite </span>
-      <span class="material-symbols-outlined" v-if="Logged_in"> account_circle </span>
+      <span class="material-symbols-outlined heart" v-if="Logged_in">
+        favorite
+      </span>
+      <span class="material-symbols-outlined" v-if="Logged_in">
+        account_circle
+      </span>
       <p>button</p>
     </div>
+
+    <div>
+    <span class="material-symbols-outlined burger_menu">menu</span>
+    </div>
+
   </header>
 </template>
 
@@ -104,7 +113,24 @@ input:focus {
 }
 
 .heart {
-    color: #DC7777;
+  color: #dc7777;
+}
+
+.burger_menu {
+    display: none;
+}
+
+@media (max-width: 62em) {
+  .links_container,
+  .search_and_cta_container {
+    display: none !important;
+  }
+
+  .burger_menu {
+    display: block;
+    width: 100% !important;
+    font-size: 40px;
+  }
 }
 </style>
 
