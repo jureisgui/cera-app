@@ -1,6 +1,7 @@
 <script setup>
 import Footer from './components/Footer.vue'
 import sort_by_button from './components/Buttons/Sortby.vue'
+import transparentHeader from './components/TransparentHeader.vue'
 
 </script>
 
@@ -18,11 +19,12 @@ import sort_by_button from './components/Buttons/Sortby.vue'
 <!--  -->
 
 <!-- Julie's Test Section -->
-<Footer />
+<!-- <Footer /> -->
 
 <!--  -->
 
 <!-- Kyla's Test Section -->
+<transparentHeader/>
 <sort_by_button/>
 <!--  -->
  
