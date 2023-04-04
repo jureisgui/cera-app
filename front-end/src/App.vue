@@ -1,5 +1,5 @@
 <script setup>
-import Summary from "./components/Modals/LandingComponents/Summary.vue";
+import MainButton from "./components/Buttons/MainButton.vue";
 </script>
 
 <template>
@@ -13,8 +13,7 @@ import Summary from "./components/Modals/LandingComponents/Summary.vue";
   <!--  -->
 
   <!-- Matt's Test Section -->
-  <Summary />
-
+  <MainButton />
   <!--  -->
 
   <!-- Julie's Test Section -->
