@@ -1,6 +1,7 @@
 <script setup>
 import Footer from './components/Footer.vue'
 import sort_by_button from './components/Buttons/Sortby.vue'
+import edit_delete from './components/Buttons/ListingEditDeleteButton.vue'
 
 </script>
 
@@ -24,6 +25,7 @@ import sort_by_button from './components/Buttons/Sortby.vue'
 
 <!-- Kyla's Test Section -->
 <!-- <sort_by_button/> -->
+<edit_delete/>
 <!--  -->
  
 </template>
