@@ -33,10 +33,19 @@
     </div>
 
     <div>
-    <span class="material-symbols-outlined burger_menu">menu</span>
+    <span class="material-symbols-outlined burger_menu" @click="burger_menu_revealed=!burger_menu_revealed">menu</span>
     </div>
-
   </header>
+
+  <ul class="burger_list button_text" v-if="burger_menu_revealed">
+      <li><router-link to="/">Home</router-link></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">FAQ</a></li>
+      <li class="text_icon"><a href="#">My Favourites</a></li>
+      <li><a href="#">My Account</a></li>
+      <li><a href="#">List an Item</a></li>
+    </ul>
 </template>
 
 <style scoped>
@@ -120,6 +129,10 @@ input:focus {
     display: none;
 }
 
+.burger_list {
+    display: none;
+}
+
 @media (max-width: 62em) {
   .links_container,
   .search_and_cta_container {
@@ -131,6 +144,30 @@ input:focus {
     width: 100% !important;
     font-size: 40px;
   }
+
+  .burger_list {
+    display: flex !important;
+    flex-direction: column;
+    color: #444739;
+    align-items: end;
+    /* margin-right: 15px; */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  a {
+    color: #444739;
+  }
+
+
+  li {
+    padding: 30px 50px;
+    height: 40px;
+    text-align: right;
+    list-style: none;
+    border-bottom: 0.5px solid #444739;
+    width: 100%;
+  }
+
 }
 </style>
 
@@ -142,6 +179,7 @@ export default {
     return {
       Landing_design: false,
       Logged_in: false,
+      burger_menu_revealed: false
     };
   },
 };
