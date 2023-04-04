@@ -42,9 +42,10 @@
       <li><a href="#">Products</a></li>
       <li><a href="#">About Us</a></li>
       <li><a href="#">FAQ</a></li>
-      <li class="text_icon"><a href="#">My Favourites</a></li>
-      <li><a href="#">My Account</a></li>
-      <li><a href="#">List an Item</a></li>
+      <li v-if="Logged_in"><a href="#">My Favourites</a></li>
+      <li v-if="Logged_in"><a href="#">My Account</a></li>
+      <li v-if="Logged_in"><a href="#">List an Item</a></li>
+      <li v-if="!Logged_in"><a href="#">Log in</a></li>
     </ul>
 </template>
 
