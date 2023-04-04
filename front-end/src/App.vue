@@ -1,7 +1,6 @@
 <script setup>
-import Footer from './components/Footer.vue'
+import LongButton from './components/Buttons/LongButton.vue'
 import sort_by_button from './components/Buttons/Sortby.vue'
-import edit_delete from './components/Buttons/ListingEditDeleteButton.vue'
 
 </script>
 
@@ -19,12 +18,12 @@ import edit_delete from './components/Buttons/ListingEditDeleteButton.vue'
 <!--  -->
 
 <!-- Julie's Test Section -->
-
+<LongButton :long_button_text="Sign_up"/>
 
 <!--  -->
 
 <!-- Kyla's Test Section -->
-
+<sort_by_button/>
 <!--  -->
  
 </template>
@@ -32,3 +31,14 @@ import edit_delete from './components/Buttons/ListingEditDeleteButton.vue'
 <style scoped>
 
 </style>
+
+<script>
+    export default{
+        data(){
+            return{
+                Sign_up:'Sign Up',
+                Log_in:'Log In'
+            }
+        }
+    }
+</script>
