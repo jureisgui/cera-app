@@ -1,6 +1,7 @@
 <script setup>
 import Footer from './components/Footer.vue'
 import sort_by_button from './components/Buttons/Sortby.vue'
+import MainBtn from './components/Buttons/MainButton.vue'
 
 </script>
 
@@ -10,7 +11,7 @@ import sort_by_button from './components/Buttons/Sortby.vue'
 
 
 <!-- Tin's Test Section -->
-
+<MainBtn :main_button_prop="login_msg" :button_icon_prop="login_icon"/>
 <!--  -->
 
 <!-- Matt's Test Section -->
@@ -18,12 +19,12 @@ import sort_by_button from './components/Buttons/Sortby.vue'
 <!--  -->
 
 <!-- Julie's Test Section -->
-<Footer />
+
 
 <!--  -->
 
 <!-- Kyla's Test Section -->
-<sort_by_button/>
+
 <!--  -->
  
 </template>
@@ -31,3 +32,14 @@ import sort_by_button from './components/Buttons/Sortby.vue'
 <style scoped>
 
 </style>
+
+<script>
+export default {
+  data(){
+    return{
+      login_msg:'Log in',
+      login_icon: 'login'
+    }
+  }
+}
+</script>
