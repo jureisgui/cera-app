@@ -23,6 +23,7 @@ import Header from './components/Header.vue'
 
 <!--  -->
  
+<router-view></router-view>
 </template>
 
 <style scoped>
