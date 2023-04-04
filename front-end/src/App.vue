@@ -1,7 +1,7 @@
 <script setup>
+import Header from './components/Header.vue'
 import LongButton from './components/Buttons/LongButton.vue'
 import sort_by_button from './components/Buttons/Sortby.vue'
-
 </script>
 
 <template>
@@ -10,7 +10,7 @@ import sort_by_button from './components/Buttons/Sortby.vue'
 
 
 <!-- Tin's Test Section -->
-
+<Header />
 <!--  -->
 
 <!-- Matt's Test Section -->
@@ -26,6 +26,7 @@ import sort_by_button from './components/Buttons/Sortby.vue'
 <sort_by_button/>
 <!--  -->
  
+<router-view></router-view>
 </template>
 
 <style scoped>
