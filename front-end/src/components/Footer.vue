@@ -70,6 +70,10 @@
         border: 1px solid;
         border-radius: 113px;
     }
+
+    span{
+        margin-bottom: 0.5em;
+    }
     
 </style>
 
