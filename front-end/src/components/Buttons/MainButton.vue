@@ -1,5 +1,5 @@
 <template>
-  <div class="main_button">
+  <div class="main_button button_text">
   <p>{{main_button_prop}}</p>
  <span class="material-symbols-outlined">{{ button_icon_prop }}</span>
 </div>
@@ -7,13 +7,15 @@
 
 <style scoped>
 .main_button {
-  width: 160px;
+  width: 190px;
   background-color: #444739;
   color: #fff;
-  padding: 5px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
   height: 43px;
+  border-radius: 25px;
+  align-items: center;
 }
 </style>
 
