@@ -4,11 +4,6 @@
       <router-link to="/"
         ><img src="../assets/img/white_logo-01-01.svg" alt="Cera Logo White"
       /></router-link>
-      <img
-        src="../assets/img/pine_logo-01.svg"
-        alt="Cera Pine Logo"
-        v-if="Landing_design"
-      />
     </div>
 
     <ul class="links_container">
@@ -60,14 +55,6 @@ header {
   padding: 0 10%;
 }
 
-.reversed_bg {
-  background-color: #44473900;
-}
-
-.reversed_color {
-  color: #444739;
-}
-
 .links_container {
   display: flex;
   list-style: none;
@@ -89,10 +76,6 @@ input {
   border: none;
   border-bottom: 1px solid #fff;
   color: #fff;
-}
-
-.input_reversed {
-  border-bottom: 1px solid #444739;
 }
 
 input:focus {
@@ -178,7 +161,6 @@ input:focus {
 export default {
   data() {
     return {
-      Landing_design: false,
       Logged_in: false,
       burger_menu_revealed: false
     };
