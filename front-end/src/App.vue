@@ -1,5 +1,5 @@
 <script setup>
-import Footer from './components/Footer.vue'
+import LongButton from './components/Buttons/LongButton.vue'
 import sort_by_button from './components/Buttons/Sortby.vue'
 
 </script>
@@ -18,7 +18,7 @@ import sort_by_button from './components/Buttons/Sortby.vue'
 <!--  -->
 
 <!-- Julie's Test Section -->
-<Footer />
+<LongButton :long_button_text="Sign_up"/>
 
 <!--  -->
 
@@ -31,3 +31,14 @@ import sort_by_button from './components/Buttons/Sortby.vue'
 <style scoped>
 
 </style>
+
+<script>
+    export default{
+        data(){
+            return{
+                Sign_up:'Sign Up',
+                Log_in:'Log In'
+            }
+        }
+    }
+</script>
