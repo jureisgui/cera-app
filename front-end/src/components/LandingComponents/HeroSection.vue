@@ -24,9 +24,7 @@
     background-repeat: no-repeat;
 }
 
-.hero_heading{
-    
-}
+
     
 </style>
 
