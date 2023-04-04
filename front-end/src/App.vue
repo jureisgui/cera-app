@@ -18,7 +18,7 @@ import sort_by_button from './components/Buttons/Sortby.vue'
 <!--  -->
 
 <!-- Julie's Test Section -->
-<Categories />
+
 <!--  -->
 
 <!-- Kyla's Test Section -->
