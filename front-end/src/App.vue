@@ -1,5 +1,6 @@
 <script setup>
 import Footer from './components/Footer.vue'
+import sort_by_button from './components/Buttons/Sortby.vue'
 
 </script>
 
@@ -22,7 +23,7 @@ import Footer from './components/Footer.vue'
 <!--  -->
 
 <!-- Kyla's Test Section -->
-
+<sort_by_button/>
 <!--  -->
  
 </template>
