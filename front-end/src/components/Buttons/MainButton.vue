@@ -1,14 +1,35 @@
 <template>
-  <button class="button_text main_button_style">
-    <div class="main_button_flex">
-      <span>Log in</span>
-      <span class="material-symbols-outlined"> login </span>
-    </div>
-  </button>
+  <div>
+    <button v-for="(button, index) in buttons" :key="index">
+      {{ button.label }}
+      <i :class="button.icon"></i>
+      <span class="material-symbols-outlined"> logout </span>
+      <i class="fa fa-user" aria-hidden="true"></i>
+    </button>
+  </div>
 </template>
 
-<style scoped>
-</style>
-
-<script setup>
+<script>
+export default {
+  data() {
+    return {
+      buttons: [
+        {
+          label: "Button 1",
+          icon: "fa-solid fa-coffee",
+        },
+        {
+          label: "Button 2",
+          icon: "fas fa-search",
+        },
+        {
+          label: "Button 3",
+          icon: "fas fa-envelope",
+        },
+      ],
+    };
+  },
+};
 </script>
+
+ 
