@@ -1,5 +1,7 @@
 <script setup>
 import Header from './components/Header.vue'
+import LongButton from './components/Buttons/LongButton.vue'
+import sort_by_button from './components/Buttons/Sortby.vue'
 </script>
 
 <template>
@@ -16,11 +18,12 @@ import Header from './components/Header.vue'
 <!--  -->
 
 <!-- Julie's Test Section -->
+<LongButton :long_button_text="Sign_up"/>
 
 <!--  -->
 
 <!-- Kyla's Test Section -->
-
+<sort_by_button/>
 <!--  -->
  
 <router-view></router-view>
@@ -29,3 +32,14 @@ import Header from './components/Header.vue'
 <style scoped>
 
 </style>
+
+<script>
+    export default{
+        data(){
+            return{
+                Sign_up:'Sign Up',
+                Log_in:'Log In'
+            }
+        }
+    }
+</script>
