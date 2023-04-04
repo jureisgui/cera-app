@@ -1,5 +1,5 @@
 <script setup>
-import LongButton from './components/Buttons/LongButton.vue'
+import Categories from './components/Categories.vue'
 import sort_by_button from './components/Buttons/Sortby.vue'
 
 </script>
@@ -18,8 +18,7 @@ import sort_by_button from './components/Buttons/Sortby.vue'
 <!--  -->
 
 <!-- Julie's Test Section -->
-<LongButton :long_button_text="Sign_up"/>
-
+<Categories />
 <!--  -->
 
 <!-- Kyla's Test Section -->
