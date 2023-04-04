@@ -1,7 +1,10 @@
 <script setup>
-import Categories from './components/Categories.vue'
-import sort_by_button from './components/Buttons/Sortby.vue'
 
+import Categories from './components/Categories.vue'
+import Header from './components/Header.vue'
+import LongButton from './components/Buttons/LongButton.vue'
+import sort_by_button from './components/Buttons/Sortby.vue'
+import TransparentHeader from './components/TransparentHeader.vue'
 </script>
 
 <template>
@@ -10,7 +13,7 @@ import sort_by_button from './components/Buttons/Sortby.vue'
 
 
 <!-- Tin's Test Section -->
-
+<TransparentHeader />
 <!--  -->
 
 <!-- Matt's Test Section -->
@@ -25,6 +28,7 @@ import sort_by_button from './components/Buttons/Sortby.vue'
 <sort_by_button/>
 <!--  -->
  
+<router-view></router-view>
 </template>
 
 <style scoped>
