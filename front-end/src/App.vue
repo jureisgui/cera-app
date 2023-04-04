@@ -1,4 +1,6 @@
 <script setup>
+
+import Categories from './components/Categories.vue'
 import Header from './components/Header.vue'
 import LongButton from './components/Buttons/LongButton.vue'
 import sort_by_button from './components/Buttons/Sortby.vue'
@@ -19,7 +21,6 @@ import TransparentHeader from './components/TransparentHeader.vue'
 <!--  -->
 
 <!-- Julie's Test Section -->
-<LongButton :long_button_text="Sign_up"/>
 
 <!--  -->
 
