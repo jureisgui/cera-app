@@ -19,13 +19,12 @@ import edit_delete from './components/Buttons/ListingEditDeleteButton.vue'
 <!--  -->
 
 <!-- Julie's Test Section -->
-<!-- <Footer /> -->
+
 
 <!--  -->
 
 <!-- Kyla's Test Section -->
-<!-- <sort_by_button/> -->
-<edit_delete/>
+
 <!--  -->
  
 </template>
