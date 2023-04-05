@@ -36,7 +36,7 @@
 }
 .hero_cta_buttons{
     display: flex;
-    gap: 20px;
+    gap: 20px;}
 
 .hero_heading{
     margin: 2em 4em; 
