@@ -1,5 +1,7 @@
 <template>
+
   LANDING PLACEHOLDER
+
 </template>
 
 <style scoped>
