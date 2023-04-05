@@ -45,8 +45,8 @@
 }
 
 .category-card img{
-    width: 200px;
-    height: 200px;
+    width: 170px;
+    height: 170px;
     border-radius: 10px;
 }
 
@@ -57,8 +57,8 @@
 }
 
 .categories-wrapper{
-    margin-left: 4em; 
-    margin-right: 4em;
+    margin-left: 10%; 
+    margin-right: 10%;
     border-bottom: solid 1px;
 }
     

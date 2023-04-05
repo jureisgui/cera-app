@@ -10,7 +10,7 @@
     background-color: #444739;
     color: #fff;
     border-radius: 113px;
-    padding: 1em;
+    padding: 0.6em 1.1em;
     align-items: center;    
     justify-content: center;
 }
