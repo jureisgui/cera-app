@@ -32,7 +32,6 @@
         background-color: #444739;
         justify-content: space-around;
         align-items: center;
-        flex-wrap: wrap;
         padding: 3em;
     }
 
@@ -46,7 +45,10 @@
     }
     
     .social-icons{
-        display: flex;
+        display: flex;  
+    }
+
+    .social-icons img{
         height: 30px;
         width: 30px;
     }
@@ -62,6 +64,10 @@
         color: #FFF;
     }
 
+    a:hover{
+        color: #DCBA77;
+    }
+
     .app-button{
         color: #FFF;
         display: flex;
@@ -71,8 +77,25 @@
         border-radius: 113px;
     }
 
+    .app-button:hover{
+        color: #DCBA77;
+    }
+
     span{
         margin-bottom: 0.5em;
+    }
+
+    @media (max-width: 640px) {
+
+        footer{
+            flex-direction: column;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .social-icons{
+            gap: 10px;
+        }
     }
     
 </style>
