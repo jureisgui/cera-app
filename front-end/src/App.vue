@@ -1,5 +1,4 @@
 <script setup>
-import Footer from './components/Footer.vue'
 
 </script>
 
@@ -17,7 +16,6 @@ import Footer from './components/Footer.vue'
 <!--  -->
 
 <!-- Julie's Test Section -->
-<Footer />
 
 <!--  -->
 
