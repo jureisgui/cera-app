@@ -1,5 +1,5 @@
 <script setup>
-import Categories from './components/Categories.vue'
+import FeaturedArtist from './components/LandingComponents/FeaturedArtist.vue'
 
 </script>
 
@@ -17,7 +17,7 @@ import Categories from './components/Categories.vue'
 <!--  -->
 
 <!-- Julie's Test Section -->
-<Categories />
+<FeaturedArtist />
 
 <!--  -->
 
