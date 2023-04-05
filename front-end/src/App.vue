@@ -1,6 +1,5 @@
 <script setup>
 
-
 </script>
 
 <template>
@@ -32,12 +31,5 @@
 </style>
 
 <script>
-    export default{
-        data(){
-            return{
-                Sign_up:'Sign Up',
-                Log_in:'Log In'
-            }
-        }
-    }
+  
 </script>
