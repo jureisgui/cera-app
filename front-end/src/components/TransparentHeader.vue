@@ -26,7 +26,8 @@
       <span class="material-symbols-outlined" v-if="Logged_in">
         account_circle
       </span>
-      <p>button</p>
+      <MainBtn main_button_prop="Log in" button_icon_prop="login" v-if="!Logged_in"/>
+      <MainBtn main_button_prop="List an item" button_icon_prop="add_circle" v-if="Logged_in"/>
     </div>
 
     <div>
@@ -161,13 +162,18 @@ text-decoration: none;
 }
 </style>
 
-<script setup></script>
+<script setup>
+import MainBtn from './Buttons/MainButton.vue'
+
+defineProps({
+  Logged_in: Boolean,
+});
+</script>
 
 <script>
 export default {
   data() {
     return {
-      Logged_in: false,
       burger_menu_revealed: false
     };
   },
