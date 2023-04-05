@@ -1,5 +1,5 @@
 <script setup>
-
+import DI from './components/Inputs/DescriptionInput.vue'
 </script>
 
 <template>
@@ -8,7 +8,7 @@
 
 
 <!-- Tin's Test Section -->
-
+<DI />
 <!--  -->
 
 <!-- Matt's Test Section -->
