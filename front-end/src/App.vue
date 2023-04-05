@@ -1,9 +1,4 @@
 <script setup>
-import Header from './components/Header.vue'
-import LongButton from './components/Buttons/LongButton.vue'
-import sort_by_button from './components/Buttons/Sortby.vue'
-import TransparentHeader from './components/TransparentHeader.vue'
-import herosection from './components/LandingComponents/HeroSection.vue'
 </script>
 
 <template>
@@ -12,7 +7,7 @@ import herosection from './components/LandingComponents/HeroSection.vue'
 
 
 <!-- Tin's Test Section -->
-<!-- <TransparentHeader /> -->
+
 <!--  -->
 
 <!-- Matt's Test Section -->
@@ -20,13 +15,13 @@ import herosection from './components/LandingComponents/HeroSection.vue'
 <!--  -->
 
 <!-- Julie's Test Section -->
-<!-- <LongButton :long_button_text="Sign_up"/> -->
+
 
 <!--  -->
 
 <!-- Kyla's Test Section -->
 
-<!-- <sort_by_button/> -->
+
 <!--  -->
  
 <router-view></router-view>
