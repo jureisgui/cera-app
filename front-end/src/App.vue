@@ -25,7 +25,7 @@ import herosection from './components/LandingComponents/HeroSection.vue'
 <!--  -->
 
 <!-- Kyla's Test Section -->
-<herosection/>
+
 <!-- <sort_by_button/> -->
 <!--  -->
  
