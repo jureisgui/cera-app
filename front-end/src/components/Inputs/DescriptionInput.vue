@@ -10,7 +10,7 @@ Our store specialises in making bowls. Bowls are cool and good for cereal."></te
     .textarea {
         color: #000;
         border: 1px solid #7D7D7D;
-        border-radius: 3px;
+        border-radius: 10px;
         padding: 10px;
     }
 
