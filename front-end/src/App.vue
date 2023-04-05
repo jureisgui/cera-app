@@ -1,5 +1,5 @@
 <script setup>
-import FeaturedArtist from './components/LandingComponents/FeaturedArtist.vue'
+import LongButton from './components/Buttons/LongButton.vue'
 
 </script>
 
@@ -17,7 +17,7 @@ import FeaturedArtist from './components/LandingComponents/FeaturedArtist.vue'
 <!--  -->
 
 <!-- Julie's Test Section -->
-<FeaturedArtist />
+
 
 <!--  -->
 
