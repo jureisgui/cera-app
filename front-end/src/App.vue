@@ -1,4 +1,5 @@
 <script setup>
+import Categories from './components/Categories.vue'
 
 </script>
 
@@ -16,7 +17,7 @@
 <!--  -->
 
 <!-- Julie's Test Section -->
-
+<Categories />
 
 <!--  -->
 
