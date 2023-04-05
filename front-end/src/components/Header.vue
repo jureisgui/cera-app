@@ -163,13 +163,16 @@ text-decoration: none;
 }
 </style>
 
-<script setup></script>
+<script setup>
+defineProps({
+  Logged_in: Boolean,
+});
+</script>
 
 <script>
 export default {
   data() {
     return {
-      Logged_in: false,
       burger_menu_revealed: false,
     };
   },
