@@ -9,7 +9,7 @@
             <p class="description body_text">Tantri Mustika makes ceramic homewares and functional sculptural pieces and is most commonly recognised for her colourful terrazzo inspired finishes and clay marbling. </p>
         </div>
         <div>
-        <p class="body_text">button</p>
+        <MainButton main_button_prop="View work" button_icon_prop="arrow_right_alt" class="outline_button" />
         </div>
     </div>
     <div class="img_container fa_child">
@@ -46,6 +46,17 @@ img {
     flex: 1;
 }
 
+.outline_button {
+    background-color: #fff;
+    color: #444739;
+    border: 1px solid #444739;
+}
+
+.outline_button:hover {
+    background-color: #444739;
+    color: #fff;
+}
+
 @media (max-width: 32em) {
     .featured_artist_div {
         flex-direction: column-reverse;
@@ -59,4 +70,6 @@ img {
 
 </style>
 
-<script setup></script>
+<script setup>
+import MainButton from '../Buttons/MainButton.vue'
+</script>
