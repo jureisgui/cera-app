@@ -24,7 +24,10 @@
     background-repeat: no-repeat;
 }
 
-
+.hero_heading{
+    margin: 2em 4em;
+   
+}
     
 </style>
 
