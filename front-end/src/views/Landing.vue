@@ -1,15 +1,15 @@
 <template>
-  <Success :success_prop="Log_in" class="success" />
+  <!-- <Success :success_prop="Log_in" class="success" @close_modal="" /> -->
 </template>
 
 <style scoped>
-.success {
+/* .success {
   position: absolute;
   top: 40%;
-  left: 40%;
-  right: 40%;
+  left: 35%;
+  right: 35%;
   bottom: 50%;
-}
+} */
 </style>
 
 <script setup>
