@@ -1,33 +1,39 @@
 <template>
-  <div>
-    <button v-for="(button, index) in buttons" :key="index">
-      {{ button.label }}
-      <i :class="button.icon"></i>
-      <span class="material-symbols-outlined"> logout </span>
-      <i class="fa fa-user" aria-hidden="true"></i>
-    </button>
-  </div>
+  <div class="main_button button_text">
+  <p>{{main_button_prop}}</p>
+ <span class="material-symbols-outlined">{{ button_icon_prop }}</span>
+</div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      buttons: [
-        {
-          label: "Button 1",
-          icon: "fa-solid fa-coffee",
-        },
-        {
-          label: "Button 2",
-          icon: "fas fa-search",
-        },
-        {
-          label: "Button 3",
-          icon: "fas fa-envelope",
-        },
-      ],
-    };
+<style scoped>
+.main_button {
+  width: 190px;
+  background-color: #444739;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 113px;
+  padding: 0.6em 1.1em;
+  align-items: center;
+  border: 1px solid #fff;
+}
+
+.main_button:hover {
+  background-color: #fff;
+  color: #444739;
+  border: 1px solid #444739;
+}
+</style>
+
+<script setup>
+defineProps({
+  button_icon_prop: { 
+    type: String, 
+    required: true
   },
-};
+  main_button_prop: { 
+    type: String, 
+    required: true
+  },
+});
 </script>
