@@ -1,5 +1,4 @@
 <script setup>
-import LongButton from './components/Buttons/LongButton.vue'
 
 </script>
 
