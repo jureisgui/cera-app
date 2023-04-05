@@ -26,7 +26,8 @@
       <span class="material-symbols-outlined" v-if="Logged_in">
         account_circle
       </span>
-      <p>button</p>
+      <MainBtn main_button_prop="Log in" button_icon_prop="login" class="outline_btn" v-if="!Logged_in"/>
+      <MainBtn main_button_prop="List an item" button_icon_prop="add_circle" class="outline_btn" v-if="Logged_in"/>
     </div>
 
     <div>
@@ -164,6 +165,8 @@ text-decoration: none;
 </style>
 
 <script setup>
+import MainBtn from './Buttons/MainButton.vue'
+
 defineProps({
   Logged_in: Boolean,
 });
