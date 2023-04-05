@@ -16,7 +16,9 @@
     <div class="search_and_cta_container">
       <div class="search_bar">
         <input type="text" />
-        <span class="material-symbols-outlined">search</span>
+        <router-link to="/shop" class="search_btn">
+          <span class="material-symbols-outlined">search</span>
+        </router-link>
       </div>
       <span class="material-symbols-outlined heart" v-if="Logged_in">
         favorite
@@ -28,20 +30,24 @@
     </div>
 
     <div>
-    <span class="material-symbols-outlined burger_menu" @click="burger_menu_revealed=!burger_menu_revealed">menu</span>
+      <span
+        class="material-symbols-outlined burger_menu"
+        @click="burger_menu_revealed = !burger_menu_revealed"
+        >menu</span
+      >
     </div>
   </header>
 
   <ul class="burger_list button_text" v-if="burger_menu_revealed">
-      <li><router-link to="/">Home</router-link></li>
-      <li><a href="#">Products</a></li>
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">FAQ</a></li>
-      <li v-if="Logged_in"><a href="#">My Favourites</a></li>
-      <li v-if="Logged_in"><a href="#">My Account</a></li>
-      <li v-if="Logged_in"><a href="#">List an Item</a></li>
-      <li v-if="!Logged_in"><a href="#">Log in</a></li>
-    </ul>
+    <li><router-link to="/">Home</router-link></li>
+    <li><a href="#">Products</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">FAQ</a></li>
+    <li v-if="Logged_in"><a href="#">My Favourites</a></li>
+    <li v-if="Logged_in"><a href="#">My Account</a></li>
+    <li v-if="Logged_in"><a href="#">List an Item</a></li>
+    <li v-if="!Logged_in"><a href="#">Log in</a></li>
+  </ul>
 </template>
 
 <style scoped>
@@ -110,11 +116,15 @@ input:focus {
 }
 
 .burger_menu {
-    display: none;
+  display: none;
 }
 
 .burger_list {
-    display: none;
+  display: none;
+}
+
+.search_btn:hover {
+text-decoration: none;
 }
 
 @media (max-width: 62em) {
@@ -142,7 +152,6 @@ input:focus {
     color: #444739;
   }
 
-
   li {
     padding: 30px 50px;
     height: 40px;
@@ -151,7 +160,6 @@ input:focus {
     border-bottom: 0.5px solid #444739;
     width: 100%;
   }
-
 }
 </style>
 
@@ -162,7 +170,7 @@ export default {
   data() {
     return {
       Logged_in: false,
-      burger_menu_revealed: false
+      burger_menu_revealed: false,
     };
   },
 };
