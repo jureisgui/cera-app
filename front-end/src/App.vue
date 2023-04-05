@@ -19,12 +19,12 @@ import TransparentHeader from './components/TransparentHeader.vue'
 <!--  -->
 
 <!-- Julie's Test Section -->
-<LongButton :long_button_text="Sign_up"/>
+
 
 <!--  -->
 
 <!-- Kyla's Test Section -->
-<sort_by_button/>
+
 <!--  -->
  
 <router-view></router-view>
