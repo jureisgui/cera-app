@@ -10,12 +10,18 @@
   width: 190px;
   background-color: #444739;
   color: #fff;
-  padding: 15px;
   display: flex;
   justify-content: space-between;
-  height: 43px;
-  border-radius: 25px;
+  border-radius: 113px;
+  padding: 0.6em 1.1em;
   align-items: center;
+  border: 1px solid #fff;
+}
+
+.main_button:hover {
+  background-color: #fff;
+  color: #444739;
+  border: 1px solid #444739;
 }
 </style>
 
