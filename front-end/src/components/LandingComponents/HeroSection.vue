@@ -2,7 +2,9 @@
     <div class="hero_section">
         <transparentheader/>
         
+
     <div class="hero_heading_container">
+    <div class="absolute_hero_heading_container">
     <div class="hero_heading">
     <h1 class="heading_text">A New Marketplace Platform for Pottery Enthusiasts</h1>
     </div>
@@ -10,7 +12,7 @@
     <div>Button</div>
     <div>Button</div>
     </div>
-    
+    </div>
     </div>
     </div>
 </template>
@@ -35,12 +37,12 @@
 .hero_cta_buttons{
     display: flex;
     gap: 20px;
-    
-   
+
+.hero_heading{
+    margin: 2em 4em; 
 }
     
 </style>
-
 <script setup>
 import transparentheader from '../TransparentHeader.vue'
 

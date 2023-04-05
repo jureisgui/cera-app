@@ -1,4 +1,5 @@
 <script setup>
+
 </script>
 
 <template>
@@ -21,7 +22,6 @@
 
 <!-- Kyla's Test Section -->
 
-
 <!--  -->
  
 <router-view></router-view>
@@ -32,12 +32,6 @@
 </style>
 
 <script>
-    export default{
-        data(){
-            return{
-                Sign_up:'Sign Up',
-                Log_in:'Log In'
-            }
-        }
-    }
+  
 </script>
+

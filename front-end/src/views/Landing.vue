@@ -1,7 +1,7 @@
 <template>
-  <div class="landing_header">
-   LANDING PLACEHOLDER
-  </div>
+
+  LANDING PLACEHOLDER
+
 </template>
 
 <style scoped>
@@ -11,3 +11,5 @@
 <script setup>
 
 </script>
+
+
