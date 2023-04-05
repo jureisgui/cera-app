@@ -89,9 +89,6 @@
 
         footer{
             flex-direction: column;
-            justify-content: center;
-            /* align-items: center; */
-            /* align-content: center; */
             text-align: center;
             gap: 10px;
         }
@@ -99,7 +96,6 @@
         .social-icons{
             gap: 10px;
         }
-
     }
     
 </style>
