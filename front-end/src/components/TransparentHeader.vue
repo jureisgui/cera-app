@@ -16,7 +16,9 @@
     <div class="search_and_cta_container">
       <div class="search_bar">
         <input type="text" />
-        <span class="material-symbols-outlined">search</span>
+        <router-link to="/shop" class="search_btn">
+          <span class="material-symbols-outlined">search</span>
+        </router-link>
       </div>
       <span class="material-symbols-outlined heart" v-if="Logged_in">
         favorite
@@ -115,6 +117,10 @@ input:focus {
 
 .burger_list {
     display: none;
+}
+
+.search_btn:hover {
+text-decoration: none;
 }
 
 @media (max-width: 62em) {
