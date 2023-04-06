@@ -26,7 +26,7 @@
       <span class="material-symbols-outlined" v-if="Logged_in">
         account_circle
       </span>
-      <router-link to="/signup">
+      <router-link to="/signup" target="_blank">
       <MainBtn main_button_prop="Log in" button_icon_prop="login" v-if="!Logged_in"/></router-link>
       <MainBtn main_button_prop="List an item" button_icon_prop="add_circle" v-if="Logged_in"/>
     </div>
