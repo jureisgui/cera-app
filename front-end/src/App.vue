@@ -1,5 +1,5 @@
 <script setup>
-
+import Footer from './components/Footer.vue'
 
 </script>
 
@@ -26,6 +26,7 @@
 <!--  -->
  
 <router-view></router-view>
+<Footer />
 </template>
 
 <style scoped>
