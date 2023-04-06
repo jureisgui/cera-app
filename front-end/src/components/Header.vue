@@ -1,13 +1,13 @@
 <template>
-  <header class="body_text">
+  <header class="body_text" :class="Header_class">
     <div class="logo_container">
       <router-link to="/"
-        ><img src="../assets/img/white_logo-01-01.svg" alt="Cera Logo White"
+        ><img :src="Logo" alt="Cera Logo White"
       /></router-link>
     </div>
 
     <ul class="links_container">
-      <li><router-link to="/">Home</router-link></li>
+      <li><router-link to="/" >Home</router-link></li>
       <li><a href="#">Products</a></li>
       <li><a href="#">About Us</a></li>
       <li><a href="#">FAQ</a></li>
@@ -26,7 +26,8 @@
       <span class="material-symbols-outlined" v-if="Logged_in">
         account_circle
       </span>
-      <MainBtn main_button_prop="Log in" button_icon_prop="login" v-if="!Logged_in"/>
+      <router-link to="/signup">
+      <MainBtn main_button_prop="Log in" button_icon_prop="login" v-if="!Logged_in"/></router-link>
       <MainBtn main_button_prop="List an item" button_icon_prop="add_circle" v-if="Logged_in"/>
     </div>
 
@@ -52,13 +53,21 @@
 </template>
 
 <style scoped>
+.green {
+  background-color: #444739;
+  color: #fff;
+}
+
+.transparent {
+  background-color: #44473900;
+  color: #444739;
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 105px;
-  background-color: #444739;
-  color: #fff;
   padding: 0 10%;
 }
 
@@ -68,30 +77,51 @@ header {
   gap: 30px;
 }
 
-a {
+.green a {
   text-decoration: none;
   color: #fff;
+}
+
+.transparent a {
+  text-decoration: none;
+  color: #444739;
 }
 
 a:hover {
   text-decoration: underline;
 }
 
-input {
-  width: 250px;
+.green input {
   background: #444739;
-  border: none;
   border-bottom: 1px solid #fff;
   color: #fff;
+}
+
+.transparent input {
+  background: #44473900;
+  border-bottom: 1px solid #444739;
+  color: #444739;
+}
+
+input {
+  width: 250px;
+  border: none;
 }
 
 input:focus {
   outline: none;
 }
 
+.green.material-symbols-outlined {
+  color: #fff;
+}
+
+.transparent.material-symbols-outlined {
+  color: #444739;
+}
+
 .material-symbols-outlined {
   display: flex;
-  color: #fff;
   cursor: pointer;
 }
 
@@ -169,6 +199,8 @@ import MainBtn from './Buttons/MainButton.vue'
 
 defineProps({
   Logged_in: Boolean,
+  Header_class: String,
+  Logo: String
 });
 </script>
 
