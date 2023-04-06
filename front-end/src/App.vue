@@ -1,6 +1,5 @@
 <script setup>
 
-
 </script>
 
 <template>
@@ -22,7 +21,6 @@
 <!--  -->
 
 <!-- Kyla's Test Section -->
-
 <!--  -->
  
 <router-view></router-view>
