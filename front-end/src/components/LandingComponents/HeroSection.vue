@@ -1,6 +1,6 @@
 <template>
     <div class="hero_section">
-        <transparentheader/>
+       
         
 
     <div class="hero_heading_container">
@@ -44,6 +44,6 @@
     
 </style>
 <script setup>
-import transparentheader from '../TransparentHeader.vue'
+
 
 </script>
