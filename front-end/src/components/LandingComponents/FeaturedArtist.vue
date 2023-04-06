@@ -23,7 +23,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    margin: 2em 10%;
+    margin: 6em 10%;
 }
 
 .img_container {
