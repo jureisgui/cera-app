@@ -88,7 +88,7 @@ header {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .green input {
