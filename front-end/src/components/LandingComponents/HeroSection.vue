@@ -1,5 +1,4 @@
 <template>
-
   <div class="hero_section">
     <Header Header_class="transparent" Logo="src/assets/img/pine_logo-01.svg" /> 
     <div class="hero_heading_container">
