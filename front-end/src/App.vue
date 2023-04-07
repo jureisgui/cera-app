@@ -1,4 +1,5 @@
 <script setup>
+import MyInfo from './components/Modals/AccountModal/MyInfo.vue'
 
 
 </script>
@@ -17,7 +18,7 @@
 <!--  -->
 
 <!-- Julie's Test Section -->
-
+<MyInfo />
 
 
 <!--  -->
