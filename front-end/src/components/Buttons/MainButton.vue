@@ -22,6 +22,7 @@
   background-color: #fff;
   color: #444739;
   border: 1px solid #444739;
+  cursor: pointer;
 }
 </style>
 
