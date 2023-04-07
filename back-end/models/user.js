@@ -12,7 +12,7 @@ const UserSchema = new mongoose.Schema({
     phone_number: {
         type: Number,
         required: true},
-    address: {
+    location: {
         type: String,
         required: true},
     seller_image: {
