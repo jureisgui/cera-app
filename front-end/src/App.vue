@@ -1,6 +1,5 @@
 <script setup>
-import ContactSeller from './components/Modals/ContactSellerModal/ContactSeller.vue'
-// import Success from './components/Success.vue'
+
 
 </script>
 
@@ -18,8 +17,7 @@ import ContactSeller from './components/Modals/ContactSellerModal/ContactSeller.
 <!--  -->
 
 <!-- Julie's Test Section -->
-<ContactSeller />
-<!-- <Success /> -->
+
 
 
 <!--  -->
