@@ -1,5 +1,5 @@
 <script setup>
-
+import Footer from './components/Footer.vue'
 
 </script>
 
@@ -33,6 +33,18 @@
 </style>
 
 <script>
-  
+  export default {
+  data(){
+    return{
+      Logged_in: false
+    }
+  },
+  methods:{
+    
+  },
+  created(){
+    
+  }
+}
 </script>
 
