@@ -10,6 +10,7 @@
 </style>
 
 <script setup>
+import Header from '../components/Header.vue'
 import Hero from '../components/LandingComponents/HeroSection.vue'
 import Summary from '../components/LandingComponents/Summary.vue'
 import FeaturedArtist from '../components/LandingComponents/FeaturedArtist.vue'
