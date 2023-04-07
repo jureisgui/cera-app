@@ -1,5 +1,6 @@
 <script setup>
 import MyInfo from './components/Modals/AccountModal/MyInfo.vue'
+import PublicProfile from './components/Modals/AccountModal/PublicProfile.vue'
 
 
 </script>
@@ -19,6 +20,7 @@ import MyInfo from './components/Modals/AccountModal/MyInfo.vue'
 
 <!-- Julie's Test Section -->
 <MyInfo />
+<PublicProfile />
 
 
 <!--  -->

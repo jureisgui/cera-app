@@ -5,7 +5,7 @@
                 <p class="body_text">Name</p><span class="required">*</span>
             </div>
             <div class="input-wrapper short-input">
-                <MainInput Inputplaceholder="First name" /><MainInput Inputplaceholder="Last name" />
+                <MainInput Inputplaceholder="Enter your first name" /><MainInput Inputplaceholder="Enter your last name" />
             </div>
         </div>
         <div class="info-container">
@@ -13,7 +13,7 @@
                 <p class="body_text">Email</p><span class="required">*</span>
             </div>
             <div class="input-wrapper">
-                <MainInput Inputplaceholder="Email" />
+                <MainInput Inputplaceholder="Enter your email" />
             </div>
         </div>
         <div class="info-container">
@@ -21,7 +21,7 @@
                 <p class="body_text">Number</p><span class="required">*</span>
             </div>
             <div class="input-wrapper">
-                <MainInput Inputplaceholder="Number" />
+                <MainInput Inputplaceholder="Enter your number" />
             </div>
         </div>
         <div class="info-container">
@@ -29,7 +29,7 @@
                 <p class="body_text">Location</p><span class="required">*</span>
             </div>
             <div class="input-wrapper">
-                <MainInput Inputplaceholder="Location" />
+                <MainInput Inputplaceholder="Enter your city/town" />
             </div>
         </div>   
         <span class="update_btn"><MainButton main_button_prop="Update" button_icon_prop="refresh" /></span>       
