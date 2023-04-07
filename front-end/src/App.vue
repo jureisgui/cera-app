@@ -1,5 +1,5 @@
 <script setup>
-import Footer from './components/Footer.vue'
+
 
 </script>
 
@@ -22,7 +22,6 @@ import Footer from './components/Footer.vue'
 <!--  -->
 
 <!-- Kyla's Test Section -->
-
 <!--  -->
  
 <router-view></router-view>
