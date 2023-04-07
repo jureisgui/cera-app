@@ -1,7 +1,12 @@
 <template>
   <Header Header_class="green" Logo="src/assets/img/white_logo-01-01.svg" />
   <main>
-  <Success success_prop="Sign up" close_prop="tab or window" class="modal" v-if="modal_on" />
+    <Success
+      success_prop="Sign up"
+      close_prop="tab or window"
+      class="modal"
+      v-if="modal_on"
+    />
     <section class="signup_section">
       <div class="signup_title">
         <h2 class="subheading_text">Sign Up</h2>
@@ -12,31 +17,52 @@
       <div class="form">
         <div class="input_row body_text short_input">
           <div class="text_input">
-            <p class="error_msg" v-if="!form_valid">Please enter your first name<sup>*</sup></p>
-            <MainInput Inputplaceholder="First name" :add_user_prop="user_body_data.first_name" />
+            <p class="error_msg" v-if="!fname_valid">
+              Please enter your first name<sup>*</sup>
+            </p>
+            <MainInput
+              Inputplaceholder="First name"
+              :add_user_prop="user_body_data.first_name"
+            />
           </div>
           <div class="text_input">
-            <p class="error_msg" v-if="!form_valid">Please enter your last name<sup>*</sup></p>
-            <MainInput Inputplaceholder="Last name" :add_user_prop="user_body_data.last_name" />
+            <p class="error_msg" v-if="!lname_valid">
+              Please enter your last name<sup>*</sup>
+            </p>
+            <MainInput
+              Inputplaceholder="Last name"
+              :add_user_prop="user_body_data.last_name"
+            />
           </div>
         </div>
         <div class="input_row body_text">
-          <p class="error_msg" v-if="!form_valid">Please enter a valid email<sup>*</sup></p>
-          <MainInput Inputplaceholder="Email" :add_user_prop="user_body_data.email" />
+          <p class="error_msg" v-if="!email_valid">
+            Please enter a valid email<sup>*</sup>
+          </p>
+          <MainInput
+            Inputplaceholder="Email"
+            :add_user_prop="user_body_data.email"
+          />
         </div>
         <div class="input_row body_text">
-          <p class="error_msg" v-if="!form_valid">
+          <p class="error_msg" v-if="!pw_valid">
             Password must be at least 8 characters<sup>*</sup>
           </p>
-          <PasswordInput Inputplaceholder="Password" :add_user_prop="login_body_data.password" />
+          <PasswordInput
+            Inputplaceholder="Password"
+            :add_user_prop="login_body_data.password"
+          />
         </div>
         <div class="input_row body_text">
-          <p class="error_msg" v-if="!form_valid">
+          <p class="error_msg" v-if="!confirm_pw_valid">
             Please enter your password again to ensure it is correct<sup>*</sup>
           </p>
-          <PasswordInput Inputplaceholder="Confirm password" />
+          <PasswordInput
+            Inputplaceholder="Confirm password"
+            :add_user_prop="confirm_pw"
+          />
         </div>
-        <LongBtn long_button_text="Sign up" />
+        <LongBtn long_button_text="Sign up" @click="submit_to_add_user" />
       </div>
       <div class="bottom_text body_text">
         <p>
@@ -55,7 +81,7 @@
 
 <style scoped>
 main {
-    position: relative;
+  position: relative;
 }
 .signup_section {
   display: flex;
@@ -84,35 +110,35 @@ main {
 }
 
 .text_input {
-    flex: 1;
+  flex: 1;
 }
 
 .bottom_text {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
 }
 
 .link {
-    cursor: pointer;
-    text-decoration: underline;
-    color: #dc7777;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #dc7777;
 }
 
 .link:hover {
-    color: #DCBA77;
+  color: #dcba77;
 }
 
 .error_msg {
-  color: #DB1717;
+  color: #db1717;
   font-size: 12px;
 }
 
 .modal {
-    position: absolute;
-    top: 20%;
-    left: 35%;
+  position: absolute;
+  top: 20%;
+  left: 35%;
 }
 </style>
 
@@ -121,50 +147,111 @@ import Header from "../components/Header.vue";
 import MainInput from "../components/Inputs/MainInput.vue";
 import PasswordInput from "../components/Inputs/PasswordInput.vue";
 import LongBtn from "../components/Buttons/LongButton.vue";
-import Success from '../components/Success.vue'
+import Success from "../components/Success.vue";
 </script>
 
 <script>
 export default {
   data() {
     return {
-      user_body_data: {first_name: '', last_name: '', email: '', phone_number: '', location: '', seller_image: '', seller_name: '', description: '', my_listings: []},
-      login_body_data: {email: '', password: ''},
+      user_body_data: {
+        first_name: "",
+        last_name: "",
+        email: "",
+        phone_number: "",
+        location: "",
+        seller_image: "",
+        seller_name: "",
+        description: "",
+        my_listings: [],
+      },
+      login_body_data: { email: "", password: "" },
       form_valid: true,
-      modal_on: false
+      modal_on: false,
+      confirm_pw: "",
+      fname_valid: true,
+      lname_valid: true,
+      email_valid: true,
+      pw_valid: true,
+      confirm_pw_valid: true,
     };
   },
-  methods:{
-    async create_new_user_userDB(){
+  methods: {
+    async create_new_user_userDB() {
       const response = await fetch("http://localhost:4000/users/adduser", {
-        method:"POST",
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(this.user_body_data)
+        body: JSON.stringify(this.user_body_data),
       });
       const received_data = await response.json();
     },
-    async create_new_user_loginDB(){
+    async create_new_user_loginDB() {
       const response = await fetch("http://localhost:4000/logins/addlogin", {
-        method:"POST",
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(this.login_body_data)
+        body: JSON.stringify(this.login_body_data),
       });
       const received_data = await response.json();
     },
-    check_inputs(){
-      if(this.user_body_data.first_name.length>0 && this.user_body_data.last_name.length>0 && this.user_body_data.email.length>0 && this.user_body_data.email.includes('@') && this.login_body_data.password.length>=8)
-      this.form_valid = true;
-      else this.form_valid = false;
+    submit_to_add_user() {
+      // Check if first name is valid
+      if (this.user_body_data.first_name.length === 0) {
+        this.fname_valid = false;
+      } else {
+        this.fname_valid = true;
+      }
+
+      // Check if last name is valid
+      if (this.user_body_data.last_name.length === 0) {
+        this.lname_valid = false;
+      } else {
+        this.lname_valid = true;
+      }
+
+      // Check if email is valid
+      if (
+        this.user_body_data.email.length === 0 &&
+        !this.user_body_data.email.includes("@")
+      ) {
+        this.email_valid = false;
+      } else {
+        this.email_valid = true;
+      }
+
+      // Check if password is valid
+      if (this.login_body_data.password.length < 8) {
+        this.pw_valid = false;
+      } else {
+        this.pw_valid = true;
+      }
+
+      // Check if confirm password is valid
+      if (this.password_valid = false) {
+        this.confirm_pw_valid = false;
+      } else {
+        this.confirm_pw_valid = true;
+      }
+
+      // Check if all fields are valid
+      if (
+        this.fname_valid &&
+        this.lname_valid &&
+        this.email_valid &&
+        this.pw_valid &&
+        this.confirm_pw_valid
+      ) {
+        this.create_new_user_userDB();
+        this.create_new_user_loginDB();
+        this.modal_on = true;
+      } else {
+        this.modal_on = false;
+      }
     },
-    submit_to_add_user(){
-      this.check_inputs();
-      this.create_new_user_userDB();
-      this.create_new_user_loginDB();
-      this.modal_on = true;
-    }
   },
-  created(){
-    
-  }
+  computed: {
+    password_valid() {
+      return this.login_body_data === this.confirm_pw;
+    },
+  },
 };
 </script>
