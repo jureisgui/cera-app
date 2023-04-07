@@ -10,7 +10,6 @@
         border: 1px solid #C4C4C4;
         border-radius: 10px;
         padding: 10px;
-        resize: vertical;
         width: 100%;
     }
 
