@@ -18,7 +18,8 @@
 
 .login {
   position: absolute;
-  top: 105px;
+  top: 0;
+  left: 24%;
   z-index: 1000;
 }
 
