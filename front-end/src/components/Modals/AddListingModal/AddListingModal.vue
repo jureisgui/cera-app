@@ -1,5 +1,6 @@
 <script setup>
 import ListingInfo from '../AddListingModal/ListingInfo.vue'
+import ListingSpecs from '../AddListingModal/ListingSpecs.vue'
 </script>
 
 <template>
@@ -13,6 +14,9 @@ import ListingInfo from '../AddListingModal/ListingInfo.vue'
         </div>
         <div class="Listing_Info">
         <ListingInfo/>
+        </div>
+        <div class="Listing_Info">
+        <ListingSpecs/>
         </div>
     </div>
     </div>
