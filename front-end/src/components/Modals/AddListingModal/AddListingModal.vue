@@ -27,7 +27,7 @@ import ListingSpecs from '../AddListingModal/ListingSpecs.vue'
     position: absolute;
     background-color: white;
     width: 100%;
-    height: 100%;
+    top: 105px;
     z-index: 10;
 }
 
