@@ -1,5 +1,5 @@
 <script setup>
-
+import ProductDescription from './components/Modals/ProductModal/ProductDescription.vue';
 
 </script>
 
@@ -9,7 +9,7 @@
 
 
 <!-- Tin's Test Section -->
-
+<ProductDescription />
 <!--  -->
 
 <!-- Matt's Test Section -->
@@ -25,7 +25,7 @@
 <!-- Kyla's Test Section -->
 <!--  -->
  
-<router-view></router-view>
+<!-- <router-view></router-view> -->
 <!-- <Footer /> -->
 </template>
 
