@@ -49,8 +49,8 @@
             Password must be at least 8 characters<sup>*</sup>
           </p>
           <PasswordInput
-            Inputplaceholder="Password"
-            :add_user_prop="login_body_data.password"
+            Password_placeholder="Password"
+            :add_pw_prop="login_body_data.password"
           />
         </div>
         <div class="input_row body_text">
@@ -58,8 +58,8 @@
             Please enter your password again to ensure it is correct<sup>*</sup>
           </p>
           <PasswordInput
-            Inputplaceholder="Confirm password"
-            :add_user_prop="confirm_pw"
+            Password_placeholder="Confirm password"
+            :add_pw_prop="confirm_pw"
           />
         </div>
         <LongBtn long_button_text="Sign up" @click="submit_to_add_user" />

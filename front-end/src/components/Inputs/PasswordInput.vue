@@ -1,6 +1,6 @@
 <template>
     <div class="input_container">
-        <input type="password" :placeholder="Inputplaceholder" :v-model="add_user_prop">
+        <input type="password" :placeholder="Password_placeholder" :v-model="add_pw_prop">
 
     </div>
 </template>
@@ -30,11 +30,11 @@ textarea::placeholder {
 
 <script setup>
 defineProps({
-    Inputplaceholder: {
+    Password_placeholder: {
     type: String,
     required: true
   },
-  add_user_prop: {
+  add_pw_prop: {
     type: Object,
     required: true
   }
