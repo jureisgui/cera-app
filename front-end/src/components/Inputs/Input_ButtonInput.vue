@@ -1,38 +1,25 @@
 <template>
-    <div class="input_container">
-        <input type="text" :placeholder="Inputplaceholder" >
-        <span class="material-symbols-outlined">{{icon_symbol}}</span>
-    </div>
+
+    <select>
+    <option value="" disabled selected>Select Category</option>
+    <option value="Kitchenware">Kitchenware</option>
+    <option value="Homeware">Homeware</option>
+    <option value="Bathroom">Bathroom</option>
+    <option value="Garden">Garden</option>
+    <option value="Sculpture">Sculpture</option>
+    
+    </select>
+
 </template>
 
 <style scoped>
 
-.input_container{
-    display: flex;
-    position: relative;
-
-}
-
-input{
-    display: flex;
-    width: 100%;
+select{
     height: 60px;
     border-radius: 10px;
     border: 1px solid #c4c4c4;
-    padding: 10px;
-}
-
-.material-symbols-outlined{
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-
-
-textarea::placeholder { 
-    color: #cacaca; 
+    padding:10px;
+    color: #7D7D7D; 
 }
     
 </style>
