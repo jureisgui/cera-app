@@ -1,3 +1,7 @@
+<script setup>
+import ListingInfo from '../AddListingModal/ListingInfo.vue'
+</script>
+
 <template>
     <div v-if="ModalIsOpen" class="AddListingContainer">
     <div class="ListingModalMargin">
@@ -6,6 +10,9 @@
         </div>
          <div class="AddNewListingHeading">
             <h1 class="heading_text">Add a New Listing</h1>
+        </div>
+        <div class="Listing_Info">
+        <ListingInfo/>
         </div>
     </div>
     </div>
