@@ -1,6 +1,5 @@
 <template>
   <div class="hero_section">
-    <Header Header_class="transparent" Logo="src/assets/img/pine_logo-01.svg" /> 
     <div class="hero_heading_container">
       <div class="absolute_hero_heading_container">
         <div class="hero_heading">
@@ -76,5 +75,4 @@ a {
 </style>
 <script setup>
 import MainButton from "../Buttons/MainButton.vue";
-import Header from '../Header.vue';
 </script>
