@@ -19,7 +19,7 @@
 .login_modal_div {
   background-color: #fff;
   width: 50vw;
-  height: 90vh;
+  height: 75vh;
   position: fixed;
   top: 105px;
   display: flex;
