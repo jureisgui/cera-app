@@ -1,7 +1,6 @@
 <template>
   <div class="hero_section">
     <Header Header_class="transparent" Logo="src/assets/img/pine_logo-01.svg" /> 
-    <ListingModal v-if="Modal_Open" @CloseModal="Modal_Open=false"/>
     <div class="hero_heading_container">
       <div class="absolute_hero_heading_container">
         <div class="hero_heading">
@@ -19,7 +18,7 @@
               class="shop_btn"
           /></router-link>
           <!-- List item button -->
-          <MainButton @click="Modal_Open = true"
+          <MainButton @click="$emit('Modal_Open')"
             main_button_prop="List an item"
             button_icon_prop="add_circle"
             class="list_btn"
@@ -79,14 +78,4 @@ a {
 import MainButton from "../Buttons/MainButton.vue";
 import Header from '../Header.vue';
 import ListingModal from '../Modals/AddListingModal/AddListingModal.vue';
-</script>
-
-<script>
-export default {
-  data() {
-    return {
-      Modal_Open: false
-    }
-  },
-}
 </script>
