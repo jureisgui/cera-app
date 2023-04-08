@@ -16,14 +16,12 @@ import Category_Dropdown from '../../Inputs/Category_Dropdown.vue';
 
                 <div class="title_input">
                     <div><label for="Title">Subtitle</label></div>
-                    <div><Main_Input class="input_width" Inputplaceholder='e.g Small Bowl, Sculpture, Mug'/></div>
+                    <div><Main_Input class="input_width" Inputplaceholder='e.g Gift Idea, Shellac Glazed Technique, Sale'/></div>
                 </div>
 
                 <div class="title_input">
                     <div><label for="Title"><span style="color: red;">*</span> Categories</label></div>
-                    <div><Category_Dropdown class="input_width" 
-                    Inputplaceholder='Select Category'
-                    icon_symbol="arrow_drop_down"/></div>
+                    <div><Category_Dropdown class="input_width"/></div>
                 </div>
              </div>
     </div>
