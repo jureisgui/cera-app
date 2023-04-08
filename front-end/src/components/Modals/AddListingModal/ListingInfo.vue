@@ -1,6 +1,6 @@
 <script setup>
 import Main_Input from '../../Inputs/MainInput.vue'
-import Input_ButtonInput from '../../Inputs/Input_ButtonInput.vue';
+import Category_Dropdown from '../../Inputs/Category_Dropdown.vue';
 </script>
 
 <template>
@@ -21,7 +21,7 @@ import Input_ButtonInput from '../../Inputs/Input_ButtonInput.vue';
 
                 <div class="title_input">
                     <div><label for="Title"><span style="color: red;">*</span> Categories</label></div>
-                    <div><Input_ButtonInput class="input_width" 
+                    <div><Category_Dropdown class="input_width" 
                     Inputplaceholder='Select Category'
                     icon_symbol="arrow_drop_down"/></div>
                 </div>
