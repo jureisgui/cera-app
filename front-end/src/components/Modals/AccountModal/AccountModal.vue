@@ -12,8 +12,7 @@ import PublicProfile from './PublicProfile.vue'
         </div>
         <div
           class="accordion-content body_text"
-          :class="{ 'active': activeAccordion === index }"
-        >
+          :class="{ 'active': activeAccordion === index }">
           {{ item.content }}
         </div>
       </div>
