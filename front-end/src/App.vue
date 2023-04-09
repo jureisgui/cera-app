@@ -1,5 +1,5 @@
 <script setup>
-import ProductDescription from './components/Modals/ProductModal/ProductDescription.vue';
+
 
 </script>
 
@@ -9,7 +9,7 @@ import ProductDescription from './components/Modals/ProductModal/ProductDescript
 
 
 <!-- Tin's Test Section -->
-<ProductDescription />
+
 <!--  -->
 
 <!-- Matt's Test Section -->
