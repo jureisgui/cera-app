@@ -1,4 +1,5 @@
 <template>
+    <section class="product_desc">
   <div class="photo_gallery"></div>
   <div class="text_container">
     <h5 class="heading_text">Red and Blue Dye Mug</h5>
@@ -31,9 +32,14 @@
       class="button"
     />
   </div>
+</section>
 </template>
 
 <style scoped>
+.product_desc {
+    display: flex;
+}
+
 .text_container {
     display: flex;
     flex-direction: column;
@@ -62,6 +68,10 @@
   color: #dc7777;
   background-color: #fff;
   border: 1px solid #dc7777;
+}
+
+.photo_gallery, .text_container {
+    flex: 1;
 }
 </style>
 
