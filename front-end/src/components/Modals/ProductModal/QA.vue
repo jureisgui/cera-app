@@ -34,6 +34,7 @@
         border-radius: 50%;
         background-color: aquamarine;
     }
+    
 </style>
 
 <script setup>
