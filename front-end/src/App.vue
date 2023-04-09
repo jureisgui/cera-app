@@ -1,5 +1,5 @@
 <script setup>
-import QA from './components/Modals/ProductModal/QA.vue'
+
 
 </script>
 
@@ -9,7 +9,7 @@ import QA from './components/Modals/ProductModal/QA.vue'
 
 
 <!-- Tin's Test Section -->
-<QA />
+
 <!--  -->
 
 <!-- Matt's Test Section -->
