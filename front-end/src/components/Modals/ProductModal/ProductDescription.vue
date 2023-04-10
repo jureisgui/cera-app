@@ -52,10 +52,11 @@
       <MainButton
         main_button_prop="Contact Seller"
         button_icon_prop="mail"
-        class="button"
+        class="button" @click="contact_seller_modal=true"
       />
     </div>
   </section>
+  <ContactSeller v-if="contact_seller_modal" />
 </template>
 
 <style scoped>
@@ -120,6 +121,7 @@
 <script setup>
 import MainButton from "../../Buttons/MainButton.vue";
 import Heart from "../../Buttons/Heart.vue";
+import ContactSeller from "../ContactSellerModal/ContactSeller.vue";
 
 //theme
 // import "primevue/resources/themes/lara-light-indigo/theme.css";
@@ -175,6 +177,7 @@ export default {
           numVisible: 1,
         },
       ],
+      contact_seller_modal: false,
     };
   },
 };
