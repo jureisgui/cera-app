@@ -10,17 +10,16 @@ import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
   />
 
   <!-- Tin's Test Section -->
-  
+
   <!--  -->
 
   <!-- Matt's Test Section -->
 
   <!--  -->
 
+  <!-- Julie's Test Section -->
 
-<!-- Julie's Test Section -->
   <!--  -->
-
 
   <!-- Kyla's Test Section -->
   <!--  -->
