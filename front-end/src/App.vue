@@ -1,5 +1,6 @@
 <script setup>
 import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
+import ProductCard from "./components/Modals/ShopComponents/ProductCard.vue";
 </script>
 
 <template>
@@ -18,7 +19,7 @@ import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
   <!--  -->
 
   <!-- Julie's Test Section -->
-
+  <ProductCard />
   <!--  -->
 
   <!-- Kyla's Test Section -->
