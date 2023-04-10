@@ -103,6 +103,7 @@
     width: 100%;
     height: 22em;
     object-fit: contain;
+    margin-bottom: 30px;
 }
 
 .thumbnail {
@@ -116,7 +117,7 @@ import MainButton from "../../Buttons/MainButton.vue";
 import Heart from "../../Buttons/Heart.vue";
 
 //theme
-import "primevue/resources/themes/lara-light-indigo/theme.css";
+// import "primevue/resources/themes/lara-light-indigo/theme.css";
 
 //core
 import "primevue/resources/primevue.min.css";
