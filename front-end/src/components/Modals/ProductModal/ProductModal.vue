@@ -7,7 +7,7 @@
         >
         <p class="body_text">Kitchenware</p>
       </div>
-      <ProductDescription />
+      <ProductDescription @show_modal="contact_seller_modal=true" />
       <div class="qa_div">
         <h2 class="heading_text">Questions and Answers</h2>
         <div>
@@ -22,6 +22,7 @@
       </div>
     </div>
   </div>
+  <ContactSeller v-if="contact_seller_modal" class="contact_seller" />
 </template>
 
 <style scoped>
@@ -82,6 +83,10 @@
     flex-direction: column;
     gap: 15px;
 }
+
+.contact_seller {
+    z-index: 1000;
+}
 </style>
 
 <script setup>
@@ -90,6 +95,7 @@ import MessageInput from "../../Inputs/MessageInput.vue";
 import QA from "./QA.vue";
 import ProductDescription from "./ProductDescription.vue";
 import LongButton from "../../Buttons/LongButton.vue";
+import ContactSeller from "../ContactSellerModal/ContactSeller.vue";
 </script>
 
 <script>
@@ -97,7 +103,8 @@ export default {
   data() {
     return {
       ModalIsOpen: true,
-      type_question: false
+      type_question: false,
+      contact_seller_modal: false
     };
   },
 
