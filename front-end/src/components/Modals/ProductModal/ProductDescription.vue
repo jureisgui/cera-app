@@ -61,6 +61,7 @@
 <style scoped>
 .product_desc {
   display: flex;
+  gap: 20px;
 }
 
 .text_container {
