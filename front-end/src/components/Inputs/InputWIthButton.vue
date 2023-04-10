@@ -1,7 +1,7 @@
 <template>
   <div class="input_container">
-    <input type="text" :placeholder="Inputplaceholder"/>
-    <span class="material-symbols-outlined">add</span>
+    <input type="text" :placeholder="Inputplaceholder" v-model="newTag"/>
+    <span @click="$emit('add_tag')" class="material-symbols-outlined">add</span>
   </div>
 </template>
 
@@ -31,12 +31,27 @@ input:focus{
 textarea::placeholder {
   color: #cacaca;
 }
-
-input .material-symbols-outlined{
-  position: absolute;
-  left: 100px;
+.material-symbols-outlined{
+  padding: 5px;
+  cursor: pointer;
 }
+
+.material-symbols-outlined:hover{
+  transform: scale(1.2);
+
+}
+
 </style>
+
+<script>
+export default {
+  data() {
+    return {
+      tags:[]
+    }
+  },
+}
+</script>
 
 <script setup>
 defineProps({
@@ -44,5 +59,9 @@ defineProps({
     type: String,
     required: true,
   },
+  tag_input:{
+    type: String,
+    required: true,
+  }
 });
 </script>

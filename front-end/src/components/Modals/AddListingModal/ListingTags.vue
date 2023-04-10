@@ -14,19 +14,23 @@
         </div>
 
         <div class="product_tag_input">
-        <InputWithButton/>
-        
-        
-        
+          <div class="input_container">
+           <input type="text" v-model="newTag"/>
+           <span @click="addTag" class="material-symbols-outlined">add</span>
+          </div> 
         </div>
+
+    <div class="tags_container">
+        <div class="row">
+          <div v-for="(tag, index) in tags_array" :key="index" class="tag">{{ tag }}</div>
+      </div>
+    </div>
 
     </div>
   </div>
 </template>
 
 <style scoped>
-
-
 
 .Listing_Info_Container {
   margin-top: 2em;
@@ -47,8 +51,89 @@
     justify-content: center;
 }
 
+.tag_container{
+  display: flex;
+}
+
+.row{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: #444739 solid 1px;
+  border-radius: 10px;
+  width: 90px;
+  height: 35px;
+  margin: 10px;
+}
+
+.input_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+input {
+  display: flex;
+  min-width: 300px;
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+}
+
+input:focus{
+    outline: none;
+}
+
+textarea::placeholder {
+  color: #cacaca;
+}
+.material-symbols-outlined{
+  padding: 5px;
+  cursor: pointer;
+}
+
+.material-symbols-outlined:hover{
+  transform: scale(1.2);
+
+}
+
 </style>
 
+<script>
+export default {
+  data() {
+    return {
+      tags_array:[],
+      max_tags: 10,
+    }  
+  },
+  
+
+  methods: {
+  addTag() {
+    if (this.newTag.trim() !== '') {
+        if (this.tags_array.length < this.max_tags) { // check if maximum number of tags is reached
+          this.tags_array.push(this.newTag.trim());
+          this.newTag = '';
+        } else {
+          alert('You have reached the maximum number of allowed tags.');}}
+      }
+      }
+}
+
+</script>
+
+
 <script setup>
-import InputWithButton from '../../Inputs/InputWIthButton.vue'
 </script>
