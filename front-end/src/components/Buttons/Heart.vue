@@ -17,15 +17,18 @@
 .heart_background {
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 30px;
   width: 30px;
-  background-color: rgba(255, 255, 255, 0.847);
+  background-color: rgba(255, 255, 255, 0.612);
   border-radius: 10px;
   cursor: pointer;
   position: absolute;
   bottom: 80%;
   left: 57%;
+}
+
+.heart_icon {
+  padding: 0.2em;
 }
 
 .material-symbols-outlined {
@@ -42,7 +45,7 @@
 export default {
   data() {
     return {
-      heart_on: true,
+      heart_on: false,
     };
   },
   methods: {},
