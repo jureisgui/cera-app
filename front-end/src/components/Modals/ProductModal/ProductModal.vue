@@ -1,28 +1,36 @@
 <template>
-  <div v-if="ModalIsOpen" class="ProductModal">
-    <div class="ProductModalMargin">
-      <div class="back_arrow_div">
-        <span @click="$emit('CloseModal')" class="material-symbols-outlined"
-          >arrow_back_ios</span
-        >
-        <p class="body_text">Kitchenware</p>
-      </div>
-      <ProductDescription @show_modal="contact_seller_modal=true" />
-      <div class="qa_div">
-        <h2 class="heading_text">Questions and Answers</h2>
-        <div>
-            <QA />
-            <QA />
+  <div class="relative_parent">
+    <div class="blur" v-if="contact_seller_modal"></div>
+    <div v-if="ModalIsOpen" class="ProductModal">
+      <div class="ProductModalMargin">
+        <div class="back_arrow_div">
+          <span @click="$emit('CloseModal')" class="material-symbols-outlined"
+            >arrow_back_ios</span
+          >
+          <p class="body_text">Kitchenware</p>
         </div>
-        <MainButton main_button_prop="Ask a Question" button_icon_prop="contact_support" class="button" @click="type_question=!type_question" />
-        <div class="question_input" v-if="type_question">
-        <MessageInput />
-        <LongButton long_button_text="Submit" class="long_btn" />
+        <ProductDescription @show_modal="contact_seller_modal = true" />
+        <div class="qa_div">
+          <h2 class="heading_text">Questions and Answers</h2>
+          <div>
+            <QA />
+            <QA />
+          </div>
+          <MainButton
+            main_button_prop="Ask a Question"
+            button_icon_prop="contact_support"
+            class="button"
+            @click="type_question = !type_question"
+          />
+          <div class="question_input" v-if="type_question">
+            <MessageInput />
+            <LongButton long_button_text="Submit" class="long_btn" />
+          </div>
         </div>
       </div>
     </div>
+    <ContactSeller v-if="contact_seller_modal" class="contact_seller" />
   </div>
-  <ContactSeller v-if="contact_seller_modal" class="contact_seller" />
 </template>
 
 <style scoped>
@@ -67,25 +75,42 @@
 }
 
 .qa_div {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-bottom: 50px;
 }
 
 .long_btn {
-    width: 50%;
-    margin: 0 auto;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .question_input {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .contact_seller {
-    z-index: 1000;
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 24%;
+}
+
+.relative_parent {
+  position: relative;
+}
+
+.blur {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 998;
+  background: rgba(0, 0, 0, 0.3);
 }
 </style>
 
@@ -104,7 +129,7 @@ export default {
     return {
       ModalIsOpen: true,
       type_question: false,
-      contact_seller_modal: false
+      contact_seller_modal: false,
     };
   },
 
