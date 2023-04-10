@@ -95,8 +95,8 @@
 .contact_seller {
   z-index: 1000;
   position: absolute;
-  top: 0;
-  left: 24%;
+  top: 2%;
+  left: 20%;
 }
 
 .relative_parent {

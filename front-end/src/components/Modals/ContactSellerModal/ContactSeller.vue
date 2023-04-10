@@ -46,7 +46,7 @@
     background-color: #fff;
     position: fixed;
     /* height: 75vh; */
-    top: 105px;
+    top: 10%;
     justify-content: center;
 }
 
