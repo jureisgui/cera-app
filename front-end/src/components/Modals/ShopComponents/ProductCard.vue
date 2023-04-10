@@ -45,8 +45,4 @@ import Heart from "@/components/Buttons/Heart.vue";
   font-size: 20px;
   line-height: 30px;
 }
-
-/* .text_wrapper {
-  text-align: center;
-} */
 </style>
