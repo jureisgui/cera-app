@@ -110,6 +110,11 @@
     width: 5em;
 }
 
+@media (max-width: 62em) {
+.product_desc {
+  flex-direction: column;
+}
+}
 </style>
 
 <script setup>
