@@ -1,5 +1,5 @@
 <script setup>
-
+import ProductModal from './components/Modals/ProductModal/ProductModal.vue';
 
 </script>
 
@@ -9,7 +9,7 @@
 
 
 <!-- Tin's Test Section -->
-
+<ProductModal />
 <!--  -->
 
 <!-- Matt's Test Section -->
