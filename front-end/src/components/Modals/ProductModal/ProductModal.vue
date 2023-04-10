@@ -1,12 +1,25 @@
 <template>
   <div v-if="ModalIsOpen" class="ProductModal">
     <div class="ProductModalMargin">
-      <div class="back_arrow">
+      <div class="back_arrow_div">
         <span @click="$emit('CloseModal')" class="material-symbols-outlined"
           >arrow_back_ios</span
         >
+        <p class="body_text">Kitchenware</p>
       </div>
       <ProductDescription />
+      <div class="qa_div">
+        <h2 class="heading_text">Questions and Answers</h2>
+        <div>
+            <QA />
+            <QA />
+        </div>
+        <MainButton main_button_prop="Ask a Question" button_icon_prop="contact_support" class="button" />
+        <div class="question_input">
+        <MessageInput />
+        <LongButton long_button_text="Submit" class="long_btn" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -25,12 +38,48 @@
   cursor: pointer;
 }
 
-.material-symbols-outlined:hover{
-    transform: scale(1.2);
+.material-symbols-outlined:hover {
+  transform: scale(1.2);
 }
 
 .ProductModalMargin {
   margin: 2em 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.back_arrow_div {
+  display: flex;
+  gap: 20px;
+}
+
+.button {
+  border: 1px solid #dc7777;
+  background-color: #dc7777;
+}
+
+.button:hover {
+  color: #dc7777;
+  background-color: #fff;
+  border: 1px solid #dc7777;
+}
+
+.qa_div {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.long_btn {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.question_input {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 </style>
 
@@ -39,6 +88,7 @@ import MainButton from "../../Buttons/MainButton.vue";
 import MessageInput from "../../Inputs/MessageInput.vue";
 import QA from "./QA.vue";
 import ProductDescription from "./ProductDescription.vue";
+import LongButton from "../../Buttons/LongButton.vue";
 </script>
 
 <script>
