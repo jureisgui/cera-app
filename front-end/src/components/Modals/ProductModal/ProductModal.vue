@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <ContactSeller v-if="contact_seller_modal" class="contact_seller" />
+    <ContactSeller v-if="contact_seller_modal" class="contact_seller" @close_modal="contact_seller_modal=false" />
   </div>
 </template>
 
