@@ -46,7 +46,7 @@
   margin: 2em 10%;
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 4em;
 }
 
 .back_arrow_div {
