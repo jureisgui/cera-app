@@ -10,7 +10,7 @@ import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
   />
 
   <!-- Tin's Test Section -->
-  <ProductModal />
+  <!-- <ProductModal /> -->
   <!--  -->
 
   <!-- Matt's Test Section -->
