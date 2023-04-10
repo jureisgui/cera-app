@@ -114,6 +114,10 @@
 }
 
 @media (max-width: 32em) {
+    .ProductModal {
+        top: 0;
+    }
+    
     .contact_seller {
         left: 0;
         top: 0;
