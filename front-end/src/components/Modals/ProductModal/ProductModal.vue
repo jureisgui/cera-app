@@ -14,8 +14,8 @@
             <QA />
             <QA />
         </div>
-        <MainButton main_button_prop="Ask a Question" button_icon_prop="contact_support" class="button" />
-        <div class="question_input">
+        <MainButton main_button_prop="Ask a Question" button_icon_prop="contact_support" class="button" @click="type_question=!type_question" />
+        <div class="question_input" v-if="type_question">
         <MessageInput />
         <LongButton long_button_text="Submit" class="long_btn" />
         </div>
@@ -96,6 +96,7 @@ export default {
   data() {
     return {
       ModalIsOpen: true,
+      type_question: false
     };
   },
 
