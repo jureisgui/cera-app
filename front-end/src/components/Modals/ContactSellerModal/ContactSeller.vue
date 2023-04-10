@@ -41,13 +41,12 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding: 0 3em;
+    padding: 3em;
     width: 60vw;
     background-color: #fff;
     position: fixed;
-    height: 75vh;
+    /* height: 75vh; */
     top: 105px;
-    align-items: center; 
     justify-content: center;
 }
 
