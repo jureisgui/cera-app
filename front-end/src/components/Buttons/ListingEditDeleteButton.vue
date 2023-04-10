@@ -14,25 +14,29 @@
 <style scoped>
 
     .button_container{
-       background-color: rgba(255, 255, 255, 0.732);
+       background-color: rgba(255, 255, 255, 0.612);
        display: flex;
-       padding: 10px;
-       justify-content: space-between;
+        position: absolute;
+        top: 70%;
+        left: 2%;
+
+
+       /* padding: 10px; */
     }
 
     .edit_button{
         padding: 10px;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        /* align-items: center;
+        justify-content: center; */
     }
 
     .delete_button{
         color: #DB1717;
         padding: 10px;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        /* align-items: center;
+        justify-content: center; */
     }
 
     .hover:hover{
