@@ -1,7 +1,7 @@
 <template>
     <div class="input_container">
-        <input type="text" :placeholder="Inputplaceholder" >
-        <span class="material-symbols-outlined">{{icon_symbol}}</span>
+        <input type="password" :placeholder="Password_placeholder" :v-model="add_pw_prop">
+
     </div>
 </template>
 
@@ -9,7 +9,6 @@
 
 .input_container{
     display: flex;
-    position: relative;
 
 }
 
@@ -22,14 +21,6 @@ input{
     padding: 10px;
 }
 
-.material-symbols-outlined{
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-
 
 textarea::placeholder { 
     color: #cacaca; 
@@ -39,14 +30,14 @@ textarea::placeholder {
 
 <script setup>
 defineProps({
-    Inputplaceholder: {
+    Password_placeholder: {
     type: String,
     required: true
   },
-
-  icon_symbol:{
-    type: String,
+  add_pw_prop: {
+    type: Object,
     required: true
   }
 });
+
 </script>

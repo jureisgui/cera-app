@@ -1,41 +1,34 @@
 <script setup>
-import AccountModal from './components/Modals/AccountModal/AccountModal.vue'
-import MyInfo from './components/Modals/AccountModal/MyInfo.vue'
-import PublicProfile from './components/Modals/AccountModal/PublicProfile.vue'
-
-
+import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
 </script>
 
 <template>
-    
- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- Google Icons -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+  />
 
+  <!-- Tin's Test Section -->
+  
+  <!--  -->
 
-<!-- Tin's Test Section -->
+  <!-- Matt's Test Section -->
 
-<!--  -->
+  <!--  -->
 
-<!-- Matt's Test Section -->
-
-<!--  -->
 
 <!-- Julie's Test Section -->
-<AccountModal />
+  <!--  -->
 
-<!--  -->
 
-<!-- Kyla's Test Section -->
-<!--  -->
- 
-<router-view></router-view>
-<Footer />
+  <!-- Kyla's Test Section -->
+  <!--  -->
+
+  <router-view></router-view>
+  <!-- <Footer /> -->
 </template>
 
-<style scoped>
+<style scoped></style>
 
-</style>
-
-<script>
-  
-</script>
-
+<script></script>

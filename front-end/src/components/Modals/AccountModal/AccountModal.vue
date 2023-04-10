@@ -16,6 +16,7 @@ import MyListings from './MyListings.vue'
 </script>
     
 <template>
+
         <Accordion :multiple="true" :activeIndex="[0]">
             <AccordionTab header="My Information" >
                 <section><MyInfo /></section>
