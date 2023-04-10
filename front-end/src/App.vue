@@ -23,7 +23,7 @@
 <!-- Kyla's Test Section -->
 <!--  -->
  
-<!-- <router-view></router-view> -->
+<router-view></router-view>
 <!-- <Footer /> -->
 </template>
 
