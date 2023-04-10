@@ -41,13 +41,14 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    border: 1px solid black;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 10%;
+    padding: 0 3em;
     width: 60vw;
-    /* height: 50vw; */
-    Top: 160px; 
-    Left: 450px;
+    background-color: #fff;
+    position: fixed;
+    height: 75vh;
+    top: 105px;
+    align-items: center; 
+    justify-content: center;
 }
 
 .close_icon {
