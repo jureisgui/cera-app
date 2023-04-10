@@ -21,9 +21,6 @@ import PublicProfile from './components/Modals/AccountModal/PublicProfile.vue'
 
 <!-- Julie's Test Section -->
 <AccountModal />
-<MyInfo />
-<PublicProfile />
-
 
 <!--  -->
 

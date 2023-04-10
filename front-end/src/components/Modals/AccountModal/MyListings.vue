@@ -1,13 +1,22 @@
+<script setup>
+import ListingsButtons from '@/components/Buttons/ListingEditDeleteButton.vue'
+
+</script>
+
 <template>
-    <div>
-        MY LISTINGS PLACEHOLDER
-    </div>
+        <div class="product-wrapper">
+            <img src="@/assets/img/categories/garden.jpg" alt="">
+            <ListingsButtons />
+        </div>                   
 </template>
 
 <style scoped>
-    
+
+.product-wrapper{
+    position:relative;
+    width: 210px;
+    height: 175px;
+}
+   
 </style>
 
-<script setup>
-
-</script>
