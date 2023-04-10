@@ -112,6 +112,16 @@
   z-index: 998;
   background: rgba(0, 0, 0, 0.3);
 }
+
+@media (max-width: 32em) {
+    .contact_seller {
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        height: 100vh;
+    }
+}
 </style>
 
 <script setup>
