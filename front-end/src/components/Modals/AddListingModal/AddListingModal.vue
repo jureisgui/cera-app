@@ -16,16 +16,20 @@ import MainButton from "../../Buttons/MainButton.vue";
         <h1 class="heading_text">Add a New Listing</h1>
       </div>
       <div>
-        <ListingInfo />
+        <ListingInfo v-bind:title="title" 
+        v-on:update:title="updateTitle"
+        v-on:update:subtitle="updateSubtitle"
+        v-on:update:category="updateCategory"/>
       </div>
       <div>
-        <ListingSpecs />
+        <ListingSpecs v-bind:item_description="item_description"
+        v-on:update:item_description="updateItemDesc"/>
       </div>
       <div>
         <ListingTags />
         </div>
         <div>
-        <ImageUpload />
+        <ImageUpload/>
         </div>
         <ListingShipping/>
         <div class="Listing_Finish_Container">
@@ -88,6 +92,13 @@ export default {
   data() {
     return {
       ModalIsOpen: true,
+      title: '',
+      subtitle: '',
+      category: '',
+      specs: {},
+      tags:[],
+      images:[],
+      shipping:{}
     };
   },
 
@@ -96,9 +107,28 @@ export default {
       this.ModalIsOpen = false;
     },
 
+    updateTitle(newVal) {
+      this.title = newVal
+    },
+
+    updateSubtitle(newVal){
+      this.subtitle = newVal
+    },
+
+    updateCategory(newVal){
+      this.category = newVal
+    },
+
+    updateItemDesc(newVal){
+      this.item_description = newVal
+    },
+
+
     submitListing(){
-      
-    }
+      console.log(this.title);
+      console.log(this.subtitle);
+      console.log(this.category);
+      console.log(this.item_description);
   },
-};
+}};
 </script>

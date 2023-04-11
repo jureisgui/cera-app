@@ -7,7 +7,7 @@
             <div class="input_dropdown_container body_text">
                 <div class="title_input">
                     <div><label for="Title"> <span style="color: red;">*</span>Write a description for your listing.</label></div>
-                    <div><DescriptionInput/></div>
+                    <div><DescriptionInput v-bind:value="item_description" v-on:input="updateItemDesc"/></div>
                 </div>
              </div>
 
@@ -115,4 +115,35 @@
 import DescriptionInput from '../../Inputs/DescriptionInput.vue'
 import MainInputVue from '../../Inputs/MainInput.vue';
 
+defineProps({
+  item_description: {
+    type: String,
+    required: true
+  },
+
+});
+</script>
+
+<script>
+export default {
+    data() {
+        return {
+            localItemDesc: this.item_description,
+
+    }
+  },
+  watch: {
+    localItemDesc(newVal) {
+      this.$emit('update:item_description', newVal)
+    },
+
+
+  },
+
+  methods: {
+    updateItemDesc(event) {
+      this.localItemDesc = event.target.value
+    },
+  },
+}
 </script>
