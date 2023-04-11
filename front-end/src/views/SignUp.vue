@@ -17,50 +17,35 @@
       <div class="form">
         <div class="input_row body_text short_input">
           <div class="text_input">
-            <p class="error_msg" v-if="!fname_valid">
-              Please enter your first name<sup>*</sup>
-            </p>
-            <MainInput
-              Inputplaceholder="First name"
-              :add_user_prop="user_body_data.first_name"
-            />
+          <p class="error_msg" v-if="!fname_valid">
+            Please enter your first name<sup>*</sup>
+         </p>
+          <input v-model="user_body_data.first_name" class="InputStyle" type="text" placeholder="First Name">
           </div>
           <div class="text_input">
             <p class="error_msg" v-if="!lname_valid">
               Please enter your last name<sup>*</sup>
             </p>
-            <MainInput
-              Inputplaceholder="Last name"
-              :add_user_prop="user_body_data.last_name"
-            />
+            <input v-model="user_body_data.last_name" class="InputStyle" type="text" placeholder="Last Name">
           </div>
         </div>
         <div class="input_row body_text">
           <p class="error_msg" v-if="!email_valid">
             Please enter a valid email<sup>*</sup>
           </p>
-          <MainInput
-            Inputplaceholder="Email"
-            :add_user_prop="user_body_data.email"
-          />
+          <input v-model="user_body_data.email" class="InputStyle" type="text" placeholder="Email">
         </div>
         <div class="input_row body_text">
           <p class="error_msg" v-if="!pw_valid">
             Password must be at least 8 characters<sup>*</sup>
           </p>
-          <PasswordInput
-            Password_placeholder="Password"
-            :add_pw_prop="login_body_data.password"
-          />
+          <input v-model="user_body_data.password" class="InputStyle" type="text" placeholder="Password">
         </div>
         <div class="input_row body_text">
           <p class="error_msg" v-if="!confirm_pw_valid">
             Please enter your password again to ensure it is correct<sup>*</sup>
           </p>
-          <PasswordInput
-            Password_placeholder="Confirm password"
-            :add_pw_prop="confirm_pw"
-          />
+          <input v-model="user_body_data.confirm_password" class="InputStyle" type="text" placeholder="Confirm Password">
         </div>
         <LongBtn long_button_text="Sign up" @click="submit_to_add_user" />
       </div>
@@ -140,12 +125,18 @@ main {
   top: 20%;
   left: 35%;
 }
+
+.InputStyle{
+  height: 60px;
+  width: 100%;
+  border-radius: 10px;
+  border: solid 1px #c4c4c4;
+  padding: 10px;
+}
 </style>
 
 <script setup>
 import Header from "../components/Header.vue";
-import MainInput from "../components/Inputs/MainInput.vue";
-import PasswordInput from "../components/Inputs/PasswordInput.vue";
 import LongBtn from "../components/Buttons/LongButton.vue";
 import Success from "../components/Success.vue";
 </script>
@@ -158,6 +149,7 @@ export default {
         first_name: "",
         last_name: "",
         email: "",
+        password:"",
         phone_number: "",
         location: "",
         seller_image: "",
@@ -177,30 +169,30 @@ export default {
     };
   },
   methods: {
-    async create_new_user_userDB() {
-      const response = await fetch("http://localhost:4000/users/adduser", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(this.user_body_data),
-      });
-      const received_data = await response.json();
-    },
-    async create_new_user_loginDB() {
-      const response = await fetch("http://localhost:4000/logins/addlogin", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(this.login_body_data),
-      });
-      const received_data = await response.json();
-    },
-    submit_to_add_user() {
-      // Check if first name is valid
-      if (this.user_body_data.first_name.length === 0) {
-        this.fname_valid = false;
-      } else {
-        this.fname_valid = true;
-      }
+    // async create_new_user_userDB() {
+    //   const response = await fetch("http://localhost:4000/users/adduser", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(this.user_body_data),
+    //   });
+    //   const received_data = await response.json();
+    // },
+    // async create_new_user_loginDB() {
+    //   const response = await fetch("http://localhost:4000/logins/addlogin", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(this.login_body_data),
+    //   });
+    //   const received_data = await response.json();
+    // },
 
+   submit_to_add_user() {
+  // Check if first name is valid
+  if (this.user_body_data.first_name.length === 0) {
+    this.fname_valid = false;
+  } else {
+    this.fname_valid = true;
+  }
       // Check if last name is valid
       if (this.user_body_data.last_name.length === 0) {
         this.lname_valid = false;
@@ -246,8 +238,7 @@ export default {
       } else {
         this.modal_on = false;
       }
-    },
-  },
+    }},
   computed: {
     password_valid() {
       return this.login_body_data === this.confirm_pw;
