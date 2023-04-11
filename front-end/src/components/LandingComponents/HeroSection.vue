@@ -1,6 +1,6 @@
 <template>
   <div class="hero_section">
-    <Header Header_class="transparent" Logo="src/assets/img/pine_logo-01.svg" /> 
+    <Header Header_class="transparent" Logo="src/assets/img/pine_logo-01.svg" />
     <div class="hero_heading_container">
       <div class="absolute_hero_heading_container">
         <div class="hero_heading">
@@ -8,7 +8,7 @@
             A New Marketplace Platform for Pottery Enthusiasts
           </h1>
         </div>
-        <br><br>
+        <br /><br />
         <div class="hero_cta_buttons">
           <!-- Shop Button -->
           <router-link to="/shop"
@@ -18,7 +18,8 @@
               class="shop_btn"
           /></router-link>
           <!-- List item button -->
-          <MainButton @click="$emit('Modal_Open')"
+          <MainButton
+            @click="$emit('Modal_Open')"
             main_button_prop="List an item"
             button_icon_prop="add_circle"
             class="list_btn"
@@ -71,11 +72,20 @@ a {
 }
 
 .absolute_hero_heading_container {
-    width: 70%;
+  width: 70%;
+}
+
+@media screen and (max-width: 880px) {
+  .hero_cta_buttons {
+    display: flex;
+    gap: 20px;
+
+    flex-direction: column;
+  }
 }
 </style>
 <script setup>
 import MainButton from "../Buttons/MainButton.vue";
-import Header from '../Header.vue';
-import ListingModal from '../Modals/AddListingModal/AddListingModal.vue';
+import Header from "../Header.vue";
+import ListingModal from "../Modals/AddListingModal/AddListingModal.vue";
 </script>
