@@ -3,6 +3,8 @@ import ListingInfo from "../AddListingModal/ListingInfo.vue";
 import ListingSpecs from "../AddListingModal/ListingSpecs.vue";
 import ListingShipping from "../AddListingModal/Shipping.vue"
 import ListingTags from "../AddListingModal/ListingTags.vue";
+import ImageUpload from "../AddListingModal/ImageUpload.vue";
+
 
 </script>
 
@@ -25,7 +27,9 @@ import ListingTags from "../AddListingModal/ListingTags.vue";
       </div>
       <div>
         <ListingTags />
-       
+        </div>
+        <div>
+        <ImageUpload />
         </div>
         <ListingShipping/>
       </div>

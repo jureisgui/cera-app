@@ -31,9 +31,7 @@
         <div class="row">
           <div v-for="(tag, index) in tags_array" :key="index" class="tag">
             {{ tag }}
-            <span @click="removeTag(tag)" class="material-symbols-outlined small_close_btn"
-              >close</span
-            >
+            <span @click="removeTag(tag)" class="material-symbols-outlined small_close_btn">close</span>
           </div>
         </div>
       </div>
@@ -59,10 +57,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.tag_container {
-  display: flex;
 }
 
 .row {
@@ -133,8 +127,8 @@ textarea::placeholder {
   justify-content: center;
   padding: 5px;
   cursor: pointer;
-  background-color: #444739;
-  color: white;
+  border: #444739 solid 1px;
+  color: #444739;
   border-radius: 50%;
   margin: 5px;
 }
