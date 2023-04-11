@@ -1,7 +1,7 @@
 <script setup>
 
 import Footer from './components/Footer.vue'
-=======
+
 import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
 
 
@@ -50,7 +50,7 @@ import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
   }
 }
 </script>
-=======
+
 <style scoped></style>
 
 
