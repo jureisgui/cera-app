@@ -2,6 +2,7 @@
   <Header Header_class="green" Logo="src/assets/img/white_logo-01-01.svg" />
   <main>
     <Success
+      @close_modal="modal_on"
       success_prop="Sign up"
       close_prop="tab or window"
       class="modal"
@@ -150,6 +151,7 @@ export default {
         last_name: "",
         email: "",
         password:"",
+        confirm_password: "",
         phone_number: "",
         location: "",
         seller_image: "",
@@ -169,22 +171,22 @@ export default {
     };
   },
   methods: {
-    // async create_new_user_userDB() {
-    //   const response = await fetch("http://localhost:4000/users/adduser", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify(this.user_body_data),
-    //   });
-    //   const received_data = await response.json();
-    // },
-    // async create_new_user_loginDB() {
-    //   const response = await fetch("http://localhost:4000/logins/addlogin", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify(this.login_body_data),
-    //   });
-    //   const received_data = await response.json();
-    // },
+    async create_new_user_userDB() {
+      const response = await fetch("http://localhost:4000/users/adduser", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(this.user_body_data),
+      });
+      const received_data = await response.json();
+    },
+    async create_new_user_loginDB() {
+      const response = await fetch("http://localhost:4000/logins/addlogin", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(this.login_body_data),
+      });
+      const received_data = await response.json();
+    },
 
    submit_to_add_user() {
   // Check if first name is valid
@@ -201,24 +203,22 @@ export default {
       }
 
       // Check if email is valid
-      if (
-        this.user_body_data.email.length === 0 &&
-        !this.user_body_data.email.includes("@")
-      ) {
-        this.email_valid = false;
+      if (this.user_body_data.email.length === 0 || !this.user_body_data.email.includes("@")) {
+      this.email_valid = false;
       } else {
-        this.email_valid = true;
+      this.email_valid = true;
       }
 
+
       // Check if password is valid
-      if (this.login_body_data.password.length < 8) {
+      if (this.user_body_data.password.length < 8) {
         this.pw_valid = false;
       } else {
         this.pw_valid = true;
       }
 
       // Check if confirm password is valid
-      if (this.password_valid = false) {
+      if (this.user_body_data.password != this.user_body_data.confirm_password) {
         this.confirm_pw_valid = false;
       } else {
         this.confirm_pw_valid = true;
