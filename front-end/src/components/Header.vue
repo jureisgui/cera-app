@@ -7,7 +7,7 @@
     </div>
 
     <ul class="links_container">
-      <li><router-link to="/" >Home</router-link></li>
+      <li><router-link to="/">Home</router-link></li>
       <li><a href="#">Products</a></li>
       <li><a href="#">About Us</a></li>
       <li><a href="#">FAQ</a></li>
@@ -27,8 +27,16 @@
         account_circle
       </span>
       <router-link to="/signup" target="_blank">
-      <MainBtn main_button_prop="Log in" button_icon_prop="login" v-if="!Logged_in"/></router-link>
-      <MainBtn main_button_prop="List an item" button_icon_prop="add_circle" v-if="Logged_in"/>
+        <MainBtn
+          main_button_prop="Log in"
+          button_icon_prop="login"
+          v-if="!Logged_in"
+      /></router-link>
+      <MainBtn
+        main_button_prop="List an item"
+        button_icon_prop="add_circle"
+        v-if="Logged_in"
+      />
     </div>
 
     <div>
@@ -155,7 +163,7 @@ input:focus {
 }
 
 .search_btn:hover {
-text-decoration: none;
+  text-decoration: none;
 }
 
 @media (max-width: 62em) {
@@ -192,15 +200,34 @@ text-decoration: none;
     width: 100%;
   }
 }
+
+@media (max-width: 1100px) {
+  .links_container {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+  }
+
+  li {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1300px) {
+  input {
+    width: 150px;
+    border: none;
+  }
+}
 </style>
 
 <script setup>
-import MainBtn from './Buttons/MainButton.vue'
+import MainBtn from "./Buttons/MainButton.vue";
 
 defineProps({
   Logged_in: Boolean,
   Header_class: String,
-  Logo: String
+  Logo: String,
 });
 </script>
 
