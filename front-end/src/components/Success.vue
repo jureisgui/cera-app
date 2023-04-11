@@ -1,7 +1,7 @@
 <template>
   <div class="modal_parent">
     <div class="success_modal_div">
-      <span class="material-symbols-outlined close_icon" @click="$emit('close_modal')">close</span>
+      <span class="material-symbols-outlined close_icon" @click="$emit('Close_Modal')">close</span>
       <span class="material-symbols-outlined">check_circle</span>
       <h3 class="input_label">{{ success_prop }} Success!</h3>
       <p class="body_text">You may now close this {{close_prop}}.</p>

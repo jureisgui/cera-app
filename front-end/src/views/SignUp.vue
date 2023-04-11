@@ -2,7 +2,7 @@
   <Header Header_class="green" Logo="src/assets/img/white_logo-01-01.svg" />
   <main>
     <Success
-      @close_modal="modal_on"
+      @Close_Modal="modal_on = false"
       success_prop="Sign up"
       close_prop="tab or window"
       class="modal"
