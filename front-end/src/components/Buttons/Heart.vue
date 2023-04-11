@@ -23,8 +23,8 @@
   border-radius: 10px;
   cursor: pointer;
   position: absolute;
-  bottom: 80%;
-  left: 57%;
+  bottom: 85%;
+  left: 87%;
 }
 
 .heart_icon {
