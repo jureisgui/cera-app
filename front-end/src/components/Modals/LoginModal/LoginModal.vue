@@ -13,7 +13,7 @@
       </div>
       <div class="form body_text">
         <div class="input_row">
-          <p class="error_msg">
+          <p class="error_msg" v-if="(!email_valid || !pw_valid)">
             Log-in failed. Please enter correct email or password.
           </p>
           <MainInput Inputplaceholder="Email" />
@@ -99,4 +99,15 @@
 import LongBtn from "../../Buttons/LongButton.vue";
 import MainInput from "../../Inputs/MainInput.vue";
 import PasswordInput from "../../Inputs/PasswordInput.vue";
+</script>
+
+<script>
+export default {
+  data() {
+    return {
+      email_valid: true,
+      pw_valid: true
+    };
+  },
+};
 </script>
