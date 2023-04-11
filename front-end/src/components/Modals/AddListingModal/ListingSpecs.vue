@@ -16,7 +16,7 @@
               <div class="specs_third">
               <div class="center">
                 <label for="Title"> <span style="color: red;">*</span>Condition</label>
-                    <div class="col row"><input type="radio" name="Used" id=""><label for="">Used</label></div>
+                    <div class="col row"><input type="radio" name="Used" id=""><label for="">New</label></div>
                     <div class="col"><input type="radio" name="Used" id=""><label for="">Pre-Loved</label></div>
                 </div>
              </div>
