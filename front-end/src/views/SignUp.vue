@@ -40,13 +40,13 @@
           <p class="error_msg" v-if="!pw_valid">
             Password must be at least 8 characters<sup>*</sup>
           </p>
-          <input v-model="user_body_data.password" class="InputStyle" type="password" placeholder="Password">
+          <input v-model="login_body_data.password" class="InputStyle" type="password" placeholder="Password">
         </div>
         <div class="input_row body_text">
           <p class="error_msg" v-if="!confirm_pw_valid">
             Please enter your password again to ensure it is correct<sup>*</sup>
           </p>
-          <input v-model="user_body_data.confirm_password" class="InputStyle" type="password" placeholder="Confirm Password">
+          <input v-model="confirm_pw" class="InputStyle" type="password" placeholder="Confirm Password">
         </div>
         <LongBtn long_button_text="Sign up" @click="submit_to_add_user" />
       </div>
@@ -150,8 +150,6 @@ export default {
         first_name: "",
         last_name: "",
         email: "",
-        password:"",
-        confirm_password: "",
         phone_number: "",
         location: "",
         seller_image: "",
@@ -211,14 +209,14 @@ export default {
 
 
       // Check if password is valid
-      if (this.user_body_data.password.length < 8) {
+      if (this.login_body_data.password.length < 8) {
         this.pw_valid = false;
       } else {
         this.pw_valid = true;
       }
 
       // Check if confirm password is valid
-      if (this.user_body_data.password != this.user_body_data.confirm_password) {
+      if (this.login_body_data.password != this.confirm_pw) {
         this.confirm_pw_valid = false;
       } else {
         this.confirm_pw_valid = true;
