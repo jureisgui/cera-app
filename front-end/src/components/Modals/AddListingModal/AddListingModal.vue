@@ -8,6 +8,7 @@ import MainButton from "../../Buttons/MainButton.vue";
 </script>
 <template>
   <div v-if="ModalIsOpen" class="AddListingContainer">
+  {{ inputFullObj }}
     <div class="ListingModalMargin">
       <div class="back_arrow">
         <span @click="$emit('CloseModal')" class="material-symbols-outlined">arrow_back_ios</span>
@@ -24,7 +25,9 @@ import MainButton from "../../Buttons/MainButton.vue";
       <div>
         <ListingSpecs v-bind:item_description="item_description"
         v-on:update:item_description="updateItemDesc"
-        v-bind:is-new="isNew" v-on:update:is-new="updateIsNew"/>
+        v-bind:is-new="isNew" v-on:update:is-new="updateIsNew"
+        :dimensionsObj="specsGroup"
+        />
       </div>
       <div>
         <ListingTags />
@@ -97,11 +100,17 @@ export default {
       title: '',
       subtitle: '',
       category: '',
-      specs: {},
       tags:[],
       images:[],
-      shipping:{}
-    };
+      shipping:{},
+      specsGroup:{
+        width:'',
+        diameter:'',
+        capacity:'',
+        dimensions:'',
+        price:'',
+      }
+    }
   },
 
   methods: {
@@ -126,6 +135,9 @@ export default {
     },
     updateIsNew(newValue) {
       this.isNew = newValue
+      if (this.isNew) {
+        
+      }
     },
 
     submitListing(){
@@ -133,8 +145,8 @@ export default {
       console.log(this.subtitle);
       console.log(this.category);
       console.log(this.item_description);
+      console.log(this.specsGroup.price);
       console.log(this.isNew);
-
   },
 }};
 </script>

@@ -1,5 +1,6 @@
 <template >
     <div class="Listing_Info_Container body_text">
+
         <div class="ListingInfoHeading">
             <h1 class="subheading_text">Item Specifications<hr></h1>
         </div>
@@ -16,8 +17,9 @@
               <div class="specs_third">
               <div class="center">
                 <label for="Title"> <span style="color: red;">*</span>Condition</label>
-                    <div class="col row"><input type="radio" name="condition" id="new" v-bind:checked="isNew === true" v-on:change="$emit('update:is-new', true)"><label for="new">New</label></div>
-                    <div class="col"><input type="radio" name="condition" id="preloved" v-bind:checked="isNew === false" v-on:change="$emit('update:is-new', false)"><label for="preloved">Pre-Loved</label></div>
+                    <div class="col row"><input type="radio" name="condition" id="new" v-bind:checked="isNew === true" v-on:="$emit('update:is-new', 'New')"><label for="new">New</label></div>
+                    <div class="col"><input type="radio" name="condition" id="preloved" v-bind:checked="isNew === false" v-on:="$emit('update:is-new', 'Pre-loved')"><label for="preloved">Pre-Loved</label></div>
+
                 </div>
              </div>
 
@@ -26,12 +28,12 @@
               <div class="specs_third">
                     <label for="Title">Dimensions</label>
                     <div class="row">
-                    <div><MainInputVue Inputplaceholder="Width"/></div>
-                    <div><MainInputVue Inputplaceholder="Diameter"/></div>
+                    <div><input class="dimensions" placeholder="Width" v-model="dimensionsObj.width"/></div>
+                    <div><input class="dimensions" placeholder="Diameter" v-model="dimensionsObj.diameter"/></div>
                     </div>
                     <div class="row">
-                    <div><MainInputVue Inputplaceholder="Length"/></div>
-                    <div><MainInputVue Inputplaceholder="Capacity"/></div>
+                    <div><input class="dimensions" placeholder="Length" v-model="dimensionsObj.length" /></div>
+                    <div><input class="dimensions" placeholder="Capacity" v-model="dimensionsObj.capacity"/></div>
                     </div>
                 </div>
 
@@ -39,7 +41,7 @@
 
               <div class="specs_third">
                 <label for="Title"> <span style="color: red;">*</span>Price</label>
-                <div class="row"><MainInputVue Inputplaceholder="$"/></div>
+                <div class="row"><input class="dimensions" placeholder="$" v-model="dimensionsObj.price"/></div>
                 </div>
    
         </div>
@@ -47,6 +49,15 @@
 </template>
 
 <style scoped>
+
+.dimensions{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
+    border: 1px solid #c4c4c4;
+    padding: 10px;
+}
 
 .Listing_Info_Container{
         margin-top: 2em;
@@ -125,6 +136,12 @@ defineProps({
     type: Boolean,
     required: true
   },
+
+  dimensionsObj:{
+    type:Object,
+    required:true
+  }
+
 
 });
 </script>
