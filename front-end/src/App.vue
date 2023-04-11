@@ -1,6 +1,5 @@
 <script setup>
 import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
-import Shop from "./views/Shop.vue";
 </script>
 
 <template>
@@ -19,7 +18,7 @@ import Shop from "./views/Shop.vue";
   <!--  -->
 
   <!-- Julie's Test Section -->
-  <Shop />
+
 
   <!--  -->
 
