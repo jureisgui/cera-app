@@ -21,15 +21,15 @@ import Heart from "@/components/Buttons/Heart.vue";
 
 .card_wrapper {
   text-align: center;
-  padding: 1em;;
+  padding: 1em;
 }
 
 .image_wrapper {
   position: relative;
 }
 .product_thumbnail {
-  width: 420px;
-  height: 335px;
+  width: 390px;
+  height: 305px;
   border-radius: 10px;
 }
 
@@ -44,6 +44,13 @@ import Heart from "@/components/Buttons/Heart.vue";
   font-weight: 500;
   font-size: 20px;
   line-height: 30px;
+}
+
+@media (max-width: 32em) {
+  .product_thumbnail {
+  width: 280px;
+  height: 220px;
+  }
 }
 
 </style>

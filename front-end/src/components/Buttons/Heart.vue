@@ -24,7 +24,7 @@
   cursor: pointer;
   position: absolute;
   bottom: 85%;
-  left: 87%;
+  left: 85%;
 }
 
 .heart_icon {

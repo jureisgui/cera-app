@@ -33,16 +33,17 @@ import ProductCard from "../components/ShopComponents/ProductCard.vue";
   margin-right: 10%;
 }
 
-.products_container{
+.products_container{    
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-wrap: wrap;
     margin-left: 10%;
     margin-right: 10%;
+    margin-bottom: 2em;
 }
 
-@media (max-width: 32em) {
-  .categories_container {
+@media (max-width: 769px) {
+  .products_container {
     justify-content: center;
   }
 }
