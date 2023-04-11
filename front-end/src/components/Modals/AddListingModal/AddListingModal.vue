@@ -30,10 +30,12 @@ import MainButton from "../../Buttons/MainButton.vue";
         />
       </div>
       <div>
-        <ListingTags />
+        <ListingTags 
+        :Tags="tags" />
         </div>
         <div>
-        <ImageUpload/>
+        <ImageUpload
+        :Images="images"/>
         </div>
         <ListingShipping/>
         <div class="Listing_Finish_Container">
@@ -100,8 +102,12 @@ export default {
       title: '',
       subtitle: '',
       category: '',
-      tags:[],
-      images:[],
+      tags:[
+
+      ],
+      images:[
+
+      ],
       shipping:{},
       specsGroup:{
         width:'',
@@ -147,6 +153,9 @@ export default {
       console.log(this.item_description);
       console.log(this.specsGroup.price);
       console.log(this.isNew);
+      console.log(this.tags);
+      console.log(this.images);
+
   },
 }};
 </script>
