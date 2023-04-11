@@ -33,7 +33,7 @@ defineProps({
     Inputplaceholder: {
     type: String,
     required: true
-  }
+  },
 });
 
 </script>

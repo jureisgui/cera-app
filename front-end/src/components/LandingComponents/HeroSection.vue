@@ -17,7 +17,7 @@
               class="shop_btn"
           /></router-link>
           <!-- List item button -->
-          <MainButton
+          <MainButton @click="$emit('Modal_Open')"
             main_button_prop="List an item"
             button_icon_prop="add_circle"
             class="list_btn"
@@ -75,4 +75,5 @@ a {
 </style>
 <script setup>
 import MainButton from "../Buttons/MainButton.vue";
+import ListingModal from '../Modals/AddListingModal/AddListingModal.vue';
 </script>
