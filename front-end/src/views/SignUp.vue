@@ -40,13 +40,13 @@
           <p class="error_msg" v-if="!pw_valid">
             Password must be at least 8 characters<sup>*</sup>
           </p>
-          <input v-model="user_body_data.password" class="InputStyle" type="text" placeholder="Password">
+          <input v-model="user_body_data.password" class="InputStyle" type="password" placeholder="Password">
         </div>
         <div class="input_row body_text">
           <p class="error_msg" v-if="!confirm_pw_valid">
             Please enter your password again to ensure it is correct<sup>*</sup>
           </p>
-          <input v-model="user_body_data.confirm_password" class="InputStyle" type="text" placeholder="Confirm Password">
+          <input v-model="user_body_data.confirm_password" class="InputStyle" type="password" placeholder="Confirm Password">
         </div>
         <LongBtn long_button_text="Sign up" @click="submit_to_add_user" />
       </div>
