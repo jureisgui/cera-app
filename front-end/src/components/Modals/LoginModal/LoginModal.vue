@@ -23,7 +23,7 @@
       </div>
       <div class="bottom_text body_text">
         <p>
-          Already have an account with Cera? <span class="link">Log in</span>
+          Don't have an account with Cera yet? <router-link to="/signup" target="_blank" class="link">Sign up</router-link>
         </p>
         <p small_text>
           Some terms and conditions that will never be seen by no one, not ever!
