@@ -176,12 +176,13 @@ export default {
         body: JSON.stringify(this.user_body_data),
       });
       const received_data = await response.json();
+      console.log(received_data);
     },
     async create_new_user_loginDB() {
       const response = await fetch("http://localhost:4000/logins/addlogin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(this.login_body_data),
+        body: JSON.stringify({email:this.user_body_data.email,password:this.login_body_data.password}),
       });
       const received_data = await response.json();
     },
@@ -240,7 +241,7 @@ export default {
   computed: {
     password_valid() {
       return this.login_body_data === this.confirm_pw;
-    },
+    }
   },
 };
 </script>
