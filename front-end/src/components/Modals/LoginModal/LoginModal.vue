@@ -89,6 +89,10 @@
 .login_title {
     text-align: center;
 }
+
+.login_title:hover {
+  cursor: pointer;
+}
 </style>
 
 <script setup>

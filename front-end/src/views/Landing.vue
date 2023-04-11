@@ -1,13 +1,13 @@
 <template>
   <section class="landing">
-    <Header Header_class="transparent" Logo="src/assets/img/pine_logo-01.svg" />
-    <div class="blur"></div>
+    <Header Header_class="transparent" Logo="src/assets/img/pine_logo-01.svg" @show_login_modal="login_modal=true" />
+    <div class="blur" v-if="login_modal"></div>
     <Hero />
     <Summary />
     <Categories />
     <FeaturedArtist />
 
-    <Login class="login" />
+    <Login class="login" v-if="login_modal" @close_login="login_modal=false" />
   </section>
 </template>
 
@@ -42,3 +42,14 @@ import FeaturedArtist from "../components/LandingComponents/FeaturedArtist.vue";
 import Categories from "../components/Categories.vue";
 import Login from "../components/Modals/LoginModal/LoginModal.vue";
 </script>
+
+<script>
+export default {
+  data() {
+    return {
+      login_modal: false,
+    };
+  },
+};
+</script>
+
