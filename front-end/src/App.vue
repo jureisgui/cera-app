@@ -1,5 +1,9 @@
 <script setup>
+
+import Footer from './components/Footer.vue'
+=======
 import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
+
 
 </script>
 
@@ -27,6 +31,27 @@ import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
   <!-- <Footer /> -->
 </template>
 
+<style scoped>
+
+</style>
+
+<script>
+  export default {
+  data(){
+    return{
+      Logged_in: false
+    }
+  },
+  methods:{
+    
+  },
+  created(){
+    
+  }
+}
+</script>
+=======
 <style scoped></style>
+
 
 <script></script>
