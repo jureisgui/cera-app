@@ -52,7 +52,7 @@
       <MainButton
         main_button_prop="Contact Seller"
         button_icon_prop="mail"
-        class="button"
+        class="button" @click="$emit('show_modal')"
       />
     </div>
   </section>
@@ -61,7 +61,7 @@
 <style scoped>
 .product_desc {
   display: flex;
-  gap: 20px;
+  gap: 70px;
 }
 
 .text_container {
@@ -103,12 +103,18 @@
     width: 100%;
     height: 22em;
     object-fit: contain;
+    margin-bottom: 30px;
 }
 
 .thumbnail {
     width: 5em;
 }
 
+@media (max-width: 62em) {
+.product_desc {
+  flex-direction: column;
+}
+}
 </style>
 
 <script setup>
@@ -116,7 +122,7 @@ import MainButton from "../../Buttons/MainButton.vue";
 import Heart from "../../Buttons/Heart.vue";
 
 //theme
-import "primevue/resources/themes/lara-light-indigo/theme.css";
+// import "primevue/resources/themes/lara-light-indigo/theme.css";
 
 //core
 import "primevue/resources/primevue.min.css";
@@ -169,6 +175,7 @@ export default {
           numVisible: 1,
         },
       ],
+      contact_seller_modal: false,
     };
   },
 };

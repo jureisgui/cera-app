@@ -24,13 +24,13 @@
 }   
     .question_div, .answer_div {
         display: flex;
-        gap: 10px;
+        gap: 20px;
         align-items: center;
     }
 
     .img_container {
-        width: 40px;
-        height: 40px;
+        width: 3em;
+        height: 3em;
         border-radius: 50%;
         background-color: aquamarine;
     }

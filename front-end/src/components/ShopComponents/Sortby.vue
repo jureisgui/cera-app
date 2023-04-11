@@ -16,6 +16,8 @@
   display: flex;
   align-items: flex-end;
   flex-direction: column;
+  margin-right: 10%;
+  margin-top: 4em;
 }
 </style>
 

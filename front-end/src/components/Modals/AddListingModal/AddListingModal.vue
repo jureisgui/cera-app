@@ -2,6 +2,7 @@
 import ListingInfo from "../AddListingModal/ListingInfo.vue";
 import ListingSpecs from "../AddListingModal/ListingSpecs.vue";
 import ListingShipping from "../AddListingModal/Shipping.vue"
+import ListingTags from "../AddListingModal/ListingTags.vue";
 
 </script>
 
@@ -25,6 +26,8 @@ import ListingShipping from "../AddListingModal/Shipping.vue"
       <div class="Listing_Info">
         <ListingShipping/>
         </div>
+        <ListingTags />
+      </div>
     </div>
   </div>
 </template>
