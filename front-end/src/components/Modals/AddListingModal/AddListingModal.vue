@@ -23,7 +23,8 @@ import MainButton from "../../Buttons/MainButton.vue";
       </div>
       <div>
         <ListingSpecs v-bind:item_description="item_description"
-        v-on:update:item_description="updateItemDesc"/>
+        v-on:update:item_description="updateItemDesc"
+        v-bind:is-new="isNew" v-on:update:is-new="updateIsNew"/>
       </div>
       <div>
         <ListingTags />
@@ -92,6 +93,7 @@ export default {
   data() {
     return {
       ModalIsOpen: true,
+      isNew: true,
       title: '',
       subtitle: '',
       category: '',
@@ -122,13 +124,17 @@ export default {
     updateItemDesc(newVal){
       this.item_description = newVal
     },
-
+    updateIsNew(newValue) {
+      this.isNew = newValue
+    },
 
     submitListing(){
       console.log(this.title);
       console.log(this.subtitle);
       console.log(this.category);
       console.log(this.item_description);
+      console.log(this.isNew);
+
   },
 }};
 </script>

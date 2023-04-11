@@ -16,8 +16,8 @@
               <div class="specs_third">
               <div class="center">
                 <label for="Title"> <span style="color: red;">*</span>Condition</label>
-                    <div class="col row"><input type="radio" name="Used" id=""><label for="">New</label></div>
-                    <div class="col"><input type="radio" name="Used" id=""><label for="">Pre-Loved</label></div>
+                    <div class="col row"><input type="radio" name="condition" id="new" v-bind:checked="isNew === true" v-on:change="$emit('update:is-new', true)"><label for="new">New</label></div>
+                    <div class="col"><input type="radio" name="condition" id="preloved" v-bind:checked="isNew === false" v-on:change="$emit('update:is-new', false)"><label for="preloved">Pre-Loved</label></div>
                 </div>
              </div>
 
@@ -121,6 +121,11 @@ defineProps({
     required: true
   },
 
+  isNew: {
+    type: Boolean,
+    required: true
+  },
+
 });
 </script>
 
@@ -129,7 +134,6 @@ export default {
     data() {
         return {
             localItemDesc: this.item_description,
-
     }
   },
   watch: {
@@ -144,6 +148,7 @@ export default {
     updateItemDesc(event) {
       this.localItemDesc = event.target.value
     },
+
   },
 }
 </script>
