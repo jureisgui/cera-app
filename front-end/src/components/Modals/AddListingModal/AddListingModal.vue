@@ -17,16 +17,17 @@ import ListingTags from "../AddListingModal/ListingTags.vue";
       <div class="AddNewListingHeading">
         <h1 class="heading_text">Add a New Listing</h1>
       </div>
-      <div class="Listing_Info">
+      <div>
         <ListingInfo />
       </div>
-      <div class="Listing_Info">
+      <div>
         <ListingSpecs />
       </div>
-      <div class="Listing_Info">
-        <ListingShipping/>
-        </div>
+      <div>
         <ListingTags />
+       
+        </div>
+        <ListingShipping/>
       </div>
     </div>
 </template>
