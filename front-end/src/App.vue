@@ -3,6 +3,8 @@
 import Footer from './components/Footer.vue'
 
 import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
+import Shop from "./views/Shop.vue";
+
 
 
 </script>
@@ -20,7 +22,7 @@ import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
   <!--  -->
 
   <!-- Julie's Test Section -->
-
+<Shop />
 
   <!--  -->
 

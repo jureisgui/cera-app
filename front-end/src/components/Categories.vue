@@ -77,4 +77,40 @@
 }
 </style>
 
-<script setup></script>
+<script>
+export default {
+  data(){ // data itself starts
+    return{ // data variables starts
+      categories:[
+        {
+          category: "All Products",
+          img:"https://i.ibb.co/85F8T79/all-products.jpg"
+        },
+        {
+          category: "Kitchenware",
+          img:"https://i.ibb.co/TtTr0wd/kitchenware.jpg"
+        },
+        {
+          category: "Homeware",
+          img:"https://i.ibb.co/MBr8Jx1/homeware.jpg"
+        },
+        {
+          category: "Bathroom",
+          img:"https://i.ibb.co/YTGyYwq/bathware.jpg"
+        },
+        {
+          category: "Garden",
+          img:"https://i.ibb.co/b1R6czy/garden.jpg"
+        },
+        {
+          category: "Sculpture",
+          img:"https://i.ibb.co/881CX06/sculpture.jpg"
+        }
+        
+        
+      ],
+      // filter_criteria:''
+    } // data variables end
+  }} // data itself ends
+
+</script>
