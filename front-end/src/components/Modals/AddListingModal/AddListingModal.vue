@@ -29,7 +29,6 @@ import ListingTags from "../AddListingModal/ListingTags.vue";
         <ListingTags />
       </div>
     </div>
-  </div>
 </template>
 
 <style scoped>
