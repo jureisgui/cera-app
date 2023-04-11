@@ -1,6 +1,6 @@
 <template>
     <div class="input_container">
-        <input type="text" :placeholder="Inputplaceholder" :v-model="add_user_prop">
+        <input type="text" :placeholder="Inputplaceholder">
 
     </div>
 </template>
@@ -34,10 +34,6 @@ defineProps({
     type: String,
     required: true
   },
-  add_user_prop: {
-    type: Object,
-    required: true
-  }
 });
 
 </script>
