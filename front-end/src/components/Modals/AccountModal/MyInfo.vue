@@ -36,7 +36,8 @@
                 <!-- need to add a fetch data from user account to pre populate these fields (if populated before) -->
             </div>
         </div>   
-        <span class="update_btn"><MainButton main_button_prop="Update" button_icon_prop="refresh" @click="update_user" /></span>       
+        <span class="update_btn"><MainButton main_button_prop="Update" button_icon_prop="refresh" /></span>   
+        <!-- @click="update_user"  -->
     </div>
 </template>
 
@@ -73,6 +74,10 @@
   border-radius: 10px;
   border: solid 1px #c4c4c4;
   padding: 10px;
+}
+
+input:focus{
+    outline: 1px solid #DCBA77;
 }
 
 .input-wrapper{
@@ -143,5 +148,6 @@ export default {
         });
         const received_data = await response.json();     
         },
-        }}}};
+    }}},
+};
       </script>
