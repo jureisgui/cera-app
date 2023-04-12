@@ -16,9 +16,9 @@
           <p class="error_msg" v-if="(!email_valid || !pw_valid)">
             Log-in failed. Please enter correct email or password.
           </p>
-          <MainInput Inputplaceholder="Email" />
+          <input type="text" placeholder="Email" v-model="input_email" class="InputStyle">
         </div>
-        <PasswordInput Password_placeholder="Password" />
+        <input type="password" placeholder="Password" v-model="input_password" class="InputStyle">
         <LongBtn long_button_text="Log in" />
       </div>
       <div class="bottom_text body_text">
@@ -93,6 +93,14 @@
 .login_title:hover {
   cursor: pointer;
 }
+
+.InputStyle{
+  height: 60px;
+  width: 100%;
+  border-radius: 10px;
+  border: solid 1px #c4c4c4;
+  padding: 10px;
+}
 </style>
 
 <script setup>
@@ -106,7 +114,9 @@ export default {
   data() {
     return {
       email_valid: true,
-      pw_valid: true
+      pw_valid: true,
+      input_email: '',
+      input_password: ''
     };
   },
 };
