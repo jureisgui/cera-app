@@ -1,7 +1,6 @@
 <script setup>
 import Footer from "./components/Footer.vue";
-
-import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
+import Header from "./components/Header.vue";
 </script>
 
 <template>
@@ -16,7 +15,7 @@ import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
   <!--  -->
 
   <!-- Matt's Test Section -->
-  <ProductModal />
+  <Header />
   <!--  -->
 
   <!-- Julie's Test Section -->
@@ -35,6 +34,7 @@ import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
 
 <script>
 export default {
+  components: { Header },
   data() {
     return {
       Logged_in: false,
