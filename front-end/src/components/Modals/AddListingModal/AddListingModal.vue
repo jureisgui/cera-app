@@ -24,8 +24,6 @@ import MainButton from "../../Buttons/MainButton.vue";
       </div>
       <div>
         <ListingSpecs v-bind:item_description="item_description"
-        v-on:update:item_description="updateItemDesc"
-        v-bind:is-new="isNew" v-on:update:is-new="updateIsNew"
         :Condition="radio_checked"
         :dimensionsObj="specsGroup"
         />
@@ -38,7 +36,8 @@ import MainButton from "../../Buttons/MainButton.vue";
         <ImageUpload
         :Images="images"/>
         </div>
-        <ListingShipping/>
+        <ListingShipping :ShippingCondition="shipping"/>
+        {{ shipping }}
         <div class="Listing_Finish_Container">
           <div class="Listing_Info_Container">
         <div class="ListingInfoHeading">
@@ -103,14 +102,11 @@ export default {
       title: '',
       subtitle: '',
       category: '',
-      tags:[
-
-      ],
-      images:[
-
-      ],
+      tags:[],
+      images:[],
       radio_checked:{},
       shipping:{},
+      specify_costs:{},
       specsGroup:{
         width:'',
         diameter:'',
@@ -158,6 +154,7 @@ export default {
       console.log(this.tags);
       console.log(this.images);
       console.log(this.radio_checked);
+      console.log(this.shipping);
 
   },
 }};

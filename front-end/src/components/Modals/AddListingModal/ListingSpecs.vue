@@ -17,9 +17,6 @@
               <div class="specs_third">
               <div class="center">
                 <label for="Title"> <span style="color: red;">*</span>Condition</label>
-                    <!-- <div class="col row"><input type="radio" name="condition" id="new" v-bind:checked="isNew === true" v-on:="$emit('update:is-new', 'New')"><label for="new">New</label></div>
-                    <div class="col"><input type="radio" name="condition" id="preloved" v-bind:checked="isNew === false" v-on:="$emit('update:is-new', 'Pre-loved')"><label for="preloved">Pre-Loved</label></div> -->
-
                     <div class="col row"><input type="radio" value="New" v-model="Condition.radio_checked" ><label for="new">New</label></div>
                     <div class="col"><input type="radio" value="Pre-loved" v-model="Condition.radio_checked" ><label for="preloved">Pre-Loved</label></div>
                 </div>
