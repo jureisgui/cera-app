@@ -27,7 +27,7 @@
         account_circle
       </span>
       <MainBtn main_button_prop="Log in" button_icon_prop="login" v-if="!Logged_in" @click="$emit('show_login_modal')"  />
-      <MainBtn main_button_prop="List an item" button_icon_prop="add_circle" v-if="Logged_in"/>
+      <MainBtn main_button_prop="List an item" button_icon_prop="add_circle" v-if="Logged_in" @click ="$emit('show_listing_modal')" />
     </div>
 
     <div>

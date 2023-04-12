@@ -1,11 +1,12 @@
 <template>
   <section class="landing">
     <Header Header_class="transparent" Logo="src/assets/img/pine_logo-01.svg" 
-      @show_login_modal="login_modal=true" :Logged_in="Logged_in" 
+      @show_login_modal="login_modal=true" :Logged_in="Logged_in"
+      @show_listing_modal="ListingModalOpen=true" 
     />
     <div class="blur" v-if="login_modal"></div>
     <Hero @Open_Listing_Modal="ListingModalOpen=true"/>
-    <AddListingModal v-if="ListingModalOpen" @CloseModal="ListingModalOpen=false" />
+    <AddListingModal v-if="ListingModalOpen" @CloseModal="ListingModalOpen=false"  />
     <Summary />
     <Categories />
     <FeaturedArtist />
