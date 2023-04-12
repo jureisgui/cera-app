@@ -110,9 +110,14 @@ export default {
       specify_costs: {},
     }
   },
+
   
-methods: {
-  submitListing() {
+  methods: {
+    CloseModal() {
+      this.ModalIsOpen = false;
+    },
+
+    submitListing() {
       console.log(this.listing_info.title);
       console.log(this.listing_info.subtitle);
       console.log(this.listing_info.category);
@@ -123,6 +128,6 @@ methods: {
       console.log(this.shipping);
 
     },
-},
-  };
+};
+
 </script>
