@@ -26,7 +26,7 @@
       <span class="material-symbols-outlined" v-if="Logged_in">
         account_circle
       </span>
-      <MainBtn main_button_prop="Log in" button_icon_prop="login" v-if="!Logged_in" @show_login_modal="modal_on" @click="$emit('show_login_modal')"  />
+      <MainBtn main_button_prop="Log in" button_icon_prop="login" v-if="!Logged_in" @click=""  />
       <MainBtn main_button_prop="List an item" button_icon_prop="add_circle" v-if="Logged_in"/>
     </div>
 
@@ -208,7 +208,8 @@ export default {
   data() {
     return {
       burger_menu_revealed: false,
-    };
+      modal_on: false // quick fix do not trust
+      };
   },
 };
 </script>

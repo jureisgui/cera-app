@@ -1,8 +1,9 @@
 <template>
   <section class="landing">
-    <Header Header_class="transparent" Logo="src/assets/img/pine_logo-01.svg" @show_login_modal="login_modal=true" />
+    <Header Header_class="transparent" Logo="src/assets/img/pine_logo-01.svg" />
     <div class="blur" v-if="login_modal"></div>
-    <Hero />
+    <Hero @Open_Listing_Modal="ListingModalOpen=true"/>
+    <AddListingModal v-if="ListingModalOpen" @CloseModal="ListingModalOpen=false"/>
     <Summary />
     <Categories />
     <FeaturedArtist />
@@ -36,6 +37,7 @@
 
 <script setup>
 import Header from "../components/Header.vue";
+import AddListingModal from "../components/Modals/AddListingModal/AddListingModal.vue";
 import Hero from "../components/LandingComponents/HeroSection.vue";
 import Summary from "../components/LandingComponents/Summary.vue";
 import FeaturedArtist from "../components/LandingComponents/FeaturedArtist.vue";
@@ -48,6 +50,7 @@ export default {
   data() {
     return {
       login_modal: false,
+      ListingModalOpen: false
     };
   },
 };
