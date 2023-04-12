@@ -24,8 +24,8 @@ router.get('/getuser/:id', async (req, res) => {
 });
 
 // GET (single) User  by email
-router.get('/getuser/email', async (req, res) => {
-    const IDed_User = await User.findOne({ email : req.params.id });
+router.get('/getbyemail/:id', async (req, res) => {
+    const IDed_User = await User.findOne({ email : req.params.id});
     res.json(IDed_User)
 });
 
