@@ -7,7 +7,7 @@ import ImageUpload from "../AddListingModal/ImageUpload.vue";
 import MainButton from "../../Buttons/MainButton.vue";
 </script>
 <template>
-  <div v-show="ModalIsOpen" class="AddListingContainer">
+  <div class="AddListingContainer">
     <div class="ListingModalMargin">
       <div class="back_arrow">
         <span @click="$emit('CloseModal')" class="material-symbols-outlined">arrow_back_ios</span>
@@ -91,8 +91,6 @@ import MainButton from "../../Buttons/MainButton.vue";
 export default {
   data() {
     return {
-      ModalIsOpen: true,
-      
       listing_info:{
       title: '',
       subtitle: '',
@@ -113,6 +111,7 @@ export default {
     }
   },
 
+  
   methods: {
     CloseModal() {
       this.ModalIsOpen = false;
@@ -129,6 +128,6 @@ export default {
       console.log(this.shipping);
 
     },
-  }
 };
+
 </script>
