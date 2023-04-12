@@ -17,11 +17,6 @@
               class="shop_btn"
           /></router-link>
           <!-- List item button -->
-          <MainButton @click="$emit('Open_Listing_Modal')"
-            main_button_prop="List an item"
-            button_icon_prop="add_circle"
-            class="list_btn"
-          />
         </div>
       </div>
     </div>
