@@ -23,6 +23,12 @@ router.get('/getuser/:id', async (req, res) => {
     res.json(IDed_User)
 });
 
+// GET (single) User  by email
+router.get('/getuser/email', async (req, res) => {
+    const IDed_User = await User.findOne({ email : req.params.id });
+    res.json(IDed_User)
+});
+
 // DELETE a User by ID
 router.delete('/delete/:id', async (req, res) => {
     const toDelete_User = await User.findByIdAndDelete({ _id : req.params.id });

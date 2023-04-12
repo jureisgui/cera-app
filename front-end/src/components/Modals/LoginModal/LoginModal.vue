@@ -13,17 +13,30 @@
       </div>
       <div class="form body_text">
         <div class="input_row">
-          <p class="error_msg" v-if="(!email_valid || !pw_valid)">
+          <p class="error_msg" v-if="!email_valid || !pw_valid">
             Log-in failed. Please enter correct email or password.
           </p>
-          <input type="text" placeholder="Email" v-model="input_email" class="InputStyle">
+          <input
+            type="text"
+            placeholder="Email"
+            v-model="input_email"
+            class="InputStyle"
+          />
         </div>
-        <input type="password" placeholder="Password" v-model="input_password" class="InputStyle">
-        <LongBtn long_button_text="Log in" />
+        <input
+          type="password"
+          placeholder="Password"
+          v-model="input_password"
+          class="InputStyle"
+        />
+        <LongBtn long_button_text="Log in" @click="checkLogin" />
       </div>
       <div class="bottom_text body_text">
         <p>
-          Don't have an account with Cera yet? <router-link to="/signup" target="_blank" class="link">Sign up</router-link>
+          Don't have an account with Cera yet?
+          <router-link to="/signup" target="_blank" class="link"
+            >Sign up</router-link
+          >
         </p>
         <p small_text>
           Some terms and conditions that will never be seen by no one, not ever!
@@ -87,14 +100,14 @@
 }
 
 .login_title {
-    text-align: center;
+  text-align: center;
 }
 
 .login_title:hover {
   cursor: pointer;
 }
 
-.InputStyle{
+.InputStyle {
   height: 60px;
   width: 100%;
   border-radius: 10px;
@@ -115,9 +128,46 @@ export default {
     return {
       email_valid: true,
       pw_valid: true,
-      input_email: '',
-      input_password: ''
+      input_email: "",
+      input_password: "",
+      users_list: [],
+      single_user_body_data: {
+        first_name: "",
+        last_name: "",
+        email: "",
+        phone_number: "",
+        location: "",
+        seller_image: "",
+        seller_name: "",
+        description: "",
+        my_listings: [],
+      },
+      single_login_body_data: { email: "", password: "" },
+      email_from_db: ''
     };
+  },
+  methods: {
+    async fetch_all_users() {
+      const response = await fetch("http://localhost:4000/users/");
+      const received_data = await response.json();
+      this.users_list = received_data;
+      console.log(received_data);
+    },
+    async getEmail(email) {
+      const response = await fetch(
+        `http://localhost:4000/users/getuser/${email}`
+      );
+      const data = await response.json();
+      this.email_from_db = data;
+      console.log(data);
+    },
+    checkLogin() {
+      this.getEmail();
+      if (this.email_from_db == this.input_email)
+        console.log('yay');
+      else 
+        console.log('noo');
+    },
   },
 };
 </script>
