@@ -143,7 +143,7 @@ export default {
         my_listings: [],
       },
       single_login_body_data: { email: "", password: "" },
-      email_from_db: ''
+      email_obj_from_logindb: ''
     };
   },
   methods: {
@@ -153,18 +153,18 @@ export default {
       this.users_list = received_data;
       console.log(received_data);
     },
-    async getEmail(email) {
+    async getEmail() {
       const response = await fetch(
-        `http://localhost:4000/users/getuser/${email}`
+        `http://localhost:4000/logins/checklogin/`+this.input_email
       );
       const data = await response.json();
-      this.email_from_db = data;
+      this.email_obj_from_logindb = data;
       console.log(data);
     },
     checkLogin() {
       this.getEmail();
-      if (this.email_from_db == this.input_email)
-        console.log('yay');
+      if (this.email_obj_from_logindb.password == this.input_password)
+        console.log('yay',this.email_obj_from_logindb.user_id);
       else 
         console.log('noo');
     },
