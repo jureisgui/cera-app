@@ -27,7 +27,7 @@ import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
   <!-- Kyla's Test Section -->
   <!--  -->
 
-  <router-view></router-view>
+  <router-view ></router-view>
   <!-- <Footer /> -->
 </template>
 
@@ -39,7 +39,8 @@ import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
   export default {
   data(){
     return{
-      Logged_in: false
+      Logged_in: false,
+      logged_user_obj:{}
     }
   },
   methods:{
@@ -55,3 +56,4 @@ import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
 
 
 <script></script>
+
