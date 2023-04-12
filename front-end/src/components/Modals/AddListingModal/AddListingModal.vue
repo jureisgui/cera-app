@@ -8,7 +8,7 @@ import MainButton from "../../Buttons/MainButton.vue";
 </script>
 <template>
   <div v-if="ModalIsOpen" class="AddListingContainer">
-  {{ inputFullObj }}
+
     <div class="ListingModalMargin">
       <div class="back_arrow">
         <span @click="$emit('CloseModal')" class="material-symbols-outlined">arrow_back_ios</span>
@@ -26,6 +26,7 @@ import MainButton from "../../Buttons/MainButton.vue";
         <ListingSpecs v-bind:item_description="item_description"
         v-on:update:item_description="updateItemDesc"
         v-bind:is-new="isNew" v-on:update:is-new="updateIsNew"
+        :Condition="radio_checked"
         :dimensionsObj="specsGroup"
         />
       </div>
@@ -108,6 +109,7 @@ export default {
       images:[
 
       ],
+      radio_checked:{},
       shipping:{},
       specsGroup:{
         width:'',
@@ -155,6 +157,7 @@ export default {
       console.log(this.isNew);
       console.log(this.tags);
       console.log(this.images);
+      console.log(this.radio_checked);
 
   },
 }};
