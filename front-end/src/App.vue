@@ -2,10 +2,6 @@
 
 import Footer from './components/Footer.vue'
 
-import ProductModal from "./components/Modals/ProductModal/ProductModal.vue";
-import AccountModal from './components/Modals/AccountModal/AccountModal.vue'
-
-
 </script>
 
 <template>
@@ -13,7 +9,6 @@ import AccountModal from './components/Modals/AccountModal/AccountModal.vue'
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 
   <!-- Tin's Test Section -->
-
   <!--  -->
 
   <!-- Matt's Test Section -->
@@ -21,14 +16,17 @@ import AccountModal from './components/Modals/AccountModal/AccountModal.vue'
   <!--  -->
 
   <!-- Julie's Test Section -->
-<AccountModal />
+
 
   <!--  -->
 
   <!-- Kyla's Test Section -->
   <!--  -->
-
-  <router-view></router-view>
+  <router-view 
+    @pass_logged_user="received_logged_user_obj" 
+    :Logged_in="Logged_in" 
+    :logged_user_obj="logged_user_obj"
+  ></router-view>
   <!-- <Footer /> -->
 </template>
 
@@ -40,11 +38,17 @@ import AccountModal from './components/Modals/AccountModal/AccountModal.vue'
   export default {
   data(){
     return{
-      Logged_in: false
+      Logged_in: false,
+      logged_user_obj:{}
     }
   },
   methods:{
-    
+    received_logged_user_obj(user_obj){
+      console.log('hi');  
+      this.logged_user_obj = user_obj
+      this.Logged_in = true
+      console.log(this.logged_user_obj)
+    }
   },
   created(){
     
@@ -56,3 +60,4 @@ import AccountModal from './components/Modals/AccountModal/AccountModal.vue'
 
 
 <script></script>
+

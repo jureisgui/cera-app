@@ -26,7 +26,7 @@
       <span class="material-symbols-outlined" v-if="Logged_in" @click="$emit('Modal_Open')">
         account_circle
       </span>
-      <MainBtn main_button_prop="Log in" button_icon_prop="login" v-if="!Logged_in" @show_login_modal="modal_on" @click="$emit('show_login_modal')"  />
+      <MainBtn main_button_prop="Log in" button_icon_prop="login" v-if="!Logged_in" @click=""  />
       <MainBtn main_button_prop="List an item" button_icon_prop="add_circle" v-if="Logged_in"/>
     </div>
 
@@ -47,7 +47,7 @@
     <li v-if="Logged_in"><a href="#">My Favourites</a></li>
     <li v-if="Logged_in"><a href="#">My Account</a></li>
     <li v-if="Logged_in"><a href="#">List an Item</a></li>
-    <li v-if="!Logged_in"><a href="#">Log in</a></li>
+    <li v-if="!Logged_in" @click="$emit('show_login_modal')"><a href="#">Log in</a></li>
   </ul>
 </template>
 
@@ -208,7 +208,8 @@ export default {
   data() {
     return {
       burger_menu_revealed: false,
-    };
+      modal_on: false // quick fix do not trust
+      };
   },
 };
 </script>

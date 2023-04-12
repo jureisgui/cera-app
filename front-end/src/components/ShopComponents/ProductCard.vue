@@ -7,7 +7,7 @@ import Heart from "@/components/Buttons/Heart.vue";
     <div class="image_wrapper">
       <!-- Image fetch needs to be added below -->
       <img  class="product_thumbnail" src="@/assets/img/categories/homeware.jpeg" alt="Product Thumbnail"/>
-      <Heart />
+      <Heart class="heart_position" />
     </div>
     <div class="text_wrapper">
       <h2 class="subheading_text">Pitta Potta</h2> <!-- Shop name fetch needs to be added -->
@@ -28,9 +28,15 @@ import Heart from "@/components/Buttons/Heart.vue";
   position: relative;
 }
 .product_thumbnail {
-  width: 390px;
-  height: 305px;
+  max-width: 390px;
+  max-height: 305px;
   border-radius: 10px;
+}
+
+.heart_position{
+  position: absolute;
+  top: 10px;
+  right: 20px
 }
 
 .subheading_text {
@@ -48,8 +54,15 @@ import Heart from "@/components/Buttons/Heart.vue";
 
 @media (max-width: 32em) {
   .product_thumbnail {
-  width: 280px;
-  height: 220px;
+  max-width: 280px;
+  max-height: 220px;
+  }
+}
+
+@media (max-width: 425px) {
+  .product_thumbnail {
+  min-width: 280px;
+  min-height: 220px;
   }
 }
 

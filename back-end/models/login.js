@@ -6,6 +6,9 @@ const LoginSchema = new mongoose.Schema({
     password: {
         type: String, 
         required: true},
+    user_id: {
+        type: String, 
+        required: true}
 });
 // = new mongoose.Schema({fname:String,lname:String})
 const Login = mongoose.model("Login", LoginSchema);

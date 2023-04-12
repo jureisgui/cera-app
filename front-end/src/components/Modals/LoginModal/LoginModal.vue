@@ -13,17 +13,30 @@
       </div>
       <div class="form body_text">
         <div class="input_row">
-          <p class="error_msg">
+          <p class="error_msg" v-if="!email_valid || !pw_valid">
             Log-in failed. Please enter correct email or password.
           </p>
-          <MainInput Inputplaceholder="Email" />
+          <input
+            type="text"
+            placeholder="Email"
+            v-model="input_email"
+            class="InputStyle"
+          />
         </div>
-        <PasswordInput Password_placeholder="Password" />
-        <LongBtn long_button_text="Log in" />
+        <input
+          type="password"
+          placeholder="Password"
+          v-model="input_password"
+          class="InputStyle"
+        />
+        <LongBtn long_button_text="Log in" @click="checkLogin" />
       </div>
       <div class="bottom_text body_text">
         <p>
-          Don't have an account with Cera yet? <router-link to="/signup" target="_blank" class="link">Sign up</router-link>
+          Don't have an account with Cera yet?
+          <router-link to="/signup" target="_blank" class="link"
+            >Sign up</router-link
+          >
         </p>
         <p small_text>
           Some terms and conditions that will never be seen by no one, not ever!
@@ -87,11 +100,19 @@
 }
 
 .login_title {
-    text-align: center;
+  text-align: center;
 }
 
 .login_title:hover {
   cursor: pointer;
+}
+
+.InputStyle {
+  height: 60px;
+  width: 100%;
+  border-radius: 10px;
+  border: solid 1px #c4c4c4;
+  padding: 10px;
 }
 </style>
 
@@ -99,4 +120,62 @@
 import LongBtn from "../../Buttons/LongButton.vue";
 import MainInput from "../../Inputs/MainInput.vue";
 import PasswordInput from "../../Inputs/PasswordInput.vue";
+</script>
+
+<script>
+export default {
+  data() {
+    return {
+      email_valid: true,
+      pw_valid: true,
+      input_email: "",
+      input_password: "",
+      users_list: [],
+      single_user_body_data: {
+        first_name: "",
+        last_name: "",
+        email: "",
+        phone_number: "",
+        location: "",
+        seller_image: "",
+        seller_name: "",
+        description: "",
+        my_listings: [],
+      },
+      single_login_body_data: { email: "", password: "" },
+      email_obj_from_logindb: "",
+    };
+  },
+  methods: {
+    async fetch_all_users() {
+      const response = await fetch("http://localhost:4000/users/");
+      const received_data = await response.json();
+      this.users_list = received_data;
+      console.log(received_data);
+    },
+    async checkLogin() {
+      const response = await fetch(
+        `http://localhost:4000/logins/checklogin/` + this.input_email
+      );
+      const data = await response.json();
+      this.email_obj_from_logindb = data;
+      console.log(data);
+      if (this.email_obj_from_logindb.password == this.input_password) {
+        console.log("yay", this.email_obj_from_logindb.user_id);
+        this.fetch_single_user(this.email_obj_from_logindb.user_id);
+      }
+    },
+    async fetch_single_user(userID) {
+      const response = await fetch(
+        "http://localhost:4000/users/getuser/" + userID
+      );
+      const received_data = await response.json();
+      this.single_user_body_data = received_data;
+      console.log(this.single_user_body_data);
+      console.log('test');
+      this.$emit("pass_logged_user", this.single_user_body_data);
+      this.$emit("close_login");
+    },
+  },
+};
 </script>
