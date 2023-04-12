@@ -5,7 +5,7 @@
     />
     <div class="blur" v-if="login_modal"></div>
     <Hero @Open_Listing_Modal="ListingModalOpen=true"/>
-    <AddListingModal v-if="ListingModalOpen" @CloseModal="ListingModalOpen=false"/>
+    <AddListingModal v-if="ListingModalOpen" @CloseModal="ListingModalOpen=false" />
     <Summary />
     <Categories />
     <FeaturedArtist />
