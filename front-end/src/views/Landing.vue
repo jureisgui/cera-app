@@ -59,6 +59,7 @@ export default {
   data() {
     return {
       login_modal: false,
+      ListingModalOpen: false
     }
   },
   methods: {
@@ -70,10 +71,8 @@ export default {
       this.login_modal = false
     }
 
-      ListingModalOpen: false
-    };
-  },
-};
+    }
+  }
 </script>
 
 
