@@ -7,7 +7,7 @@ import ImageUpload from "../AddListingModal/ImageUpload.vue";
 import MainButton from "../../Buttons/MainButton.vue";
 </script>
 <template>
-  <div v-if="ModalIsOpen" class="AddListingContainer">
+  <div v-show="ModalIsOpen" class="AddListingContainer">
     <div class="ListingModalMargin">
       <div class="back_arrow">
         <span @click="$emit('CloseModal')" class="material-symbols-outlined">arrow_back_ios</span>
@@ -16,11 +16,11 @@ import MainButton from "../../Buttons/MainButton.vue";
         <h1 class="heading_text">Add a New Listing</h1>
       </div>
       <div>
-        <ListingInfo v-bind:title="title" v-on:update:title="updateTitle" v-on:update:subtitle="updateSubtitle"
-          v-on:update:category="updateCategory" />
+        <ListingInfo 
+        :ListingInfo="listing_info" />
       </div>
       <div>
-        <ListingSpecs  
+        <ListingSpecs 
         :Condition="radio_checked" 
         :dimensionsObj="specsGroup" />
       </div>
@@ -72,19 +72,19 @@ import MainButton from "../../Buttons/MainButton.vue";
 .material-symbols-outlined:hover {
   transform: scale(1.2);
 }
-.Listing_Info_Container{
-        margin-top: 2em;
-        border: solid 1px #444739;
-        padding: 2em;
-    }
 
-.submit_listing{
+.Listing_Info_Container {
+  margin-top: 2em;
+  border: solid 1px #444739;
+  padding: 2em;
+}
+
+.submit_listing {
   margin: 2em 10%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 </style>
 
 <script>
@@ -92,23 +92,23 @@ export default {
   data() {
     return {
       ModalIsOpen: true,
-      isNew: true,
+      listing_info:{
       title: '',
       subtitle: '',
       category: '',
-      tags:[],
-      images:[],
-      radio_checked:{},
-      shipping:{},
-      specify_costs:{},
-      specsGroup:{
+      },
+      radio_checked: {},
+      specsGroup: {
         description: '',
-        width:'',
-        diameter:'',
-        capacity:'',
-        dimensions:'',
-        price:'',
-      }
+        width: '',
+        diameter: '',
+        capacity: '',
+        price: '',
+      },
+      tags: [],
+      images: [],
+      shipping: {},
+      specify_costs: {},
     }
   },
 
@@ -121,35 +121,35 @@ export default {
       this.title = newVal
     },
 
-    updateSubtitle(newVal){
+    updateSubtitle(newVal) {
       this.subtitle = newVal
     },
 
-    updateCategory(newVal){
+    updateCategory(newVal) {
       this.category = newVal
     },
 
-    updateItemDesc(newVal){
+    updateItemDesc(newVal) {
       this.item_description = newVal
     },
     updateIsNew(newValue) {
       this.isNew = newValue
       if (this.isNew) {
-        
+
       }
     },
 
-    submitListing(){
-      console.log(this.title);
-      console.log(this.subtitle);
-      console.log(this.category);
-      console.log(this.specsGroup.description);
-      console.log(this.isNew);
+    submitListing() {
+      console.log(this.listing_info.title);
+      console.log(this.listing_info.subtitle);
+      console.log(this.listing_info.category);
+      console.log(this.specsGroup);
+      console.log(this.radio_checked);
       console.log(this.tags);
       console.log(this.images);
-      console.log(this.radio_checked);
       console.log(this.shipping);
 
-  },
-}};
+    },
+  }
+};
 </script>
