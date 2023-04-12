@@ -1,5 +1,5 @@
 <template>
-  <Header Header_class="green" Logo="src/assets/img/white_logo-01-01.svg" />
+  <Header Header_class="green" Logo="src/assets/img/white_logo-01-01.svg" @show_login_modal="login_modal=true" :Logged_in="Logged_in"  />
   <main>
     <Success
       @Close_Modal="modal_on = false"
@@ -140,6 +140,11 @@ main {
 import Header from "../components/Header.vue";
 import LongBtn from "../components/Buttons/LongButton.vue";
 import Success from "../components/Success.vue";
+
+defineProps({
+  Logged_in: Boolean,
+  logged_user_obj: Object,
+});
 </script>
 
 <script>

@@ -143,7 +143,7 @@ export default {
         my_listings: [],
       },
       single_login_body_data: { email: "", password: "" },
-      email_obj_from_logindb: ''
+      email_obj_from_logindb: "",
     };
   },
   methods: {
@@ -153,20 +153,28 @@ export default {
       this.users_list = received_data;
       console.log(received_data);
     },
-    async getEmail() {
+    async checkLogin() {
       const response = await fetch(
-        `http://localhost:4000/logins/checklogin/`+this.input_email
+        `http://localhost:4000/logins/checklogin/` + this.input_email
       );
       const data = await response.json();
       this.email_obj_from_logindb = data;
       console.log(data);
+      if (this.email_obj_from_logindb.password == this.input_password) {
+        console.log("yay", this.email_obj_from_logindb.user_id);
+        this.fetch_single_user(this.email_obj_from_logindb.user_id);
+      }
     },
-    checkLogin() {
-      this.getEmail();
-      if (this.email_obj_from_logindb.password == this.input_password)
-        console.log('yay',this.email_obj_from_logindb.user_id);
-      else 
-        console.log('noo');
+    async fetch_single_user(userID) {
+      const response = await fetch(
+        "http://localhost:4000/users/getuser/" + userID
+      );
+      const received_data = await response.json();
+      this.single_user_body_data = received_data;
+      console.log(this.single_user_body_data);
+      console.log('test');
+      this.$emit("pass_logged_user", this.single_user_body_data);
+      this.$emit("close_login");
     },
   },
 };
