@@ -92,6 +92,7 @@ export default {
   data() {
     return {
       ModalIsOpen: true,
+      
       listing_info:{
       title: '',
       subtitle: '',
@@ -115,28 +116,6 @@ export default {
   methods: {
     CloseModal() {
       this.ModalIsOpen = false;
-    },
-
-    updateTitle(newVal) {
-      this.title = newVal
-    },
-
-    updateSubtitle(newVal) {
-      this.subtitle = newVal
-    },
-
-    updateCategory(newVal) {
-      this.category = newVal
-    },
-
-    updateItemDesc(newVal) {
-      this.item_description = newVal
-    },
-    updateIsNew(newValue) {
-      this.isNew = newValue
-      if (this.isNew) {
-
-      }
     },
 
     submitListing() {
