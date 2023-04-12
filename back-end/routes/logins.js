@@ -17,6 +17,12 @@ router.post('/addlogin', async (req, res) => {
     res.json(savedLogin)
 });
 
+// GET (single) User  by email
+router.get('/checklogin/:id', async (req, res) => {
+    const IDed_User = await Login.findOne({ email : req.params.id});
+    res.json(IDed_User)
+});
+
 // GET (single) Login by ID
 router.get('/getlogin/:id', async (req, res) => {
     const IDed_Login = await Login.findById({ _id : req.params.id });

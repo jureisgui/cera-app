@@ -47,7 +47,7 @@
     <li v-if="Logged_in"><a href="#">My Favourites</a></li>
     <li v-if="Logged_in"><a href="#">My Account</a></li>
     <li v-if="Logged_in"><a href="#">List an Item</a></li>
-    <li v-if="!Logged_in"><a href="#">Log in</a></li>
+    <li v-if="!Logged_in" @click="$emit('show_login_modal')"><a href="#">Log in</a></li>
   </ul>
 </template>
 

@@ -4,10 +4,16 @@ import SortBy from "../components/ShopComponents/Sortby.vue";
 import Categories from "../components/Categories.vue";
 import ProductCard from "../components/ShopComponents/ProductCard.vue";
 
+defineProps({
+  Logged_in: Boolean,
+  logged_user_obj: Object,
+});
+
 </script>
 
 <template>
-    <Header Header_class="green" Logo="src/assets/img/white_logo-01-01.svg" />
+    <Header Header_class="green" Logo="src/assets/img/white_logo-01-01.svg" 
+    @show_login_modal="login_modal=true" :Logged_in="Logged_in"  />
     <SortBy />
     <Categories />
     <div class="shop-section">
