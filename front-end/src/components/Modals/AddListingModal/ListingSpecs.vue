@@ -7,8 +7,11 @@
 
             <div class="input_dropdown_container body_text">
                 <div class="title_input">
-                    <div><label for="Title"> <span style="color: red;">*</span>Write a description for your listing.</label></div>
-                    <div><DescriptionInput v-bind:value="item_description" v-on:input="updateItemDesc"/></div>
+                    <label for="Title"> <span style="color: red;">*</span>Write a description for your listing.</label>
+                    <textarea class="textarea body_text" 
+                    placeholder="Write your product description here..."
+                    rows="10" cols="80" 
+                    v-model="dimensionsObj.description"></textarea>
                 </div>
              </div>
 
@@ -48,6 +51,23 @@
 </template>
 
 <style scoped>
+
+.textarea {
+        color: #000;
+        border: 1px solid #c4c4c4;
+        border-radius: 10px;
+        padding: 10px;
+        width: 100%;
+        height: 200px;
+    }
+
+    textarea::placeholder {
+        color: #cacaca;
+    }
+
+    textarea:focus {
+        outline: 1px solid #DCBA77;
+    }
 
 .dimensions{
     display: flex;
@@ -126,10 +146,6 @@ import DescriptionInput from '../../Inputs/DescriptionInput.vue'
 import MainInputVue from '../../Inputs/MainInput.vue';
 
 defineProps({
-  item_description: {
-    type: String,
-    required: true
-  },
 
   Condition: {
     type: Boolean,
@@ -149,23 +165,8 @@ defineProps({
 export default {
     data() {
         return {
-            localItemDesc: this.item_description,
             RadioOn: true
     }
-  },
-  watch: {
-    localItemDesc(newVal) {
-      this.$emit('update:item_description', newVal)
-    },
-
-
-  },
-
-  methods: {
-    updateItemDesc(event) {
-      this.localItemDesc = event.target.value
-    },
-
   },
 }
 </script>

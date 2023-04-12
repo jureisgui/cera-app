@@ -8,7 +8,6 @@ import MainButton from "../../Buttons/MainButton.vue";
 </script>
 <template>
   <div v-if="ModalIsOpen" class="AddListingContainer">
-
     <div class="ListingModalMargin">
       <div class="back_arrow">
         <span @click="$emit('CloseModal')" class="material-symbols-outlined">arrow_back_ios</span>
@@ -17,40 +16,35 @@ import MainButton from "../../Buttons/MainButton.vue";
         <h1 class="heading_text">Add a New Listing</h1>
       </div>
       <div>
-        <ListingInfo v-bind:title="title" 
-        v-on:update:title="updateTitle"
-        v-on:update:subtitle="updateSubtitle"
-        v-on:update:category="updateCategory"/>
+        <ListingInfo v-bind:title="title" v-on:update:title="updateTitle" v-on:update:subtitle="updateSubtitle"
+          v-on:update:category="updateCategory" />
       </div>
       <div>
-        <ListingSpecs v-bind:item_description="item_description"
-        :Condition="radio_checked"
-        :dimensionsObj="specsGroup"
-        />
+        <ListingSpecs  
+        :Condition="radio_checked" 
+        :dimensionsObj="specsGroup" />
       </div>
       <div>
-        <ListingTags 
-        :Tags="tags" />
-        </div>
-        <div>
-        <ImageUpload
-        :Images="images"/>
-        </div>
-        <ListingShipping :ShippingCondition="shipping"/>
-        {{ shipping }}
-        <div class="Listing_Finish_Container">
-          <div class="Listing_Info_Container">
-        <div class="ListingInfoHeading">
-            <h1 class="subheading_text">Finish<hr></h1>
-        </div>
-        <div class="submit_listing"><MainButton @click="submitListing" main_button_prop="Submit Listing" button_icon_prop="publish"/>
-        
-        </div>
-            
-    </div>
+        <ListingTags :Tags="tags" />
+      </div>
+      <div>
+        <ImageUpload :Images="images" />
+      </div>
+      <ListingShipping :ShippingCondition="shipping" />
+      <div class="Listing_Finish_Container">
+        <div class="Listing_Info_Container">
+          <div class="ListingInfoHeading">
+            <h1 class="subheading_text">Finish
+              <hr>
+            </h1>
+          </div>
+          <div class="submit_listing">
+            <MainButton @click="submitListing" main_button_prop="Submit Listing" button_icon_prop="publish" />
+          </div>
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <style scoped>
@@ -108,6 +102,7 @@ export default {
       shipping:{},
       specify_costs:{},
       specsGroup:{
+        description: '',
         width:'',
         diameter:'',
         capacity:'',
@@ -148,8 +143,7 @@ export default {
       console.log(this.title);
       console.log(this.subtitle);
       console.log(this.category);
-      console.log(this.item_description);
-      console.log(this.specsGroup.price);
+      console.log(this.specsGroup.description);
       console.log(this.isNew);
       console.log(this.tags);
       console.log(this.images);
