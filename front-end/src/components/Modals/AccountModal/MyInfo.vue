@@ -15,6 +15,7 @@
             </div>
             <div class="input-wrapper">
                 <input v-model="user_body_data.email" class="InputStyle" type="email" placeholder="Enter your email">
+                <!-- need to add a fetch data from user account to pre populate these fields -->
             </div>
         </div>
         <div class="info-container">
@@ -23,6 +24,7 @@
             </div>
             <div class="input-wrapper">
                 <input v-model="user_body_data.phone_number" class="InputStyle" type="text" placeholder="Enter your phone number">
+                <!-- need to add a fetch data from user account to pre populate these fields (if populated before) -->
             </div>
         </div>
         <div class="info-container">
@@ -31,9 +33,10 @@
             </div>
             <div class="input-wrapper">
                 <input v-model="user_body_data.location" class="InputStyle" type="text" placeholder="Enter your city/town">
+                <!-- need to add a fetch data from user account to pre populate these fields (if populated before) -->
             </div>
         </div>   
-        <span class="update_btn"><MainButton main_button_prop="Update" button_icon_prop="refresh" /></span>       
+        <span class="update_btn"><MainButton main_button_prop="Update" button_icon_prop="refresh" @click="update_user" /></span>       
     </div>
 </template>
 
@@ -131,15 +134,14 @@ export default {
             const response = await fetch("http://localhost:4000/users/getuser/"+userID);
             const received_data = await response.json();
             this.single_user=received_data;
-    },
+        },
         async update_user(userID){
             const response = await fetch("http://localhost:4000/users/update/"+userID, {
                 method:"PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(this.body_data)
-      });
-      const received_data = await response.json();
-    //   this.fetch_all_users();
-    },
-}}}};
+        });
+        const received_data = await response.json();     
+        },
+        }}}};
       </script>
