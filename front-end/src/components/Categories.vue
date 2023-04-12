@@ -48,8 +48,9 @@
 
 .categories_container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 30px;
 }
 
 .category-card img {
@@ -60,20 +61,15 @@
 
 .category-card {
   text-align: center;
-  padding-right: 0.7em;
   margin-bottom: 4.5em;
 }
 
 .categories-wrapper {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin: 0 10%;
   border-bottom: solid 1px;
 }
 
 @media (max-width: 32em) {
-  .categories_container {
-    justify-content: center;
-  }
 }
 </style>
 
