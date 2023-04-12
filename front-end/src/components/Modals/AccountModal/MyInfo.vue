@@ -36,7 +36,7 @@
                 <!-- need to add a fetch data from user account to pre populate these fields (if populated before) -->
             </div>
         </div>   
-        <span class="update_btn"><MainButton main_button_prop="Update" button_icon_prop="refresh" /></span>   
+        <span class="update_btn"><MainButton main_button_prop="Update" button_icon_prop="refresh" @click="onUpdateUser" /></span>   
         <!-- @click="update_user"  -->
     </div>
 </template>
@@ -62,27 +62,27 @@
 
 .short-input{
     display: flex;
-    gap: 10px
+    gap: 10px;
 }
 
 .short-input > * {
     flex: 1;
 }
 .InputStyle{
-  height: 60px;
-  width: 100%;
-  border-radius: 10px;
-  border: solid 1px #c4c4c4;
-  padding: 10px;
+    height: 60px;
+    width: 100%;
+    border-radius: 10px;
+    border: solid 1px #c4c4c4;
+    padding: 10px;
 }
 
 textarea{
-        box-sizing: border-box;
-        border: 1px solid #C4C4C4;
-        border-radius: 10px;
-        padding: 10px;
-        width: 100%;
-        height: 100px;
+    box-sizing: border-box;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    height: 100px;
     }
 
 input:focus{
@@ -117,7 +117,7 @@ input:focus{
 
 .short-input{
     flex-direction: column;
-    gap: 10px
+    gap: 10px;
 }
 }
     
@@ -126,6 +126,9 @@ input:focus{
 <script setup>
 import MainInput from '@/components/Inputs/MainInput.vue'
 import MainButton from '@/components/Buttons/MainButton.vue'
+
+
+            
 </script>
 
 <script>
@@ -153,10 +156,21 @@ export default {
             const response = await fetch("http://localhost:4000/users/update/"+userID, {
                 method:"PUT",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(this.body_data)
+                body: JSON.stringify(this.user_body_data)
         });
         const received_data = await response.json();     
         },
-    }}},
-};
+        onUpdateUser() {
+        // Call the update_user method with the userID parameter
+        this.update_user(userID);
+        },
+
+        // mounted() {
+        //     // Fetch user data and populate the input fields with the fetched data
+        //     const userID = /* Retrieve the userID from wherever it's stored */;
+        //     this.fetchUserData(userID);
+        // }
+    }
+    };
+    }}
       </script>
