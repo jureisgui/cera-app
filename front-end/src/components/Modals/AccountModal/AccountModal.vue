@@ -14,26 +14,26 @@ import MyListings from "./MyListings.vue";
 </script>
 
 <template>
-  <!-- <div v-if="ModalIsOpen" class="modal-wrapper"> -->
-  <div class="back_arrow">
-    <span @click="$emit('CloseModal')" class="material-symbols-outlined"
-      >arrow_back_ios</span
-    >
+  <div v-if="ModalIsOpen" class="modal-wrapper">
+    <div class="back_arrow">
+      <span @click="$emit('CloseModal')" class="material-symbols-outlined"
+        >arrow_back_ios</span
+      >
+    </div>
+    <Accordion :multiple="true" :activeIndex="[0]">
+      <AccordionTab header="My Information">
+        <section><MyInfo /></section>
+      </AccordionTab>
+      <AccordionTab
+        header="My Public Profile (optional - this is what buyers will see when they view your profile)"
+      >
+        <section><PublicProfile /></section>
+      </AccordionTab>
+      <AccordionTab header="My Listings">
+        <section><MyListings /></section>
+      </AccordionTab>
+    </Accordion>
   </div>
-  <Accordion :multiple="true" :activeIndex="[0]">
-    <AccordionTab header="My Information">
-      <section><MyInfo /></section>
-    </AccordionTab>
-    <AccordionTab
-      header="My Public Profile (optional - this is what buyers will see when they view your profile)"
-    >
-      <section><PublicProfile /></section>
-    </AccordionTab>
-    <AccordionTab header="My Listings">
-      <section><MyListings /></section>
-    </AccordionTab>
-  </Accordion>
-  <!-- </div> -->
 </template>
 
 <style>

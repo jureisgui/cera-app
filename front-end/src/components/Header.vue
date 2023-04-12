@@ -23,7 +23,7 @@
       <span class="material-symbols-outlined heart" v-if="Logged_in">
         favorite
       </span>
-      <span class="material-symbols-outlined" v-if="Logged_in">
+      <span class="material-symbols-outlined" v-if="Logged_in" @click="$emit('Modal_Open')">
         account_circle
       </span>
       <MainBtn main_button_prop="Log in" button_icon_prop="login" v-if="!Logged_in" @click=""  />
