@@ -4,7 +4,8 @@
       @show_login_modal="login_modal=true" :Logged_in="Logged_in" 
     />
     <div class="blur" v-if="login_modal"></div>
-    <Hero />
+    <Hero @Open_Listing_Modal="ListingModalOpen=true"/>
+    <AddListingModal v-if="ListingModalOpen" @CloseModal="ListingModalOpen=false"/>
     <Summary />
     <Categories />
     <FeaturedArtist />
@@ -40,6 +41,7 @@
 
 <script setup>
 import Header from "../components/Header.vue";
+import AddListingModal from "../components/Modals/AddListingModal/AddListingModal.vue";
 import Hero from "../components/LandingComponents/HeroSection.vue";
 import Summary from "../components/LandingComponents/Summary.vue";
 import FeaturedArtist from "../components/LandingComponents/FeaturedArtist.vue";
@@ -67,6 +69,9 @@ export default {
     pass_close_app(){
       this.login_modal = false
     }
+
+      ListingModalOpen: false
+    };
   },
 };
 </script>
