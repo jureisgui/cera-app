@@ -7,7 +7,9 @@
     <Categories />
     <FeaturedArtist />
 
-    <Login class="login" v-if="login_modal" @close_login="login_modal=false" />
+    <Login class="login" v-if="login_modal" @close_login="login_modal=false" 
+    @pass_logged_user=""
+    />
   </section>
 </template>
 
