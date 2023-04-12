@@ -109,9 +109,7 @@ export default {
       shipping: {},
       specify_costs: {},
     }
-  },
-
-  
+  },  
   methods: {
     CloseModal() {
       this.ModalIsOpen = false;
@@ -128,6 +126,5 @@ export default {
       console.log(this.shipping);
 
     },
-};
-
+  }};
 </script>
