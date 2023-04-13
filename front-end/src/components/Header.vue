@@ -23,7 +23,7 @@
       <span class="material-symbols-outlined heart" v-if="Logged_in">
         favorite
       </span>
-      <span class="material-symbols-outlined" v-if="Logged_in" >
+      <span class="material-symbols-outlined" v-if="Logged_in" @click="$emit('show_account_modal')" >
         account_circle
       </span>
       
