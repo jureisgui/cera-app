@@ -130,6 +130,7 @@ export default {
         product_images: [],
         shipping: {},
         specify_costs: {},
+        user_id: '',
       },
     };
   },
@@ -162,6 +163,7 @@ export default {
       this.product_body_data.product_images = this.images;
       this.product_body_data.shipping = this.shipping;
       this.product_body_data.specify_costs = this.specify_costs;
+      this.product_body_data.user_id = localStorage.getItem("logged_userID");
 
       this.create_new_listing_listingDB();
 
