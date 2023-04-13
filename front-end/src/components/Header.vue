@@ -46,7 +46,7 @@
     <li><a href="#">FAQ</a></li>
     <li v-if="Logged_in"><a href="#">My Favourites</a></li>
     <li v-if="Logged_in"><a href="#">My Account</a></li>
-    <li v-if="Logged_in"><a href="#">List an Item</a></li>
+    <li v-if="Logged_in" @click ="$emit('show_listing_modal')"><a href="#">List an Item</a></li>
     <li v-if="!Logged_in" @click="$emit('show_login_modal')"><a href="#">Log in</a></li>
   </ul>
 </template>
@@ -208,7 +208,6 @@ export default {
   data() {
     return {
       burger_menu_revealed: false,
-      modal_on: false // quick fix do not trust
       };
   },
 };
