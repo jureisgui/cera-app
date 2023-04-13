@@ -1,6 +1,7 @@
 <script setup>
 
 import Footer from './components/Footer.vue'
+import AccountModal from './components/Modals/AccountModal/AccountModal.vue'
 
 </script>
 
@@ -16,7 +17,7 @@ import Footer from './components/Footer.vue'
   <!--  -->
 
   <!-- Julie's Test Section -->
-  
+
   <!--  -->
 
   <!-- Kyla's Test Section -->
@@ -46,6 +47,8 @@ import Footer from './components/Footer.vue'
       this.logged_user_obj = user_obj
       this.Logged_in = true
       console.log(this.logged_user_obj)
+      console.log(user_obj._id)
+      localStorage.setItem("logged_userID",user_obj._id)
     }
   },
   created(){

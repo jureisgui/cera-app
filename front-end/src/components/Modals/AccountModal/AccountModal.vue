@@ -11,14 +11,17 @@ import AccordionTab from "primevue/accordiontab";
 import MyInfo from "./MyInfo.vue";
 import PublicProfile from "./PublicProfile.vue";
 import MyListings from "./MyListings.vue";
+
+defineProps({
+  Logged_in: Boolean,
+  logged_user_obj: Object,
+});
 </script>
 
 <template>
-  <div v-if="ModalIsOpen" class="modal-wrapper">
+  <div v-if="ModalIsOpen" class="modal_wrapper">
     <div class="back_arrow">
-      <span @click="$emit('CloseModal')" class="material-symbols-outlined"
-        >arrow_back_ios</span
-      >
+      <span @click="$emit('CloseModal')" class="material-symbols-outlined icon-colour">arrow_back_ios</span>
     </div>
     <Accordion :multiple="true" :activeIndex="[0]">
       <AccordionTab header="My Information">
@@ -36,7 +39,16 @@ import MyListings from "./MyListings.vue";
   </div>
 </template>
 
-<style>
+<style scoped>
+.modal_wrapper{
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  top: 73px;
+  z-index: 10;
+  padding: 2em 10%;
+}
+
 .p-accordion-header {
   font-family: "Quicksand", sans-serif;
   font-style: normal;
@@ -52,6 +64,12 @@ import MyListings from "./MyListings.vue";
 .material-symbols-outlined {
   color: #fff;
   cursor: pointer;
+}
+
+.icon-colour{
+  color:black;
+  padding-left: 2em;
+
 }
 
 .material-symbols-outlined:hover {
