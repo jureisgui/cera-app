@@ -15,21 +15,26 @@ import MainButton from "../../Buttons/MainButton.vue";
       <div class="AddNewListingHeading">
         <h1 class="heading_text">Add a New Listing</h1>
       </div>
+      <!-- LISTING INFO -->
       <div>
         <ListingInfo 
         :ListingInfo="listing_info" />
       </div>
+      <!-- LISTING SPECS -->
       <div>
         <ListingSpecs 
         :Condition="radio_checked" 
         :dimensionsObj="specsGroup" />
       </div>
+      <!-- LISTING TAGS -->
       <div>
         <ListingTags :Tags="tags" />
       </div>
+      <!-- IMAGE UPLOAD -->
       <div>
         <ImageUpload :Images="images" />
       </div>
+      <!-- LISTING SHIPPING -->
       <ListingShipping :ShippingCondition="shipping" />
       <div class="Listing_Finish_Container">
         <div class="Listing_Info_Container">
@@ -85,6 +90,17 @@ import MainButton from "../../Buttons/MainButton.vue";
   justify-content: center;
   align-items: center;
 }
+
+/* LISTING INFO STYLES */
+
+/* LISTING SPECS STYLES */
+
+/* LISTING TAGS STYLES */
+
+/* IMAGE UPLOAD STYLES */
+
+/* LISTING SHIPPING STYLES */
+
 </style>
 
 <script>
