@@ -58,6 +58,10 @@ const ListingSchema = new mongoose.Schema({
     type: Object,
     required: false,
   },
+  user_id: {
+    type: String,
+    required: true,
+  }
 });
 // = new mongoose.Schema({fname:String,lname:String})
 const Listing = mongoose.model("Listing", ListingSchema);
