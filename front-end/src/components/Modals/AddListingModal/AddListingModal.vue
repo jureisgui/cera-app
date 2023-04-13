@@ -106,6 +106,7 @@ export default {
         width: "",
         diameter: "",
         capacity: "",
+        height: "",
         price: "",
       },
       tags: [],
@@ -136,16 +137,33 @@ export default {
     CloseModal() {
       this.ModalIsOpen = false;
     },
+    async create_new_listing_listingDB() {
+      const response = await fetch("http://localhost:4000/listings/addlisting", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(this.product_body_data),
+      });
+      const received_data = await response.json();
+      console.log(received_data);
+    },
 
     submitListing() {
-      console.log(this.listing_info.title);
-      console.log(this.listing_info.subtitle);
-      console.log(this.listing_info.category);
-      console.log(this.specsGroup);
-      console.log(this.radio_checked);
-      console.log(this.tags);
-      console.log(this.images);
-      console.log(this.shipping);
+      this.product_body_data.title = this.listing_info.title;
+      this.product_body_data.subtitle = this.listing_info.subtitle;
+      this.product_body_data.category = this.listing_info.category;
+      this.product_body_data.item_description = this.specsGroup.description;
+      this.product_body_data.condition = this.radio_checked;
+      this.product_body_data.dimensions.width = this.specsGroup.width;
+      this.product_body_data.dimensions.height = this.specsGroup.height;
+      this.product_body_data.dimensions.diameter = this.specsGroup.diameter;
+      this.product_body_data.dimensions.capacity = this.specsGroup.capacity;
+      this.product_body_data.price = this.specsGroup.price;
+      this.product_body_data.product_tags = this.tags;
+      this.product_body_data.product_images = this.images;
+      this.product_body_data.shipping = this.shipping;
+      this.product_body_data.specify_costs = this.specify_costs;
+
+      this.create_new_listing_listingDB();
 
     },
   },

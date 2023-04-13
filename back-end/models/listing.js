@@ -56,7 +56,7 @@ const ListingSchema = new mongoose.Schema({
   },
   specify_costs: {
     type: Object,
-    required: true,
+    required: false,
   },
 });
 // = new mongoose.Schema({fname:String,lname:String})
