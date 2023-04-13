@@ -1,12 +1,11 @@
 <template>
   <section class="landing">
     <Header Header_class="transparent" Logo="src/assets/img/pine_logo-01.svg" 
-      @show_login_modal="login_modal=true" :Logged_in="Logged_in" @Modal_Open="AccountModalOpen=true" 
+      @show_login_modal="login_modal=true" :Logged_in="Logged_in" 
     />
     <div class="blur" v-if="login_modal"></div>
     <Hero @Open_Listing_Modal="ListingModalOpen=true"/>
     <AddListingModal v-if="ListingModalOpen" @CloseModal="ListingModalOpen=false" />
-    <AccountModal v-if='AccountModalOpen' @CloseModal="AccountModalOpen=false"/>
     <Summary />
     <Categories />
     <FeaturedArtist />
@@ -48,7 +47,6 @@ import Summary from "../components/LandingComponents/Summary.vue";
 import FeaturedArtist from "../components/LandingComponents/FeaturedArtist.vue";
 import Categories from "../components/Categories.vue";
 import Login from "../components/Modals/LoginModal/LoginModal.vue";
-import AccountModal from '../components/Modals/AccountModal/AccountModal.vue'
 
 defineProps({
   Logged_in: Boolean,
@@ -61,8 +59,7 @@ export default {
   data() {
     return {
       login_modal: false,
-      ListingModalOpen: false,
-      AccountModalOpen: false
+      ListingModalOpen: false
     }
   },
   methods: {
