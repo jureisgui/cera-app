@@ -49,6 +49,7 @@ import Summary from "../components/LandingComponents/Summary.vue";
 import FeaturedArtist from "../components/LandingComponents/FeaturedArtist.vue";
 import Categories from "../components/Categories.vue";
 import Login from "../components/Modals/LoginModal/LoginModal.vue";
+import AccountModal from "../components/Modals/AccountModal/AccountModal.vue";
 
 defineProps({
   Logged_in: Boolean,
@@ -61,7 +62,8 @@ export default {
   data() {
     return {
       login_modal: false,
-      ListingModalOpen: false
+      ListingModalOpen: false,
+      AccountModalOpen: false
     }
   },
   methods: {
