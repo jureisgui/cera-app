@@ -1,7 +1,7 @@
 <script setup>
 import ListingInfo from "../AddListingModal/ListingInfo.vue";
 import ListingSpecs from "../AddListingModal/ListingSpecs.vue";
-import ListingShipping from "../AddListingModal/Shipping.vue"
+import ListingShipping from "../AddListingModal/Shipping.vue";
 import ListingTags from "../AddListingModal/ListingTags.vue";
 import ImageUpload from "../AddListingModal/ImageUpload.vue";
 import MainButton from "../../Buttons/MainButton.vue";
@@ -10,19 +10,18 @@ import MainButton from "../../Buttons/MainButton.vue";
   <div class="AddListingContainer">
     <div class="ListingModalMargin">
       <div class="back_arrow">
-        <span @click="$emit('CloseModal')" class="material-symbols-outlined">arrow_back_ios</span>
+        <span @click="$emit('CloseModal')" class="material-symbols-outlined"
+          >arrow_back_ios</span
+        >
       </div>
       <div class="AddNewListingHeading">
         <h1 class="heading_text">Add a New Listing</h1>
       </div>
       <div>
-        <ListingInfo 
-        :ListingInfo="listing_info" />
+        <ListingInfo :ListingInfo="listing_info" />
       </div>
       <div>
-        <ListingSpecs 
-        :Condition="radio_checked" 
-        :dimensionsObj="specsGroup" />
+        <ListingSpecs :Condition="radio_checked" :dimensionsObj="specsGroup" />
       </div>
       <div>
         <ListingTags :Tags="tags" />
@@ -34,12 +33,17 @@ import MainButton from "../../Buttons/MainButton.vue";
       <div class="Listing_Finish_Container">
         <div class="Listing_Info_Container">
           <div class="ListingInfoHeading">
-            <h1 class="subheading_text">Finish
-              <hr>
+            <h1 class="subheading_text">
+              Finish
+              <hr />
             </h1>
           </div>
           <div class="submit_listing">
-            <MainButton @click="submitListing" main_button_prop="Submit Listing" button_icon_prop="publish" />
+            <MainButton
+              @click="submitListing"
+              main_button_prop="Submit Listing"
+              button_icon_prop="publish"
+            />
           </div>
         </div>
       </div>
@@ -91,25 +95,43 @@ import MainButton from "../../Buttons/MainButton.vue";
 export default {
   data() {
     return {
-      listing_info:{
-      title: '',
-      subtitle: '',
-      category: '',
+      listing_info: {
+        title: "",
+        subtitle: "",
+        category: "",
       },
       radio_checked: {},
       specsGroup: {
-        description: '',
-        width: '',
-        diameter: '',
-        capacity: '',
-        price: '',
+        description: "",
+        width: "",
+        diameter: "",
+        capacity: "",
+        price: "",
       },
       tags: [],
       images: [],
       shipping: {},
       specify_costs: {},
-    }
-  },  
+      product_body_data: {
+        title: "",
+        subtitle: "",
+        category: "",
+        item_description: "",
+        condition: {},
+        dimensions: { 
+          width: "", 
+          height: "", 
+          diameter: "", 
+          capacity: "" 
+        },
+        price: 0,
+        product_tags: [],
+        product_images: [],
+        shipping: {},
+        specify_costs: {},
+      },
+    };
+  },
   methods: {
     CloseModal() {
       this.ModalIsOpen = false;
@@ -126,5 +148,6 @@ export default {
       console.log(this.shipping);
 
     },
-  }};
+  },
+};
 </script>
