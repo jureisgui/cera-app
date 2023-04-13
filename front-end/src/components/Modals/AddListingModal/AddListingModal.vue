@@ -5,6 +5,13 @@ import ListingShipping from "../AddListingModal/Shipping.vue"
 import ListingTags from "../AddListingModal/ListingTags.vue";
 import ImageUpload from "../AddListingModal/ImageUpload.vue";
 import MainButton from "../../Buttons/MainButton.vue";
+
+defineProps({
+Product_prop: {
+  type: Object,
+  required:true
+}
+});
 </script>
 <template>
   <div class="AddListingContainer">
@@ -91,7 +98,8 @@ import MainButton from "../../Buttons/MainButton.vue";
 export default {
   data() {
     return {
-      listing_info:{
+      product_body_data: {
+        listing_info:{
       title: '',
       subtitle: '',
       category: '',
@@ -108,6 +116,7 @@ export default {
       images: [],
       shipping: {},
       specify_costs: {},
+      }
     }
   },  
   methods: {
@@ -116,14 +125,14 @@ export default {
     },
 
     submitListing() {
-      console.log(this.listing_info.title);
-      console.log(this.listing_info.subtitle);
-      console.log(this.listing_info.category);
-      console.log(this.specsGroup);
-      console.log(this.radio_checked);
-      console.log(this.tags);
-      console.log(this.images);
-      console.log(this.shipping);
+      console.log(this.product_body_data.listing_info.title);
+      // console.log(this.listing_info.subtitle);
+      // console.log(this.listing_info.category);
+      // console.log(this.specsGroup);
+      // console.log(this.radio_checked);
+      // console.log(this.tags);
+      // console.log(this.images);
+      // console.log(this.shipping);
 
     },
   }};

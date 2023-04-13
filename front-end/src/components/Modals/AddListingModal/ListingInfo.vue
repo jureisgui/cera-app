@@ -6,15 +6,15 @@
   <div class="input_dropdown_container body_text">
     <div class="title_input">
       <div><label for="Title"> <span style="color: red;">*</span> Title:</label></div>
-      <div><input class="input_width" placeholder='e.g Small Bowl, Sculpture, Mug' v-model="ListingInfo.title"/></div>
+      <div><input class="input_width" placeholder='e.g Small Bowl, Sculpture, Mug' v-model="product_body_data.ListingInfo.title"/></div>
    </div>
      <div class="title_input">
          <div><label for="Title">Subtitle</label></div>
-         <div><input class="input_width" placeholder='e.g Gift Idea, Shellac Glazed Technique, Sale' v-model="ListingInfo.subtitle"/></div>
+         <div><input class="input_width" placeholder='e.g Gift Idea, Shellac Glazed Technique, Sale' v-model="product_body_data.ListingInfo.subtitle"/></div>
      </div>
  <div class="title_input">
    <label for="Title"><span style="color: red;">*</span> Category</label>
-   <select class="input_width" v-model="ListingInfo.category">
+   <select class="input_width" v-model="product_body_data.ListingInfo.category">
       <option value="" disabled selected>Select Category</option>
       <option value="Kitchenware">Kitchenware</option>
       <option value="Homeware">Homeware</option>
