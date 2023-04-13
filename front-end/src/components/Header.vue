@@ -23,9 +23,11 @@
       <span class="material-symbols-outlined heart" v-if="Logged_in">
         favorite
       </span>
-      <span class="material-symbols-outlined" v-if="Logged_in" @click="$emit('Modal_Open')">
+
+      <span class="material-symbols-outlined" v-if="Logged_in" @click="$emit('show_account_modal')" >
         account_circle
       </span>
+
       <MainBtn main_button_prop="Log in" button_icon_prop="login" v-if="!Logged_in" @click="$emit('show_login_modal')"  />
       <MainBtn main_button_prop="List an item" button_icon_prop="add_circle" v-if="Logged_in" @click="$emit('show_listing_modal')" />
     </div>
@@ -195,6 +197,8 @@ text-decoration: none;
 
 <script setup>
 import MainBtn from './Buttons/MainButton.vue'
+import AccountModal from './Modals/AccountModal/AccountModal.vue';
+
 
 defineProps({
   Logged_in: Boolean,

@@ -36,7 +36,7 @@
                 <!-- need to add a fetch data from user account to pre populate these fields (if populated before) -->
             </div>
         </div>   
-        <span class="update_btn"><MainButton main_button_prop="Update" button_icon_prop="refresh" @click="onUpdateUser" /></span>   
+        <span class="update_btn"><MainButton main_button_prop="Update" button_icon_prop="refresh" @click="update_user" /></span>   
         <!-- @click="update_user"  -->
     </div>
 </template>
@@ -145,32 +145,32 @@ export default {
         seller_name: "",
         description: "",
         my_listings: [],
-      },
-      methods: {
+            },
+        logged_userID:'',
+        // single_user:{}
+        }   
+    },
+    methods: {
         async fetch_single_user(userID){
             const response = await fetch("http://localhost:4000/users/getuser/"+userID);
             const received_data = await response.json();
-            this.single_user=received_data;
+            // this.single_user=received_data;
+            this.user_body_data=received_data;
         },
-        async update_user(userID){
-            const response = await fetch("http://localhost:4000/users/update/"+userID, {
+        async update_user(){
+            const response = await fetch("http://localhost:4000/users/update/"+this.logged_userID, {
                 method:"PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(this.user_body_data)
-        });
+            });
         const received_data = await response.json();     
         },
-        onUpdateUser() {
-        // Call the update_user method with the userID parameter
-        this.update_user(userID);
-        },
+    },
+    created(){
+        this.logged_userID=localStorage.getItem("logged_userID")
+        this.fetch_single_user(this.logged_userID)
 
-        // mounted() {
-        //     // Fetch user data and populate the input fields with the fetched data
-        //     const userID = /* Retrieve the userID from wherever it's stored */;
-        //     this.fetchUserData(userID);
-        // }
     }
-    };
-    }}
-      </script>
+    
+}
+</script>
