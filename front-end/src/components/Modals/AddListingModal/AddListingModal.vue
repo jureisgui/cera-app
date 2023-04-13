@@ -132,6 +132,9 @@ export default {
         specify_costs: {},
         user_id: '',
       },
+      user_body_data: {
+        my_listings: [],
+      },
     };
   },
   methods: {
@@ -146,6 +149,14 @@ export default {
       });
       const received_data = await response.json();
       console.log(received_data);
+    },
+    async update_user(userID){
+      const response = await fetch("http://localhost:4000/users/update/"+userID, {
+        method:"PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(this.user_body_data)
+      });
+      const received_data = await response.json();
     },
 
     submitListing() {
@@ -164,8 +175,11 @@ export default {
       this.product_body_data.shipping = this.shipping;
       this.product_body_data.specify_costs = this.specify_costs;
       this.product_body_data.user_id = localStorage.getItem("logged_userID");
+      this.user_body_data.my_listings = this.product_body_data;
 
       this.create_new_listing_listingDB();
+      this.update_user(this.product_body_data.user_id);
+
 
     },
   },
