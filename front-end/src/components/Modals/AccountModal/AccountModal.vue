@@ -37,6 +37,14 @@ import MyListings from "./MyListings.vue";
 </template>
 
 <style>
+.modal_wrapper{
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  top: 105px;
+  z-index: 10;
+  margin: 2em 10%;
+}
 .p-accordion-header {
   font-family: "Quicksand", sans-serif;
   font-style: normal;
