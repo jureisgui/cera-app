@@ -1,104 +1,205 @@
 <template>
-    <div class="user_information">
-        <div class="info-container">
-            <div class="info-title">
-                <p class="body_text">Name</p><span class="required">*</span>
-            </div>
-            <div class="input-wrapper short-input">
-                <MainInput Inputplaceholder="Enter your first name" /><MainInput Inputplaceholder="Enter your last name" />
-            </div>
-        </div>
-        <div class="info-container">
-            <div class="info-title">
-                <p class="body_text">Email</p><span class="required">*</span>
-            </div>
-            <div class="input-wrapper">
-                <MainInput Inputplaceholder="Enter your email" />
-            </div>
-        </div>
-        <div class="info-container">
-            <div class="info-title">
-                <p class="body_text">Number</p><span class="required">*</span>
-            </div>
-            <div class="input-wrapper">
-                <MainInput Inputplaceholder="Enter your number" />
-            </div>
-        </div>
-        <div class="info-container">
-            <div class="info-title">
-                <p class="body_text">Location</p><span class="required">*</span>
-            </div>
-            <div class="input-wrapper">
-                <MainInput Inputplaceholder="Enter your city/town" />
-            </div>
-        </div>   
-        <span class="update_btn"><MainButton main_button_prop="Update" button_icon_prop="refresh" /></span>       
+  <div class="user_information">
+    <div class="info-container">
+      <div class="info-title">
+        <p class="body_text">Name</p>
+        <span class="required">*</span>
+      </div>
+      <div class="input-wrapper short-input">
+        <input
+          v-model="user_body_data.first_name"
+          class="InputStyle"
+          type="text"
+          placeholder="Enter your first name"
+        /><input
+          v-model="user_body_data.last_name"
+          class="InputStyle"
+          type="text"
+          placeholder="Enter your last name"
+        />
+        <!-- need to add a fetch data from user account to pre populate these fields -->
+      </div>
     </div>
+    <div class="info-container">
+      <div class="info-title">
+        <p class="body_text">Email</p>
+        <span class="required">*</span>
+      </div>
+      <div class="input-wrapper">
+        <input
+          v-model="user_body_data.email"
+          class="InputStyle"
+          type="email"
+          placeholder="Enter your email"
+        />
+        <!-- need to add a fetch data from user account to pre populate these fields -->
+      </div>
+    </div>
+    <div class="info-container">
+      <div class="info-title">
+        <p class="body_text">Number</p>
+        <span class="required">*</span>
+      </div>
+      <div class="input-wrapper">
+        <input
+          v-model="user_body_data.phone_number"
+          class="InputStyle"
+          type="text"
+          placeholder="Enter your phone number"
+        />
+        <!-- need to add a fetch data from user account to pre populate these fields (if populated before) -->
+      </div>
+    </div>
+    <div class="info-container">
+      <div class="info-title">
+        <p class="body_text">Location</p>
+        <span class="required">*</span>
+      </div>
+      <div class="input-wrapper">
+        <input
+          v-model="user_body_data.location"
+          class="InputStyle"
+          type="text"
+          placeholder="Enter your city/town"
+        />
+        <!-- need to add a fetch data from user account to pre populate these fields (if populated before) -->
+      </div>
+    </div>
+    <span class="update_btn"
+      ><MainButton
+        main_button_prop="Update"
+        button_icon_prop="refresh"
+        @click="onUpdateUser"
+    /></span>
+    <!-- @click="update_user"  -->
+  </div>
 </template>
 
 <style scoped>
-.user_information{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 2em;   
+.user_information {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 2em;
 }
 
-.info-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
+.info-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
 }
+
 .info-title {
-    display: flex;
-    justify-content:flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
-.short-input{
-    display: flex;
-    gap: 10px
+
+.short-input {
+  display: flex;
+  gap: 10px;
 }
 
 .short-input > * {
-    flex: 1;
+  flex: 1;
+}
+.InputStyle {
+  height: 60px;
+  width: 100%;
+  border-radius: 10px;
+  border: solid 1px #c4c4c4;
+  padding: 10px;
 }
 
-.input-wrapper{
-    text-align: left;
-    max-width: 660px;
+textarea {
+  box-sizing: border-box;
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  height: 100px;
 }
 
-.required{
-    color: #DC7777;
+input:focus {
+  outline: 1px solid #dcba77;
 }
 
-.update_btn{
-    margin: 0 auto;
+.input-wrapper {
+  text-align: left;
+  max-width: 660px;
 }
 
+.required {
+  color: #dc7777;
+}
 
+.update_btn {
+  margin: 0 auto;
+}
 
 @media (max-width: 1000px) {
-    .info-container{
+  .info-container {
     display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
-}
+  }
 
-.info-title {
-    justify-content:flex-start
-}
+  .info-title {
+    justify-content: flex-start;
+  }
 
-.short-input{
+  .short-input {
     flex-direction: column;
-    gap: 10px
+    gap: 10px;
+  }
 }
-}
-    
 </style>
 
 <script setup>
-import MainInput from '@/components/Inputs/MainInput.vue'
-import MainButton from '@/components/Buttons/MainButton.vue'
+// import MainInput from '@/components/Inputs/MainInput.vue'
+import MainButton from "@/components/Buttons/MainButton.vue";
+</script>
 
+<script>
+export default {
+  data() {
+    return {
+      user_body_data: {
+        first_name: "",
+        last_name: "",
+        email: "",
+        phone_number: "",
+        location: "",
+        seller_image: "",
+        seller_name: "",
+        description: "",
+        my_listings: [],
+      },
+      methods: {
+        async fetch_single_user(userID) {
+          const response = await fetch("http://localhost:4000/users/getuser/" + userID);
+          const received_data = await response.json();
+          this.single_user = received_data;
+        },
+        async update_user(userID) {
+          const response = await fetch("http://localhost:4000/users/update/" + userID, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(this.user_body_data),
+          });
+          const received_data = await response.json();
+        },
+        onUpdateUser() {
+          // Call the update_user method with the userID parameter
+          this.update_user(userID);
+        },
 
+        // mounted() {
+        //     // Fetch user data and populate the input fields with the fetched data
+        //     const userID = /* Retrieve the userID from wherever it's stored */;
+        //     this.fetchUserData(userID);
+        // }
+      },
+    };
+  },
+};
 </script>
