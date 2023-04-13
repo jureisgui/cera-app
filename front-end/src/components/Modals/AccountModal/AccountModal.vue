@@ -68,6 +68,7 @@ defineProps({
 
 .icon-colour{
   color:black;
+  padding-left: 2em;
 
 }
 
