@@ -15,7 +15,6 @@
 
     <Login class="login" v-if="login_modal" 
     @pass_logged_user="pass_to_app" @close_login="pass_close_app" />
-    />
   </section>
 </template>
 
