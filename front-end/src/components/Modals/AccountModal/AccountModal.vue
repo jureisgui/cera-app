@@ -36,7 +36,7 @@ import MyListings from "./MyListings.vue";
   </div>
 </template>
 
-<style>
+<style scoped>
 .modal_wrapper{
   position: absolute;
   background-color: white;
