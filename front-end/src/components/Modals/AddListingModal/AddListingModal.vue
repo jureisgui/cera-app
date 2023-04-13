@@ -10,7 +10,9 @@ import MainButton from "../../Buttons/MainButton.vue";
   <div class="AddListingContainer">
     <div class="ListingModalMargin">
       <div class="back_arrow">
-        <span @click="$emit('CloseModal')" class="material-symbols-outlined"
+        <span
+          @click="$emit('CloseModal')"
+          class="material-symbols-outlined back_arrow"
           >arrow_back_ios</span
         >
       </div>
@@ -35,7 +37,7 @@ import MainButton from "../../Buttons/MainButton.vue";
               </div>
               <div>
                 <input
-                  class="input_width"
+                  class="input_width info_input"
                   placeholder="e.g Small Bowl, Sculpture, Mug"
                   v-model="ListingInfo.title"
                 />
@@ -45,7 +47,7 @@ import MainButton from "../../Buttons/MainButton.vue";
               <div><label for="Title">Subtitle</label></div>
               <div>
                 <input
-                  class="input_width"
+                  class="input_width info_input"
                   placeholder="e.g Gift Idea, Shellac Glazed Technique, Sale"
                   v-model="ListingInfo.subtitle"
                 />
@@ -78,7 +80,7 @@ import MainButton from "../../Buttons/MainButton.vue";
           </div>
 
           <div class="input_dropdown_container body_text">
-            <div class="title_input">
+            <div class="specs_title_input">
               <label for="Title">
                 <span style="color: red">*</span>Write a description for your
                 listing.</label
@@ -173,14 +175,131 @@ import MainButton from "../../Buttons/MainButton.vue";
       </div>
       <!-- LISTING TAGS -->
       <div>
-        <ListingTags :Tags="tags" />
+        <div class="Listing_Info_Container body_text">
+          <div class="ListingInfoHeading">
+            <h1 class="subheading_text">
+              Product Tags
+              <hr />
+            </h1>
+          </div>
+
+          <div class="product_tag_container">
+            <div class="tags_title">
+              <div>
+                <div>
+                  <label for="">
+                    <span style="color: red">*</span>Write a description for
+                    your listing.</label
+                  >
+                </div>
+                <div><label for="">(You may add up to 10 tags)</label></div>
+              </div>
+            </div>
+
+            <div class="product_tag_input">
+              <div class="tag_input_container">
+                <input type="text" v-model="newTag" class="tag_input" />
+                <span @click="addTag" class="material-symbols-outlined add_tag"
+                  >add</span
+                >
+              </div>
+            </div>
+
+            <div class="tags_container">
+              <div class="row_tag">
+                <div v-for="(tag, index) in Tags" :key="index" class="tag">
+                  {{ tag }}
+                  <span
+                    @click="removeTag(tag)"
+                    class="material-symbols-outlined small_close_btn"
+                    >close</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- IMAGE UPLOAD -->
       <div>
-        <ImageUpload :Images="images" />
+        <div class="Listing_Info_Container body_text">
+          <div class="ListingInfoHeading">
+            <h1 class="subheading_text">
+              Upload Listing Images
+              <hr />
+            </h1>
+          </div>
+          <div class="product_image_container">
+            <div class="ImageUploadtitle">
+              <div>
+                <div>
+                  <label for="">
+                    <span style="color: red">*</span>Upload images of your
+                    product</label
+                  >
+                </div>
+                <div>
+                  <label for=""
+                    >(Enter the URL link to the image. Max 5 images)</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="product_image_input">
+              <div class="img_upload_input_container">
+                <input
+                  type="text"
+                  v-model="newImgUrl"
+                  class="img_upload_input"
+                />
+                <span
+                  @click="addImgbyUrl"
+                  class="material-symbols-outlined add_img_upload"
+                  >add</span
+                >
+              </div>
+            </div>
+            <div class="images_container">
+              <div
+                v-for="(imgUrl, index) in Images"
+                :key="index"
+                class="imageCard"
+              >
+                <img :src="imgUrl" alt="" />
+                <span
+                  @click="removeImg(imgUrl)"
+                  class="material-symbols-outlined small_close_btn_img_upload"
+                  >close</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- LISTING SHIPPING -->
-      <ListingShipping :ShippingCondition="shipping" />
+      <div class="Listing_Info_Container body_text">
+    <div>
+      <h1 class="subheading_text">Shipping & Pickup<hr/></h1>
+    </div>
+
+    <div class="shipping_container_wrapper">
+    <div class="shipping_container">
+        <div class="OptionTitle"><span>Choose a Pickup Option<sup>*</sup></span></div>
+        <div class="shipping_option"><input @click="reveal = false" type="radio" value="No Pickup" v-model="ShippingCondition.shipping">No Pickup</div>
+        <div class="shipping_option"><input @click="reveal = false" type="radio" value="Pickup Available" v-model="ShippingCondition.shipping">Pickup Available</div>
+        <div class="shipping_option"><input @click="reveal = false" type="radio" value="Must Pickup" v-model="ShippingCondition.shipping">Must Pickup</div>
+    </div>
+    <div class="shipping_container">
+        <div class="OptionTitle"><span>Choose a Shipping Option<sup>*</sup></span></div>
+        <div class="shipping_option"><input @click="reveal = false" type="radio" value="Free Shipping" v-model="ShippingCondition.shipping">Free Shipping</div>
+        <div class="shipping_option"><input @click="reveal = !reveal" type="radio" value="Specify Shipping" v-model="ShippingCondition.shipping">Specify Shipping Costs</div>
+        <div class="shipping_cost_input"><input class="input_style_shipping" v-if="reveal" v-model="ShippingCondition.specify_costs"/></div>
+        <div class="shipping_option"><input @click="reveal = false" type="radio" value="I dont know" v-model="ShippingCondition.shipping">I dont know yet</div>
+    </div>
+  </div>
+  </div>
+<!-- LISTING SHIPPING END -->
+
       <div class="Listing_Finish_Container">
         <div class="Listing_Info_Container">
           <div class="ListingInfoHeading">
@@ -219,12 +338,12 @@ import MainButton from "../../Buttons/MainButton.vue";
   margin: 2em 10%;
 }
 
-.material-symbols-outlined {
+.back_arrow {
   color: #444739;
   cursor: pointer;
 }
 
-.material-symbols-outlined:hover {
+.back_arrow:hover {
   transform: scale(1.2);
 }
 
@@ -250,18 +369,13 @@ select {
   color: #7d7d7d;
 }
 
-input {
+.info_input input {
   display: flex;
   width: 100%;
   height: 60px;
   border-radius: 10px;
   border: 1px solid #c4c4c4;
   padding: 10px;
-}
-.Listing_Info_Container {
-  margin-top: 2em;
-  border: solid 1px #444739;
-  padding: 2em;
 }
 
 .input_dropdown_container {
@@ -297,7 +411,7 @@ textarea::placeholder {
 }
 
 textarea:focus {
-  outline: 1px solid #DCBA77;
+  outline: 1px solid #dcba77;
 }
 
 .dimensions {
@@ -309,19 +423,7 @@ textarea:focus {
   padding: 10px;
 }
 
-.Listing_Info_Container {
-  margin-top: 2em;
-  border: solid 1px #444739;
-  padding: 2em;
-}
-
-.input_dropdown_container {
-  padding: 2em;
-  display: flex;
-  flex-direction: column;
-}
-
-.title_input {
+.specs_title_input {
   margin: 1em 10%;
   display: flex;
   flex-direction: column;
@@ -341,7 +443,6 @@ textarea:focus {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-
 }
 
 .row {
@@ -360,7 +461,7 @@ textarea:focus {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center
+  justify-content: center;
 }
 
 .divider {
@@ -369,11 +470,236 @@ textarea:focus {
   background-color: #44473975;
   margin: 2em 1em;
 }
+
 /* LISTING TAGS STYLES */
+.tags_title {
+  margin: 3em 0 2em;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.product_tag_input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row_tag {
+  margin: 20px 30%;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: #444739 solid 1px;
+  border-radius: 10px;
+  width: 90px;
+  height: 35px;
+  margin: 10px;
+}
+
+.tag_input_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.tag_input input {
+  display: flex;
+  min-width: 300px;
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+}
+
+.tag_input input:focus {
+  outline: none;
+}
+
+.small_close_btn.material-symbols-outlined {
+  font-size: 0.8em;
+  background-color: white;
+  border: 1px solid #444739;
+  color: #444739;
+  position: absolute;
+  right: -14px;
+  top: -14px;
+}
+
+.small_close_btn.material-symbols-outlined:hover {
+  transform: scale(1.1);
+  background-color: #444739;
+  color: white;
+}
+.add_tag.material-symbols-outlined {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  cursor: pointer;
+  border: #444739 solid 1px;
+  color: #444739;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.add_tag.material-symbols-outlined:hover {
+  transform: scale(1.1);
+}
 
 /* IMAGE UPLOAD STYLES */
+images_container{
+    margin: 2em 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.imageCard{
+    height: 150px;
+    width: 150px;
+    position: relative;
+}
+  .Listing_Info_Container {
+  margin-top: 2em;
+  border: solid 1px #444739;
+  padding: 2em;
+}
+
+.ImageUploadtitle {
+  margin: 3em 0 2em;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.product_image_input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img_upload_row {
+    background-color: #444739;
+  margin: 20px 30%;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.img_upload_tag {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: #444739 solid 1px;
+  border-radius: 10px;
+  width: 90px;
+  height: 35px;
+  margin: 10px;
+}
+
+.img_upload_input_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.img_upload_input input {
+  display: flex;
+  min-width: 300px;
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+}
+
+.img_upload_input input:focus {
+  outline: none;
+}
+
+.small_close_btn_img_upload.material-symbols-outlined {
+  font-size: 0.8em;
+  background-color: white;
+  border: 1px solid #444739;
+  color: #444739;
+  position: absolute;
+  right: -14px;
+  top: -14px;
+}
+
+.small_close_btn_img_upload.material-symbols-outlined:hover {
+  transform: scale(1.1);
+  background-color: #444739;
+  color: white;
+}
+.add_img_upload.material-symbols-outlined {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  cursor: pointer;
+  border: #444739 solid 1px;
+  color: #444739;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.add_img_upload.material-symbols-outlined:hover {
+  transform: scale(1.1);
+}  
 
 /* LISTING SHIPPING STYLES */
+.input_style_shipping{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #c4c4c4;
+    padding: 10px;
+}
+
+sup{
+    color: red;
+}
+  .Listing_Info_Container{
+        margin-top: 2em;
+        border: solid 1px #444739;
+        padding: 2em;
+    }
+
+    .shipping_container_wrapper{
+        margin: 2em 20%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .shipping_container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .shipping_option{
+        display: flex;
+        gap: 10px;
+    }
 </style>
 
 <script>
@@ -397,6 +723,11 @@ export default {
       images: [],
       shipping: {},
       specify_costs: {},
+      ListingInfo: "",
+      RadioOn: true,
+      max_images: 5,
+      newImgUrl: '',
+      reveal: false,
     };
   },
   methods: {
@@ -414,6 +745,44 @@ export default {
       console.log(this.images);
       console.log(this.shipping);
     },
+    addTag() {
+      if (this.newTag.trim() !== "") {
+        if (this.Tags.length < this.max_tags) {
+          // check if maximum number of tags is reached
+          this.Tags.push(this.newTag.trim());
+          this.newTag = "";
+        } else {
+          alert("You have reached the maximum number of allowed tags.");
+        }
+      }
+    },
+
+    removeTag(tagToRemove) {
+      const index = this.Tags.indexOf(tagToRemove);
+      if (index !== -1) {
+        // check if the tag is found in the array
+        this.Tags.splice(index, 1); // remove the tag from the array
+      }
+    },
+    addImgbyUrl() {
+      if (this.newImgUrl.trim() !== "") {
+        if (this.Images.length < this.max_images) {
+          // check if maximum number of img_upload_tags is reached
+          this.Images.push(this.newImgUrl.trim());
+          this.newImgUrl = "";
+        } else {
+          alert("You have reached the maximum number of allowed images.");
+        }
+      }
+    },
+
+    removeImg(imgToRemove) {
+      const index = this.Images.indexOf(imgToRemove);
+      if (index !== -1) {
+        // check if the img is found in the array
+        this.Images.splice(index, 1); // remove the img from the array
+      }
+    }
   },
 };
 </script>

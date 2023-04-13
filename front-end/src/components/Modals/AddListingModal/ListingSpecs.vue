@@ -1,29 +1,46 @@
-<template >
+<template>
   <div class="Listing_Info_Container body_text">
-
     <div class="ListingInfoHeading">
-      <h1 class="subheading_text">Item Specifications
-        <hr>
+      <h1 class="subheading_text">
+        Item Specifications
+        <hr />
       </h1>
     </div>
 
     <div class="input_dropdown_container body_text">
-      <div class="title_input">
-        <label for="Title"> <span style="color: red;">*</span>Write a description for your listing.</label>
-        <textarea class="textarea body_text" placeholder="Write your product description here..." rows="10" cols="80"
-          v-model="dimensionsObj.description"></textarea>
+      <div class="specs_title_input">
+        <label for="Title">
+          <span style="color: red">*</span>Write a description for your
+          listing.</label
+        >
+        <textarea
+          class="textarea body_text"
+          placeholder="Write your product description here..."
+          rows="10"
+          cols="80"
+          v-model="dimensionsObj.description"
+        ></textarea>
       </div>
     </div>
 
     <div class="item_specs_container">
-
       <div class="specs_third">
         <div class="center">
-          <label for="Title"> <span style="color: red;">*</span>Condition</label>
-          <div class="col row"><input type="radio" value="New" v-model="Condition.radio_checked"><label
-              for="new">New</label></div>
-          <div class="col"><input type="radio" value="Pre-loved" v-model="Condition.radio_checked"><label
-              for="preloved">Pre-Loved</label></div>
+          <label for="Title"> <span style="color: red">*</span>Condition</label>
+          <div class="col row">
+            <input
+              type="radio"
+              value="New"
+              v-model="Condition.radio_checked"
+            /><label for="new">New</label>
+          </div>
+          <div class="col">
+            <input
+              type="radio"
+              value="Pre-loved"
+              v-model="Condition.radio_checked"
+            /><label for="preloved">Pre-Loved</label>
+          </div>
         </div>
       </div>
 
@@ -32,22 +49,53 @@
       <div class="specs_third">
         <label for="Title">Dimensions</label>
         <div class="row">
-          <div><input class="dimensions" placeholder="Width" v-model="dimensionsObj.width" /></div>
-          <div><input class="dimensions" placeholder="Diameter" v-model="dimensionsObj.diameter" /></div>
+          <div>
+            <input
+              class="dimensions"
+              placeholder="Width"
+              v-model="dimensionsObj.width"
+            />
+          </div>
+          <div>
+            <input
+              class="dimensions"
+              placeholder="Diameter"
+              v-model="dimensionsObj.diameter"
+            />
+          </div>
         </div>
         <div class="row">
-          <div><input class="dimensions" placeholder="Length" v-model="dimensionsObj.length" /></div>
-          <div><input class="dimensions" placeholder="Capacity" v-model="dimensionsObj.capacity" /></div>
+          <div>
+            <input
+              class="dimensions"
+              placeholder="Length"
+              v-model="dimensionsObj.length"
+            />
+          </div>
+          <div>
+            <input
+              class="dimensions"
+              placeholder="Capacity"
+              v-model="dimensionsObj.capacity"
+            />
+          </div>
         </div>
       </div>
 
       <div class="divider"></div>
 
       <div class="specs_third">
-        <label for="Title"> <span style="color: red;">*</span>Price</label>
-        <div class="row"><input type="number" min="0" class="dimensions" placeholder="$" v-model="dimensionsObj.price" /></div>
+        <label for="Title"> <span style="color: red">*</span>Price</label>
+        <div class="row">
+          <input
+            type="number"
+            min="0"
+            class="dimensions"
+            placeholder="$"
+            v-model="dimensionsObj.price"
+          />
+        </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -67,7 +115,7 @@ textarea::placeholder {
 }
 
 textarea:focus {
-  outline: 1px solid #DCBA77;
+  outline: 1px solid #dcba77;
 }
 
 .dimensions {
@@ -91,7 +139,7 @@ textarea:focus {
   flex-direction: column;
 }
 
-.title_input {
+.specs_title_input {
   margin: 1em 10%;
   display: flex;
   flex-direction: column;
@@ -111,7 +159,6 @@ textarea:focus {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-
 }
 
 .row {
@@ -130,7 +177,7 @@ textarea:focus {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center
+  justify-content: center;
 }
 
 .divider {
@@ -143,18 +190,15 @@ textarea:focus {
 
 <script setup>
 defineProps({
-
   Condition: {
     type: Boolean,
-    required: true
+    required: true,
   },
 
   dimensionsObj: {
     type: Object,
-    required: true
-  }
-
-
+    required: true,
+  },
 });
 </script>
 
@@ -162,8 +206,8 @@ defineProps({
 export default {
   data() {
     return {
-      RadioOn: true
-    }
+      RadioOn: true,
+    };
   },
-}
+};
 </script>

@@ -17,14 +17,14 @@
                 </div>
             </div>
             <div class="product_image_input">
-                <div class="input_container">
-                    <input type="text" v-model="newImgUrl" />
-                    <span @click="addImgbyUrl" class="material-symbols-outlined">add</span>
+                <div class="img_upload_input_container">
+                    <input type="text" v-model="newImgUrl" class="img_upload_input" />
+                    <span @click="addImgbyUrl" class="material-symbols-outlined add_img_upload">add</span>
                 </div>
             </div>
             <div class="images_container">
                 <div v-for="(imgUrl, index) in Images" :key="index" class="imageCard"><img :src="imgUrl" alt="">
-                    <span @click="removeImg(imgUrl)" class="material-symbols-outlined small_close_btn">close</span>
+                    <span @click="removeImg(imgUrl)" class="material-symbols-outlined small_close_btn_img_upload">close</span>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
   justify-content: center;
 }
 
-.row {
+.img_upload_row {
     background-color: #444739;
   margin: 20px 30%;
   margin-top: 20px;
@@ -74,7 +74,7 @@
   justify-content: center;
 }
 
-.tag {
+.img_upload_tag {
   position: relative;
   display: flex;
   align-items: center;
@@ -86,7 +86,7 @@
   margin: 10px;
 }
 
-.input_container {
+.img_upload_input_container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,7 +94,7 @@
   border-radius: 10px;
 }
 
-input {
+.img_upload_input input {
   display: flex;
   min-width: 300px;
   width: 100%;
@@ -104,15 +104,11 @@ input {
   padding: 10px;
 }
 
-input:focus {
+.img_upload_input input:focus {
   outline: none;
 }
 
-textarea::placeholder {
-  color: #cacaca;
-}
-
-.small_close_btn.material-symbols-outlined {
+.small_close_btn_img_upload.material-symbols-outlined {
   font-size: 0.8em;
   background-color: white;
   border: 1px solid #444739;
@@ -122,12 +118,12 @@ textarea::placeholder {
   top: -14px;
 }
 
-.small_close_btn.material-symbols-outlined:hover {
+.small_close_btn_img_upload.material-symbols-outlined:hover {
   transform: scale(1.1);
   background-color: #444739;
   color: white;
 }
-.material-symbols-outlined {
+.add_img_upload.material-symbols-outlined {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,7 +135,7 @@ textarea::placeholder {
   margin: 5px;
 }
 
-.material-symbols-outlined:hover {
+.add_img_upload.material-symbols-outlined:hover {
   transform: scale(1.1);
 }  
 </style>
@@ -157,7 +153,7 @@ export default {
     addImgbyUrl() {
       if (this.newImgUrl.trim() !== "") {
         if (this.Images.length < this.max_images) {
-          // check if maximum number of tags is reached
+          // check if maximum number of img_upload_tags is reached
           this.Images.push(this.newImgUrl.trim());
           this.newImgUrl = "";
         } else {

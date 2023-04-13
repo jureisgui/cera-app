@@ -15,17 +15,16 @@
         <div class="OptionTitle"><span>Choose a Shipping Option<sup>*</sup></span></div>
         <div class="shipping_option"><input @click="reveal = false" type="radio" value="Free Shipping" v-model="ShippingCondition.shipping">Free Shipping</div>
         <div class="shipping_option"><input @click="reveal = !reveal" type="radio" value="Specify Shipping" v-model="ShippingCondition.shipping">Specify Shipping Costs</div>
-        <div class="shipping_cost_input"><input class="input_style" v-if="reveal" v-model="ShippingCondition.specify_costs"/></div>
+        <div class="shipping_cost_input"><input class="input_style_shipping" v-if="reveal" v-model="ShippingCondition.specify_costs"/></div>
         <div class="shipping_option"><input @click="reveal = false" type="radio" value="I dont know" v-model="ShippingCondition.shipping">I dont know yet</div>
     </div>
   </div>
-    
   </div>
 </template>
 
 <style scoped>
 
-.input_style{
+.input_style_shipping{
     display: flex;
     width: 100%;
     height: 50px;

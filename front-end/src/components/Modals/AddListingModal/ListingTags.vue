@@ -21,14 +21,14 @@
       </div>
 
       <div class="product_tag_input">
-        <div class="input_container">
-          <input type="text" v-model="newTag" />
-          <span @click="addTag" class="material-symbols-outlined">add</span>
+        <div class="tag_input_container">
+          <input type="text" v-model="newTag" class="tag_input" />
+          <span @click="addTag" class="material-symbols-outlined add_tag">add</span>
         </div>
       </div>
 
       <div class="tags_container">
-        <div class="row">
+        <div class="row_tag">
           <div v-for="(tag, index) in Tags" :key="index" class="tag">
             {{ tag }}
             <span @click="removeTag(tag)" class="material-symbols-outlined small_close_btn">close</span>
@@ -59,7 +59,7 @@
   justify-content: center;
 }
 
-.row {
+.row_tag {
   margin: 20px 30%;
   margin-top: 20px;
   display: flex;
@@ -80,7 +80,7 @@
   margin: 10px;
 }
 
-.input_container {
+.tag_input_container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,7 +88,7 @@
   border-radius: 10px;
 }
 
-input {
+.tag_input input {
   display: flex;
   min-width: 300px;
   width: 100%;
@@ -98,12 +98,8 @@ input {
   padding: 10px;
 }
 
-input:focus {
+.tag_input input:focus {
   outline: none;
-}
-
-textarea::placeholder {
-  color: #cacaca;
 }
 
 .small_close_btn.material-symbols-outlined {
@@ -121,7 +117,7 @@ textarea::placeholder {
   background-color: #444739;
   color: white;
 }
-.material-symbols-outlined {
+.add_tag.material-symbols-outlined {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,7 +129,7 @@ textarea::placeholder {
   margin: 5px;
 }
 
-.material-symbols-outlined:hover {
+.add_tag.material-symbols-outlined:hover {
   transform: scale(1.1);
 }
 </style>
