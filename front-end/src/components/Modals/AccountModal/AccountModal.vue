@@ -19,9 +19,9 @@ defineProps({
 </script>
 
 <template>
-  <div v-if="ModalIsOpen" class="modal-wrapper">
+  <div v-if="ModalIsOpen" class="modal_wrapper">
     <div class="back_arrow">
-      <span @click="$emit('CloseModal')" class="material-symbols-outlined">arrow_back_ios</span>
+      <span @click="$emit('CloseModal')" class="material-symbols-outlined icon-colour">arrow_back_ios</span>
     </div>
     <Accordion :multiple="true" :activeIndex="[0]">
       <AccordionTab header="My Information">
@@ -44,9 +44,9 @@ defineProps({
   position: absolute;
   background-color: white;
   width: 100%;
-  top: 105px;
+  top: 73px;
   z-index: 10;
-  margin: 2em 10%;
+  padding: 2em 10%;
 }
 
 .p-accordion-header {
@@ -64,6 +64,11 @@ defineProps({
 .material-symbols-outlined {
   color: #fff;
   cursor: pointer;
+}
+
+.icon-colour{
+  color:black;
+
 }
 
 .material-symbols-outlined:hover {

@@ -1,6 +1,7 @@
 <script setup>
 
 import Footer from './components/Footer.vue'
+import AccountModal from './components/Modals/AccountModal/AccountModal.vue'
 
 </script>
 
@@ -16,7 +17,7 @@ import Footer from './components/Footer.vue'
   <!--  -->
 
   <!-- Julie's Test Section -->
-  
+  <!-- <AccountModal /> -->
   <!--  -->
 
   <!-- Kyla's Test Section -->
