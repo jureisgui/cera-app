@@ -45,6 +45,7 @@ import MyListings from "./MyListings.vue";
   z-index: 10;
   margin: 2em 10%;
 }
+
 .p-accordion-header {
   font-family: "Quicksand", sans-serif;
   font-style: normal;
