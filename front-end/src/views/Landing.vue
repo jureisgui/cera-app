@@ -1,7 +1,6 @@
 <template>
   <section class="landing">
     <Header Header_class="transparent" Logo="src/assets/img/pine_logo-01.svg" 
-
       @show_login_modal="login_modal=true" :Logged_in="Logged_in" @Modal_Open="AccountModalOpen=true" 
     />
     <div class="blur" v-if="login_modal"></div>
@@ -68,7 +67,6 @@ export default {
   },
   methods: {
     pass_to_app(user_obj){
-      console.log('hi landing');
       this.$emit('pass_logged_user', user_obj)
     },
     pass_close_app(){

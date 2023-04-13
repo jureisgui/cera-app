@@ -161,7 +161,7 @@ export default {
       this.email_obj_from_logindb = data;
       console.log(data);
       if (this.email_obj_from_logindb.password == this.input_password) {
-        console.log("yay", this.email_obj_from_logindb.user_id);
+        console.log(this.email_obj_from_logindb.user_id);
         this.fetch_single_user(this.email_obj_from_logindb.user_id);
       }
     },
@@ -172,7 +172,6 @@ export default {
       const received_data = await response.json();
       this.single_user_body_data = received_data;
       console.log(this.single_user_body_data);
-      console.log('test');
       this.$emit("pass_logged_user", this.single_user_body_data);
       this.$emit("close_login");
     },

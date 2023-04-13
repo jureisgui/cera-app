@@ -43,8 +43,7 @@ import Footer from './components/Footer.vue'
     }
   },
   methods:{
-    received_logged_user_obj(user_obj){
-      console.log('hi');  
+    received_logged_user_obj(user_obj){ 
       this.logged_user_obj = user_obj
       this.Logged_in = true
       console.log(this.logged_user_obj)
