@@ -16,8 +16,7 @@ import Footer from './components/Footer.vue'
   <!--  -->
 
   <!-- Julie's Test Section -->
-
-
+  
   <!--  -->
 
   <!-- Kyla's Test Section -->

@@ -50,7 +50,7 @@ import MyListings from "./MyListings.vue";
 }
 
 .material-symbols-outlined {
-  color: #444739;
+  color: #fff;
   cursor: pointer;
 }
 
