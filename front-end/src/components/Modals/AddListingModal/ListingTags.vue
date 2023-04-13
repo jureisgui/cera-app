@@ -29,7 +29,7 @@
 
       <div class="tags_container">
         <div class="row">
-          <div v-for="(tag, index) in tags_array" :key="index" class="tag">
+          <div v-for="(tag, index) in Tags" :key="index" class="tag">
             {{ tag }}
             <span @click="removeTag(tag)" class="material-symbols-outlined small_close_btn">close</span>
           </div>
@@ -141,7 +141,6 @@ textarea::placeholder {
 export default {
   data() {
     return {
-      tags_array: [],
       max_tags: 10,
       newTag: ''
     };
@@ -150,9 +149,9 @@ export default {
   methods: {
     addTag() {
       if (this.newTag.trim() !== "") {
-        if (this.tags_array.length < this.max_tags) {
+        if (this.Tags.length < this.max_tags) {
           // check if maximum number of tags is reached
-          this.tags_array.push(this.newTag.trim());
+          this.Tags.push(this.newTag.trim());
           this.newTag = "";
         } else {
           alert("You have reached the maximum number of allowed tags.");
@@ -161,10 +160,10 @@ export default {
     },
 
     removeTag(tagToRemove) {
-      const index = this.tags_array.indexOf(tagToRemove);
+      const index = this.Tags.indexOf(tagToRemove);
       if (index !== -1) {
         // check if the tag is found in the array
-        this.tags_array.splice(index, 1); // remove the tag from the array
+        this.Tags.splice(index, 1); // remove the tag from the array
       }
     }
   },
@@ -172,4 +171,11 @@ export default {
 </script>
 
 
-<script setup></script>
+<script setup>
+defineProps({
+  Tags: {
+    type: Array,
+    required: true
+  },
+});
+</script>

@@ -22,9 +22,6 @@
   background-color: rgba(255, 255, 255, 0.612);
   border-radius: 10px;
   cursor: pointer;
-  position: absolute;
-  bottom: 85%;
-  left: 85%;
 }
 
 .heart_icon {

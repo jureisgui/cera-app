@@ -7,16 +7,16 @@
     <div class="shipping_container_wrapper">
     <div class="shipping_container">
         <div class="OptionTitle"><span>Choose a Pickup Option<sup>*</sup></span></div>
-        <div class="shipping_option"><input @click="reveal = false" type="radio" name="pick-up">No Pickup</div>
-        <div class="shipping_option"><input @click="reveal = false" type="radio" name="pick-up">Pickup Available</div>
-        <div class="shipping_option"><input @click="reveal = false" type="radio" name="pick-up">Must Pickup</div>
+        <div class="shipping_option"><input @click="reveal = false" type="radio" value="No Pickup" v-model="ShippingCondition.shipping">No Pickup</div>
+        <div class="shipping_option"><input @click="reveal = false" type="radio" value="Pickup Available" v-model="ShippingCondition.shipping">Pickup Available</div>
+        <div class="shipping_option"><input @click="reveal = false" type="radio" value="Must Pickup" v-model="ShippingCondition.shipping">Must Pickup</div>
     </div>
     <div class="shipping_container">
         <div class="OptionTitle"><span>Choose a Shipping Option<sup>*</sup></span></div>
-        <div class="shipping_option"><input @click="reveal = false" type="radio" name="pick-up">Free Shipping</div>
-        <div class="shipping_option"><input @click="reveal = !reveal" type="radio" name="pick-up">Specify Shipping Costs</div>
-        <div class="shipping_cost_input"><MainInput v-show="reveal"/></div>
-        <div class="shipping_option"><input @click="reveal = false" type="radio" name="pick-up">I dont know yet</div>
+        <div class="shipping_option"><input @click="reveal = false" type="radio" value="Free Shipping" v-model="ShippingCondition.shipping">Free Shipping</div>
+        <div class="shipping_option"><input @click="reveal = !reveal" type="radio" value="Specify Shipping" v-model="ShippingCondition.shipping">Specify Shipping Costs</div>
+        <div class="shipping_cost_input"><input class="input_style" v-if="reveal" v-model="ShippingCondition.specify_costs"/></div>
+        <div class="shipping_option"><input @click="reveal = false" type="radio" value="I dont know" v-model="ShippingCondition.shipping">I dont know yet</div>
     </div>
   </div>
     
@@ -25,8 +25,13 @@
 
 <style scoped>
 
-input{
-    color: #444739;
+.input_style{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #c4c4c4;
+    padding: 10px;
 }
 
 sup{
@@ -57,6 +62,16 @@ sup{
 
 <script setup>
 import MainInput from '../../Inputs/MainInput.vue';
+
+defineProps({
+
+  ShippingCondition: {
+    type: Boolean,
+    required: true
+  },
+
+
+});
 </script>
 
 <script>

@@ -4,14 +4,20 @@ import SortBy from "../components/ShopComponents/Sortby.vue";
 import Categories from "../components/Categories.vue";
 import ProductCard from "../components/ShopComponents/ProductCard.vue";
 
+defineProps({
+  Logged_in: Boolean,
+  logged_user_obj: Object,
+});
+
 </script>
 
 <template>
-    <Header Header_class="green" Logo="src/assets/img/white_logo-01-01.svg" />
+    <Header Header_class="green" Logo="src/assets/img/white_logo-01-01.svg" 
+    @show_login_modal="login_modal=true" :Logged_in="Logged_in"  />
     <SortBy />
     <Categories />
-    <div class="shop-section"></div>
-    <h1 class="heading_text">Shop</h1><!-- Filter for title needs to be added -->
+    <div class="shop-section">
+      <h1 class="heading_text">Shop</h1><!-- Filter for title needs to be added -->
     <div class="products_container">
         <ProductCard />
         <ProductCard />
@@ -20,31 +26,38 @@ import ProductCard from "../components/ShopComponents/ProductCard.vue";
         <ProductCard />
         <ProductCard />    
     </div>
+    </div>
+    
 
 </template>
 
 <style scoped>
 
+.shop-section{
+  margin: 0 10%;
+}
+
 .heading_text {
   color: #212121;
   margin-top: 1.2em;
   margin-bottom: 2em;
-  margin-left: 10%;
-  margin-right: 10%;
 }
 
 .products_container{    
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 2em; 
 }
 
 @media (max-width: 769px) {
   .products_container {
-    justify-content: center;
+    grid-template-columns: 1fr 1fr; 
+  }
+}
+
+@media (max-width: 500px) {
+  .products_container {
+    grid-template-columns: 1fr; 
   }
 }
 
