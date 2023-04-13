@@ -11,14 +11,17 @@ import AccordionTab from "primevue/accordiontab";
 import MyInfo from "./MyInfo.vue";
 import PublicProfile from "./PublicProfile.vue";
 import MyListings from "./MyListings.vue";
+
+defineProps({
+  Logged_in: Boolean,
+  logged_user_obj: Object,
+});
 </script>
 
 <template>
   <div v-if="ModalIsOpen" class="modal-wrapper">
     <div class="back_arrow">
-      <span @click="$emit('CloseModal')" class="material-symbols-outlined"
-        >arrow_back_ios</span
-      >
+      <span @click="$emit('CloseModal')" class="material-symbols-outlined">arrow_back_ios</span>
     </div>
     <Accordion :multiple="true" :activeIndex="[0]">
       <AccordionTab header="My Information">
