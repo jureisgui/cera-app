@@ -1,37 +1,24 @@
 <script setup>
-
 import Footer from './components/Footer.vue'
-import AccountModal from './components/Modals/AccountModal/AccountModal.vue'
-
 </script>
 
 <template>
   <!-- Google Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+  />
 
-  <!-- Tin's Test Section -->
-  <!--  -->
-
-  <!-- Matt's Test Section -->
-
-  <!--  -->
-
-  <!-- Julie's Test Section -->
-
-  <!--  -->
-
-  <!-- Kyla's Test Section -->
-  <!--  -->
   <router-view 
     @pass_logged_user="received_logged_user_obj" 
     :Logged_in="Logged_in" 
     :logged_user_obj="logged_user_obj"
   ></router-view>
-  <!-- <Footer /> -->
+
+  <Footer />
 </template>
 
 <style scoped>
-
 </style>
 
 <script>
@@ -51,14 +38,6 @@ import AccountModal from './components/Modals/AccountModal/AccountModal.vue'
       localStorage.setItem("logged_userID",user_obj._id)
     }
   },
-  created(){
-    
-  }
-}
+};
 </script>
-
-<style scoped></style>
-
-
-<script></script>
 

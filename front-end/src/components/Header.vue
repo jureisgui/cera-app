@@ -7,7 +7,7 @@
     </div>
 
     <ul class="links_container">
-      <li><router-link to="/" >Home</router-link></li>
+      <li><router-link to="/">Home</router-link></li>
       <li><a href="#">Products</a></li>
       <li><a href="#">About Us</a></li>
       <li><a href="#">FAQ</a></li>
@@ -156,7 +156,7 @@ input:focus {
 }
 
 .search_btn:hover {
-text-decoration: none;
+  text-decoration: none;
 }
 
 @media (max-width: 62em) {
@@ -193,6 +193,25 @@ text-decoration: none;
     width: 100%;
   }
 }
+
+@media (max-width: 1100px) {
+  .links_container {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+  }
+
+  li {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1300px) {
+  input {
+    width: 150px;
+    border: none;
+  }
+}
 </style>
 
 <script setup>
@@ -203,7 +222,7 @@ import AccountModal from './Modals/AccountModal/AccountModal.vue';
 defineProps({
   Logged_in: Boolean,
   Header_class: String,
-  Logo: String
+  Logo: String,
 });
 </script>
 
