@@ -77,6 +77,11 @@ defineProps({
   right: 20px
 }
 
+.products_container:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
 
 @media (max-width: 769px) {
   .shop-section {
