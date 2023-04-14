@@ -1,18 +1,24 @@
 <script setup>
 import Heart from "@/components/Buttons/Heart.vue";
+
+defineProps({
+  product_obj: {
+    type: Object,
+    required: true
+  }
+});
 </script>
 
 <template>
   <div class="card_wrapper">
     <div class="image_wrapper">
       <!-- Image fetch needs to be added below -->
-      <img  class="product_thumbnail" src="@/assets/img/categories/homeware.jpeg" alt="Product Thumbnail"/>
+      <!-- <img  class="product_thumbnail" :src="product_obj.image" alt="Product Thumbnail"/> -->
       <Heart class="heart_position" />
     </div>
     <div class="text_wrapper">
-      <h2 class="subheading_text">Pitta Potta</h2> <!-- Shop name fetch needs to be added -->
-      <h2 class="subheading_text">Flower Holder</h2> <!-- Product name fetch needs to be added -->
-      <p class="product_cost">$29.99 NZD</p> <!-- Price fetch needs to be added -->
+      <h2 class="subheading_text">{{ product_obj.title }}</h2> <!-- Product name fetch needs to be added -->
+      <p class="product_cost">{{product_obj.price}}</p> <!-- Price fetch needs to be added -->
     </div>
   </div>
 </template>
@@ -67,3 +73,13 @@ import Heart from "@/components/Buttons/Heart.vue";
 }
 
 </style>
+
+<script>
+export default {
+  data() {
+    return {
+
+    }
+  },
+} 
+</script>
