@@ -1,6 +1,4 @@
 <script setup>
-import fourzerofour from "./components/Modals/fourzerofour/fourzerofour.vue";
-
 import Footer from "./components/Footer.vue";
 </script>
 
@@ -20,7 +18,6 @@ import Footer from "./components/Footer.vue";
   <!--  -->
 
   <!-- Matt's Test Section -->
-  <fourzerofour />
   <!--  -->
 
   <!-- Julie's Test Section -->
