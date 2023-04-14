@@ -21,7 +21,7 @@
     />
 
     <fourzerofour
-      v-if="zerofourzeroModalOpen"
+      v-if="fourzerofourModalOpen"
       @closeModal="fourzerofourModalOpen = false"
       @openModal="fourzerofourModalOpen = true"
     />
@@ -81,7 +81,6 @@ defineProps({
 
 <script>
 export default {
-  components: { fourzerofour },
   data() {
     return {
       login_modal: false,
