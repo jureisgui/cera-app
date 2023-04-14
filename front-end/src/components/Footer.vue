@@ -9,7 +9,7 @@
             <a href="#">Contact Us</a>
         </div>
         <div class="footer-columns body_text">
-            <a href="#">Ts &#38; Cs</a>
+            <a href="#">Ts & Cs</a>
             <a href="#">Policies</a>
             <a href="#">Support</a>
         </div>
