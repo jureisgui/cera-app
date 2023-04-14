@@ -1,7 +1,7 @@
 <script setup>
 
 import Footer from './components/Footer.vue'
-import ProductCard from './components/ShopComponents/ProductCard.vue'
+
 
 </script>
 
@@ -17,7 +17,7 @@ import ProductCard from './components/ShopComponents/ProductCard.vue'
   <!--  -->
 
   <!-- Julie's Test Section -->
-<!-- <ProductCard /> -->
+
   <!--  -->
 
   <!-- Kyla's Test Section -->
