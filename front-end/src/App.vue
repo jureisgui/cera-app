@@ -34,6 +34,7 @@ import Footer from "./components/Footer.vue";
   <!-- <Footer /> -->
   =======
   <Footer />
+  >>>>>>> 69eed16376bb18fb6966f77f54a8b9643e04fc3e
 </template>
 
 <style scoped>
