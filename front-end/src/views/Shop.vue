@@ -26,7 +26,7 @@ defineProps({
     <div
       v-for="listing in ListingsArray"
       class="products_container"
-      @click="product_modal_on = true"
+      @click="openProductModal(listing)"
     >
       <div class="image_wrapper">
         <img
@@ -40,10 +40,11 @@ defineProps({
       <p class="product_cost">${{ listing.price }} NZD</p>
     </div>
   </div>
-  <ProductModal
-    v-if="product_modal_on"
-    @CloseModal="product_modal_on = false" class="product_modal_css"
+  <div class="product_modal_div" v-if="product_modal_on" >
+    <ProductModal
+    @CloseModal="product_modal_on = false" class="product_modal_css" :product_prop="selected_product"
   />
+</div>
 </template>
 
 <style scoped>
@@ -122,26 +123,8 @@ export default {
   data() {
     return {
       ListingsArray: [],
-      product_body_data: {
-        title: "",
-        subtitle: "",
-        category: "",
-        item_description: "",
-        condition: {},
-        dimensions: {
-          width: "",
-          height: "",
-          diameter: "",
-          capacity: "",
-        },
-        price: 0,
-        product_tags: [],
-        product_images: [],
-        shipping: {},
-        specify_costs: {},
-        user_id: "",
-      },
       product_modal_on: false,
+      selected_product: {},
     };
   },
   methods: {
@@ -151,12 +134,9 @@ export default {
       this.ListingsArray = received_data;
       console.log(received_data);
     },
-    async fetch_single_product(listingID) {
-      const response = await fetch(
-        "http://localhost:4000/listings/getlisting/" + listingID
-      );
-      const received_data = await response.json();
-      this.product_body_data = received_data;
+    openProductModal(listing) {
+      this.selected_product = listing;
+      this.product_modal_on = true;
     },
   },
   created() {
