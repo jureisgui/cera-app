@@ -1,6 +1,6 @@
 <script setup>
-import Footer from "./components/Footer.vue";
-import Header from "./components/Header.vue";
+import Header from "./components/LandingComponents/Summary.vue";
+import fourzerofour from "./components/Modals/fourzerofour/fourzerofour.vue";
 </script>
 
 <template>
@@ -15,7 +15,7 @@ import Header from "./components/Header.vue";
   <!--  -->
 
   <!-- Matt's Test Section -->
-  <Header />
+  <fourzerofour />
   <!--  -->
 
   <!-- Julie's Test Section -->
