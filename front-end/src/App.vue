@@ -14,8 +14,8 @@ import Footer from "./components/Footer.vue";
   <router-view
     @pass_logged_user="received_logged_user_obj"
     :Logged_in="Logged_in"
-    :logged_user_obj="logged_user_obj"
-  ></router-view>
+    :logged_user_obj="logged_user_obj">
+    </router-view>
 
   <!--  -->
 
