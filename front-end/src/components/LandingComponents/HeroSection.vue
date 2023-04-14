@@ -7,7 +7,7 @@
             A New Marketplace Platform for Pottery Enthusiasts
           </h1>
         </div>
-        <br><br>
+        <br /><br />
         <div class="hero_cta_buttons">
           <!-- Shop Button -->
           <router-link to="/shop"
@@ -16,7 +16,6 @@
               button_icon_prop="home"
               class="shop_btn"
           /></router-link>
-          <!-- List item button -->
         </div>
       </div>
     </div>
@@ -65,9 +64,19 @@ a {
 }
 
 .absolute_hero_heading_container {
-    width: 70%;
+  width: 70%;
+}
+
+@media screen and (max-width: 880px) {
+  .hero_cta_buttons {
+    display: flex;
+    gap: 20px;
+
+    flex-direction: column;
+  }
 }
 </style>
+
 <script setup>
 import MainButton from "../Buttons/MainButton.vue";
 </script>
