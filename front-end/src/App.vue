@@ -1,6 +1,5 @@
 <script setup>
 import fourzerofour from "./components/Modals/fourzerofour/fourzerofour.vue";
-
 import Footer from "./components/Footer.vue";
 </script>
 
@@ -32,9 +31,7 @@ import Footer from "./components/Footer.vue";
 
   <!-- <router-view></router-view> -->
   <!-- <Footer /> -->
-  =======
   <Footer />
-  >>>>>>> 69eed16376bb18fb6966f77f54a8b9643e04fc3e
 </template>
 
 <style scoped>
