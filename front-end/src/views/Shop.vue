@@ -4,6 +4,7 @@ import SortBy from "../components/ShopComponents/Sortby.vue";
 import Categories from "../components/Categories.vue";
 import ProductCard from "../components/ShopComponents/ProductCard.vue";
 import Heart from "@/components/Buttons/Heart.vue";
+import ProductModal from "../components/Modals/ProductModal/ProductModal.vue";
 
 defineProps({
   Logged_in: Boolean,
@@ -41,10 +42,11 @@ defineProps({
   margin-bottom: 2em;
 } 
 
-/* .products_container{
+.products_container{
   text-align: center;
   padding: 1em;
-} */
+}
+
 .subheading_text {
   color: #212121;
 }
