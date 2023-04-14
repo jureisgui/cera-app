@@ -23,6 +23,7 @@
     <fourzerofour
       v-if="zerofourzeroModalOpen"
       @closeModal="fourzerofourModalOpen = false"
+      @openModal="fourzerofourModalOpen = true"
     />
 
     <Summary />
@@ -70,7 +71,6 @@ import FeaturedArtist from "../components/LandingComponents/FeaturedArtist.vue";
 import Categories from "../components/Categories.vue";
 import Login from "../components/Modals/LoginModal/LoginModal.vue";
 import AccountModal from "../components/Modals/AccountModal/AccountModal.vue";
-import fourzerofour from "../components/Modals/fourzerofour/fourzerofour.vue";
 import fourzerofour from "../components/Modals/fourzerofour/fourzerofour.vue";
 
 defineProps({
