@@ -1,7 +1,7 @@
 <script setup>
 
 import Footer from './components/Footer.vue'
-import AccountModal from './components/Modals/AccountModal/AccountModal.vue'
+import ProductCard from './components/ShopComponents/ProductCard.vue'
 
 </script>
 
@@ -17,7 +17,7 @@ import AccountModal from './components/Modals/AccountModal/AccountModal.vue'
   <!--  -->
 
   <!-- Julie's Test Section -->
-
+<!-- <ProductCard /> -->
   <!--  -->
 
   <!-- Kyla's Test Section -->

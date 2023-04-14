@@ -19,12 +19,13 @@ defineProps({
     <div class="shop-section">
       <h1 class="heading_text">Shop</h1><!-- Filter for title needs to be added -->
     <div class="products_container">
+        <ProductCard v-for="listing in ListingsArray" :project_obj="listing" product_body_data="listing" />
+        <!-- <ProductCard />
         <ProductCard />
         <ProductCard />
         <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />    
+        <ProductCard />     --> 
+        <!-- <h1 v-for="listing in ListingsArray" >{{ listing.title }}</h1> -->
     </div>
     </div>
     
@@ -61,6 +62,69 @@ defineProps({
   }
 }
 
-
-
 </style>
+
+<script>
+export default { 
+  data() { 
+    return { 
+      ListingsArray:[],
+      product_body_data: {
+        title: "",
+        subtitle: "",
+        category: "",
+        item_description: "",
+        condition: {},
+        dimensions: { 
+          width: "", 
+          height: "", 
+          diameter: "", 
+          capacity: "" 
+        },
+        price: 0,
+        product_tags: [],
+        product_images: [],
+        shipping: {},
+        specify_costs: {},
+        user_id: '',
+      },
+      single_product_body_data: {
+        title: "",
+        subtitle: "",
+        category: "",
+        item_description: "",
+        condition: {},
+        dimensions: { 
+          width: "", 
+          height: "", 
+          diameter: "", 
+          capacity: "" 
+        },
+        price: 0,
+        product_tags: [],
+        product_images: [],
+        shipping: {},
+        specify_costs: {},
+        user_id: '',
+      },
+
+    } 
+  }, 
+    methods: { 
+      async fetch_all_listings(){ 
+        const response = await fetch("http://localhost:4000/listings/"); 
+        const received_data = await response.json(); 
+        this.ListingsArray=received_data; 
+        console.log(received_data)
+      },
+      async fetch_single_product(listingID){ 
+      const response = await fetch("http://localhost:4000/listings/getlisting/"+listingID); 
+      const received_data = await response.json(); 
+      this.product_body_data=received_data; 
+    }, 
+    }, 
+        created() { 
+          this.fetch_all_listings(); 
+        }, 
+      } 
+      </script>
