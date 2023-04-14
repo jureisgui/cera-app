@@ -7,15 +7,10 @@
         <p class="body_text">
           The page you were looking for could not be found.
         </p>
-
         <router-link to="/"
           ><a href="url"
-            ><button class="main_button">
-              @click="$emit('closeModal')" Back to home<span
-                class="material-symbols-outlined"
-              >
-                arrow_back
-              </span>
+            ><button @click="$emit('closeModal')" class="main_button">Back to home<span
+                class="material-symbols-outlined">arrow_back</span>
             </button></a
           ></router-link
         >
@@ -94,7 +89,7 @@ a {
 export default {
   data() {
     return {
-      modalisopen: true,
+      modalisopen: false,
     };
   },
   methods: {
