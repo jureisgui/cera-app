@@ -54,8 +54,8 @@
 }
 
 .category-card img {
-  width: 170px;
-  height: 170px;
+  width: 130px;
+  height: 130px;
   border-radius: 10px;
 }
 
