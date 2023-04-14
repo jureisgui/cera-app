@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section v-if="modalisopen">
     <div class="container">
       <div class="leftbox">
         <h1 class="heading_text">Error 404 🤕</h1>
@@ -10,7 +10,9 @@
         <router-link to="/"
           ><a href="url"
             ><button class="main_button">
-              Back to home<span class="material-symbols-outlined">
+              @click="$emit('closeModal')" Back to home<span
+                class="material-symbols-outlined"
+              >
                 arrow_back
               </span>
             </button></a
@@ -85,4 +87,19 @@ a {
 </style>
 
 <script setup>
+</script>
+
+<script>
+export default {
+  data() {
+    return {
+      modalisopen: true,
+    };
+  },
+  methods: {
+    closeModal() {
+      this.modalisopen = false;
+    },
+  },
+};
 </script>
