@@ -1,6 +1,7 @@
 <script setup>
-import Header from "./components/LandingComponents/Summary.vue";
 import fourzerofour from "./components/Modals/fourzerofour/fourzerofour.vue";
+
+import Footer from "./components/Footer.vue";
 </script>
 
 <template>
@@ -10,7 +11,11 @@ import fourzerofour from "./components/Modals/fourzerofour/fourzerofour.vue";
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
   />
 
-  <!-- Tin's Test Section -->
+  <router-view
+    @pass_logged_user="received_logged_user_obj"
+    :Logged_in="Logged_in"
+    :logged_user_obj="logged_user_obj"
+  ></router-view>
 
   <!--  -->
 
@@ -27,6 +32,9 @@ import fourzerofour from "./components/Modals/fourzerofour/fourzerofour.vue";
 
   <!-- <router-view></router-view> -->
   <!-- <Footer /> -->
+  =======
+  <Footer />
+  >>>>>>> 69eed16376bb18fb6966f77f54a8b9643e04fc3e
 </template>
 
 <style scoped>
@@ -34,18 +42,21 @@ import fourzerofour from "./components/Modals/fourzerofour/fourzerofour.vue";
 
 <script>
 export default {
-  components: { Header },
   data() {
     return {
       Logged_in: false,
+      logged_user_obj: {},
     };
   },
-  methods: {},
-  created() {},
+  methods: {
+    received_logged_user_obj(user_obj) {
+      this.logged_user_obj = user_obj;
+      this.Logged_in = true;
+      console.log(this.logged_user_obj);
+      console.log(user_obj._id);
+      localStorage.setItem("logged_userID", user_obj._id);
+    },
+  },
 };
 </script>
 
-<style scoped></style>
-
-
-<script></script>

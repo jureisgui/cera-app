@@ -1,5 +1,5 @@
 <template>
-  <Header Header_class="green" Logo="src/assets/img/white_logo-01-01.svg" />
+  <Header Header_class="green" Logo="src/assets/img/white_logo-01-01.svg" @show_login_modal="login_modal=true" :Logged_in="Logged_in"  />
   <main>
     <Success
       @Close_Modal="modal_on = false"
@@ -40,13 +40,13 @@
           <p class="error_msg" v-if="!pw_valid">
             Password must be at least 8 characters<sup>*</sup>
           </p>
-          <input v-model="user_body_data.password" class="InputStyle" type="text" placeholder="Password">
+          <input v-model="login_body_data.password" class="InputStyle" type="password" placeholder="Password">
         </div>
         <div class="input_row body_text">
           <p class="error_msg" v-if="!confirm_pw_valid">
             Please enter your password again to ensure it is correct<sup>*</sup>
           </p>
-          <input v-model="user_body_data.confirm_password" class="InputStyle" type="text" placeholder="Confirm Password">
+          <input v-model="confirm_pw" class="InputStyle" type="password" placeholder="Confirm Password">
         </div>
         <LongBtn long_button_text="Sign up" @click="submit_to_add_user" />
       </div>
@@ -140,6 +140,11 @@ main {
 import Header from "../components/Header.vue";
 import LongBtn from "../components/Buttons/LongButton.vue";
 import Success from "../components/Success.vue";
+
+defineProps({
+  Logged_in: Boolean,
+  logged_user_obj: Object,
+});
 </script>
 
 <script>
@@ -150,8 +155,6 @@ export default {
         first_name: "",
         last_name: "",
         email: "",
-        password:"",
-        confirm_password: "",
         phone_number: "",
         location: "",
         seller_image: "",
@@ -168,7 +171,8 @@ export default {
       email_valid: true,
       pw_valid: true,
       confirm_pw_valid: true,
-    };
+      created_user_id:''
+    }
   },
   methods: {
     async create_new_user_userDB() {
@@ -178,12 +182,15 @@ export default {
         body: JSON.stringify(this.user_body_data),
       });
       const received_data = await response.json();
+      console.log(received_data);
+      this.created_user_id = received_data._id;
+      this.create_new_user_loginDB();
     },
     async create_new_user_loginDB() {
       const response = await fetch("http://localhost:4000/logins/addlogin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(this.login_body_data),
+        body: JSON.stringify({email:this.user_body_data.email,password:this.login_body_data.password,user_id:this.created_user_id}),
       });
       const received_data = await response.json();
     },
@@ -211,14 +218,14 @@ export default {
 
 
       // Check if password is valid
-      if (this.user_body_data.password.length < 8) {
+      if (this.login_body_data.password.length < 8) {
         this.pw_valid = false;
       } else {
         this.pw_valid = true;
       }
 
       // Check if confirm password is valid
-      if (this.user_body_data.password != this.user_body_data.confirm_password) {
+      if (this.login_body_data.password != this.confirm_pw) {
         this.confirm_pw_valid = false;
       } else {
         this.confirm_pw_valid = true;
@@ -233,7 +240,6 @@ export default {
         this.confirm_pw_valid
       ) {
         this.create_new_user_userDB();
-        this.create_new_user_loginDB();
         this.modal_on = true;
       } else {
         this.modal_on = false;
@@ -242,7 +248,7 @@ export default {
   computed: {
     password_valid() {
       return this.login_body_data === this.confirm_pw;
-    },
+    }
   },
 };
 </script>

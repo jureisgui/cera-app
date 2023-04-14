@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="images_container">
-                <div v-for="(imgUrl, index) in images_array" :key="index" class="imageCard"><img :src="imgUrl" alt="">
+                <div v-for="(imgUrl, index) in Images" :key="index" class="imageCard"><img :src="imgUrl" alt="">
                     <span @click="removeImg(imgUrl)" class="material-symbols-outlined small_close_btn">close</span>
                 </div>
             </div>
@@ -148,7 +148,6 @@ textarea::placeholder {
 export default {
   data() {
     return {
-      images_array: [],
       max_images: 5,
       newImgUrl: ''
     };
@@ -157,9 +156,9 @@ export default {
   methods: {
     addImgbyUrl() {
       if (this.newImgUrl.trim() !== "") {
-        if (this.images_array.length < this.max_images) {
+        if (this.Images.length < this.max_images) {
           // check if maximum number of tags is reached
-          this.images_array.push(this.newImgUrl.trim());
+          this.Images.push(this.newImgUrl.trim());
           this.newImgUrl = "";
         } else {
           alert("You have reached the maximum number of allowed images.");
@@ -168,10 +167,10 @@ export default {
     },
 
     removeImg(imgToRemove) {
-      const index = this.images_array.indexOf(imgToRemove);
+      const index = this.Images.indexOf(imgToRemove);
       if (index !== -1) {
         // check if the img is found in the array
-        this.images_array.splice(index, 1); // remove the img from the array
+        this.Images.splice(index, 1); // remove the img from the array
       }
     }
   },
@@ -179,5 +178,10 @@ export default {
 </script>
 
 <script setup>
-
+defineProps({
+  Images: {
+    type: Array,
+    required: true
+  },
+});
 </script>

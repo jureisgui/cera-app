@@ -7,7 +7,6 @@
     <option value="Bathroom">Bathroom</option>
     <option value="Garden">Garden</option>
     <option value="Sculpture">Sculpture</option>
-    
     </select>
 
 </template>
