@@ -18,15 +18,11 @@ defineProps({
     <Categories />
     <div class="shop-section">
       <h1 class="heading_text">Shop</h1><!-- Filter for title needs to be added -->
-    <div class="products_container">
-        <ProductCard v-for="listing in ListingsArray" :project_obj="listing" product_body_data="listing" />
-        <!-- <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />     --> 
-        <!-- <h1 v-for="listing in ListingsArray" >{{ listing.title }}</h1> -->
-    </div>
+        <div v-for="listing in ListingsArray" class="products_container">
+            <img :src="listing.product_images" alt="Product Thumbnail">
+            <h1>{{ listing.title }}</h1>
+            <p>{{ listing.price }}</p>
+        </div>
     </div>
     
 
@@ -70,25 +66,6 @@ export default {
     return { 
       ListingsArray:[],
       product_body_data: {
-        title: "",
-        subtitle: "",
-        category: "",
-        item_description: "",
-        condition: {},
-        dimensions: { 
-          width: "", 
-          height: "", 
-          diameter: "", 
-          capacity: "" 
-        },
-        price: 0,
-        product_tags: [],
-        product_images: [],
-        shipping: {},
-        specify_costs: {},
-        user_id: '',
-      },
-      single_product_body_data: {
         title: "",
         subtitle: "",
         category: "",
