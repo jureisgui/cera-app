@@ -54,7 +54,7 @@
         <p>
           Already have an account with Cera? <span class="link">Log in</span>
         </p>
-        <p small_text>
+        <p class="small_text">
           Some terms and conditions that will never be seen by no one, not ever!
           But if you want to visit this 404, go for it!
           <span class="link">Terms of Use</span> and
@@ -133,6 +133,28 @@ main {
   border-radius: 10px;
   border: solid 1px #c4c4c4;
   padding: 10px;
+}
+.small_text{
+  margin-top: 1em;
+  font-size: 10px;
+  line-height: 1.3;
+}
+
+@media (max-width: 600px) {
+  .signup_section {
+  display: flex;
+  padding: 3em;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin: 0 auto;
+}
+.bottom_text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  
+}
 }
 </style>
 

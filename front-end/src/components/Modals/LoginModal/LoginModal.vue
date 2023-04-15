@@ -38,7 +38,7 @@
             >Sign up</router-link
           >
         </p>
-        <p small_text>
+        <p class="small_text">
           Some terms and conditions that will never be seen by no one, not ever!
           But if you want to visit this 404, go for it!
           <span class="link">Terms of Use</span> and
@@ -81,7 +81,6 @@
 .bottom_text {
   display: flex;
   flex-direction: column;
-  gap: 30px;
   text-align: center;
 }
 
@@ -114,12 +113,40 @@
   border: solid 1px #c4c4c4;
   padding: 10px;
 }
+
+.small_text{
+  margin-top: 1em;
+  font-size: 10px;
+  line-height: 1.3;
+}
+
+@media (max-width: 600px) {
+  .login_modal_div {
+  padding-top: 2em;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 105px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.bottom_text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  
+}
+}
 </style>
 
 <script setup>
 import LongBtn from "../../Buttons/LongButton.vue";
-import MainInput from "../../Inputs/MainInput.vue";
-import PasswordInput from "../../Inputs/PasswordInput.vue";
 </script>
 
 <script>
