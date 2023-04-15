@@ -94,7 +94,7 @@ input{
     .input_width{
         width: 280px;
     }
-}
+  };
 </style>
 
 <script setup>
