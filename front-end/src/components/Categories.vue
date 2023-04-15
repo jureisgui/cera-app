@@ -62,6 +62,12 @@
   text-align: center;
 }
 
+.category-card:hover {
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
 .categories-wrapper {
   margin: 0 10%;
   border-bottom: solid 1px;
