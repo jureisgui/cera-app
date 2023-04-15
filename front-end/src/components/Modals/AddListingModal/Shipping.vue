@@ -60,6 +60,18 @@ sup{
     }
 
     @media (max-width: 600px) {
+      .Listing_Info_Container {
+    margin-top: 1em;
+    border: solid 1px #444739;
+    padding: 1em;}
+
+    .shipping_container_wrapper{
+        margin: 1em;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: space-between;
+    }
 
 }
     </style>
