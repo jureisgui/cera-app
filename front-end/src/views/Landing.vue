@@ -12,7 +12,7 @@
     <Hero @Open_Listing_Modal="ListingModalOpen = true" />
     <AddListingModal
       v-if="ListingModalOpen"
-      @CloseModal="ListingModalOpen = false"
+      @CloseModal="ListingModalOpen = false" class="add_listing_css"
     />
 
     <AccountModal
@@ -59,6 +59,10 @@
   left: 0;
   z-index: 998;
   background: rgba(0, 0, 0, 0.3);
+}
+
+.add_listing_css {
+  background-color: #fff;
 }
 </style>
 

@@ -54,14 +54,20 @@
 }
 
 .category-card img {
-  width: 170px;
-  height: 170px;
+  width: 130px;
+  height: 130px;
   border-radius: 10px;
 }
 
 .category-card {
   text-align: center;
   margin-bottom: 4.5em;
+}
+
+.category-card:hover {
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
 }
 
 .categories-wrapper {

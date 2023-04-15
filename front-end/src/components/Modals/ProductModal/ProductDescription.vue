@@ -110,6 +110,7 @@
     width: 5em;
 }
 
+
 @media (max-width: 62em) {
 .product_desc {
   flex-direction: column;
@@ -131,6 +132,10 @@ import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 
 import Galleria from "primevue/galleria";
+
+defineProps({
+  product_prop: Object
+});
 </script>
 
 <script>
