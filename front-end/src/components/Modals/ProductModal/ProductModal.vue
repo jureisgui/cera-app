@@ -17,18 +17,18 @@
               :numVisible="5"
               containerStyle="max-width: 640px"
             >
-              <template >
+              <template #item="slotProps">
                 <img
-                  :src="product_prop.product_images[0]"
-                  :alt="product_prop.title"
+                  :src="slotProps.item.itemImageSrc"
+                  :alt="slotProps.item.alt"
                   style="width: 100%"
                   class="big_img"
                 />
               </template>
-              <template class="thumbnail_wrapper">
+              <template #thumbnail="slotProps" class="thumbnail_wrapper">
                 <img
-                  :src="product_prop.product_images[0]"
-                  :alt="product_prop.title"
+                  :src="slotProps.item.thumbnailImageSrc"
+                  :alt="slotProps.item.alt"
                   class="thumbnail"
                 />
               </template>
@@ -48,7 +48,7 @@
               </div>
             </div>
             <div class="delivery_div body_text">
-              <p>Delivery & pick-up details:</p>
+              <p>Delivery &amp; pick-up details:</p>
               <div class="options_list">
                 <p>{{product_prop.shipping.shipping}}</p>
               </div>
@@ -285,8 +285,25 @@ export default {
         },
       ],
       contact_seller_modal: false,
-    };
+      images: [
+        {
+          itemImageSrc: [],
+          thumbnailImageSrc: [],
+          alt: "Product Image",
+        }        
+      ],
+  };
   },
+  mounted() {
+    // Assign product images to images array
+    this.images = this.product_prop.product_images.map(item => {
+      return {
+        itemImageSrc: item,
+        thumbnailImageSrc: item,
+        alt: "Product Image",
+      };
+  });
+},
 
   methods: {
     CloseModal() {
