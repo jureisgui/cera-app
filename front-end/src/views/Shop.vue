@@ -42,7 +42,7 @@ defineProps({
   </div>
   <div class="product_modal_div" v-if="product_modal_on" >
     <ProductModal
-    @CloseModal="product_modal_on = false" class="product_modal_css" :product_prop="selected_product"
+    @CloseModal="product_modal_on = false" class="product_modal_css" :product_prop="selected_product" :seller_name_prop="seller_name"
   />
 </div>
 </template>
@@ -136,6 +136,18 @@ export default {
       ListingsArray: [],
       product_modal_on: false,
       selected_product: {},
+      single_user_body_data: {
+        first_name: "",
+        last_name: "",
+        email: "",
+        phone_number: "",
+        location: "",
+        seller_image: "",
+        seller_name: "",
+        description: "",
+        my_listings: [],
+      },
+      seller_name: "",
     };
   },
   methods: {
@@ -145,9 +157,24 @@ export default {
       this.ListingsArray = received_data;
       console.log(received_data);
     },
+
+    async fetch_single_user(userID) {
+      const response = await fetch(
+        "http://localhost:4000/users/getuser/" + userID
+      );
+      const received_data = await response.json();
+      this.single_user_body_data = received_data;
+      this.seller_name = this.single_user_body_data.first_name + " " + this.single_user_body_data.last_name;
+      console.log(this.seller_name);
+      
+    },
+   
     openProductModal(listing) {
       this.selected_product = listing;
       this.product_modal_on = true;
+      console.log(this.selected_product.user_id);
+      this.fetch_single_user(this.selected_product.user_id);
+      
     },
   },
   created() {

@@ -186,7 +186,7 @@ export default {
 
     },
 
-    CloseModalSubmit() {
+    CloseModalSubmit() { 
       // Call first click behavior
       this.submitListing();
 
