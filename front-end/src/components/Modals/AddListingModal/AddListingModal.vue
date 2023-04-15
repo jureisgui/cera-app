@@ -40,7 +40,7 @@ import MainButton from "../../Buttons/MainButton.vue";
           </div>
           <div class="submit_listing">
             <MainButton
-              @click="submitListing"
+            @click="CloseModalSubmit"
               main_button_prop="Submit Listing"
               button_icon_prop="publish"
             />
@@ -184,7 +184,14 @@ export default {
       this.create_new_listing_listingDB();
       this.update_user(this.product_body_data.user_id);
 
+    },
 
+    CloseModalSubmit() {
+      // Call first click behavior
+      this.submitListing();
+
+      // Call second click behavior
+      this.$emit('CloseModal');
     },
   },
 };
