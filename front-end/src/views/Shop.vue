@@ -5,6 +5,7 @@ import Categories from "../components/Categories.vue";
 import ProductCard from "../components/ShopComponents/ProductCard.vue";
 import Heart from "@/components/Buttons/Heart.vue";
 import ProductModal from "../components/Modals/ProductModal/ProductModal.vue";
+import Login from "../components/Modals/LoginModal/LoginModal.vue";
 
 defineProps({
   Logged_in: Boolean,
@@ -18,7 +19,10 @@ defineProps({
     Logo="src/assets/img/white_logo-01-01.svg"
     @show_login_modal="login_modal = true"
     :Logged_in="Logged_in"
+    @show_listing_modal="ListingModalOpen = true"
+    @show_account_modal="AccountModalOpen = true"
   />
+  <div class="blur" v-if="login_modal"></div>
   <SortBy />
   <Categories />
   <!-- Filter for title needs to be added -->
@@ -45,6 +49,13 @@ defineProps({
     @CloseModal="product_modal_on = false" class="product_modal_css" :product_prop="selected_product" :seller_name_prop="seller_name"
   />
 </div>
+
+<Login
+      class="login"
+      v-if="login_modal"
+      @pass_logged_user="pass_to_app"
+      @close_login="pass_close_app"
+    />
 </template>
 
 <style scoped>
@@ -116,6 +127,23 @@ defineProps({
   z-index: 10;
 }
 
+.login {
+  position: absolute;
+  top: 0;
+  left: 24%;
+  z-index: 10000;
+}
+
+.blur {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 998;
+  background: rgba(0, 0, 0, 0.3);
+}
+
 @media (max-width: 769px) {
   .shop-section {
     grid-template-columns: 1fr 1fr;
@@ -148,6 +176,9 @@ export default {
         my_listings: [],
       },
       seller_name: "",
+      login_modal: false,
+      ListingModalOpen: false,
+      AccountModalOpen: false,
     };
   },
   methods: {
@@ -175,6 +206,13 @@ export default {
       console.log(this.selected_product.user_id);
       this.fetch_single_user(this.selected_product.user_id);
       
+    },
+
+    pass_to_app(user_obj) {
+      this.$emit("pass_logged_user", user_obj);
+    },
+    pass_close_app() {
+      this.login_modal = false;
     },
   },
   created() {
