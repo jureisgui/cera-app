@@ -164,10 +164,6 @@ textarea::placeholder {
     width: 280px;
   }
 
-.material-symbols-outlined{
-  display: block;
-}
-
 };
 
 </style>
