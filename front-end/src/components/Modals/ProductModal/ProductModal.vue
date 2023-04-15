@@ -17,18 +17,18 @@
               :numVisible="5"
               containerStyle="max-width: 640px"
             >
-              <template>
+              <template >
                 <img
-                  :src="product_prop.product_image"
-                  :alt="slotProps.item.alt"
+                  :src="product_prop.product_images[0]"
+                  :alt="product_prop.title"
                   style="width: 100%"
                   class="big_img"
                 />
               </template>
-              <template #thumbnail="slotProps" class="thumbnail_wrapper">
+              <template class="thumbnail_wrapper">
                 <img
-                  :src="slotProps.item.thumbnailImageSrc"
-                  :alt="slotProps.item.alt"
+                  :src="product_prop.product_images[0]"
+                  :alt="product_prop.title"
                   class="thumbnail"
                 />
               </template>

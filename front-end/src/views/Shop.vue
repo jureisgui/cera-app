@@ -31,7 +31,7 @@ defineProps({
       <div class="image_wrapper">
         <img
           class="product_image"
-          :src="listing.product_images"
+          :src="listing.product_images[0]"
           alt="Product Thumbnail"
         />
         <Heart class="heart_position" />
