@@ -96,6 +96,7 @@
   width: 100%;
   top: 105px;
   z-index: 10;
+  padding-bottom: 100px;
 }
 
 .material-symbols-outlined {
