@@ -49,7 +49,7 @@
       ><MainButton
         main_button_prop="Update"
         button_icon_prop="refresh"
-        @click="$emit('update_profile')"
+        @click="update_user"
     /></span>
   </div>
 </template>
@@ -143,15 +143,9 @@ export default {
   data() {
     return {
       user_body_data: {
-        first_name: "",
-        last_name: "",
-        email: "",
-        phone_number: "",
-        location: "",
         seller_image: "",
         seller_name: "",
         description: "",
-        my_listings: [],
       },
     }
     },
@@ -160,7 +154,16 @@ export default {
         async fetch_single_user(userID){
             const response = await fetch("http://localhost:4000/users/getuser/"+userID);
             const received_data = await response.json();
-            this.single_user=received_data;
+            this.user_body_data=received_data;
+        },
+
+        async update_user(userID){
+            const response = await fetch("http://localhost:4000/users/update/"+this.logged_userID, {
+                method:"PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(this.user_body_data)
+        });
+        const received_data = await response.json();     
         },
 
     },

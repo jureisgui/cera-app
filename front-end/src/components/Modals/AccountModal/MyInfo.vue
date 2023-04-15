@@ -135,12 +135,7 @@ export default {
         email: "",
         phone_number: "",
         location: "",
-        seller_image: "",
-        seller_name: "",
-        description: "",
-        my_listings: [],
-            },
-        logged_userID:'',
+        },
         }   
     },
     methods: {
@@ -149,12 +144,12 @@ export default {
             const received_data = await response.json();
             this.user_body_data=received_data;
         },
-        async update_user(){
+      async update_user(userID){
             const response = await fetch("http://localhost:4000/users/update/"+this.logged_userID, {
                 method:"PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(this.user_body_data)
-            });
+        });
         const received_data = await response.json();     
         },
     },

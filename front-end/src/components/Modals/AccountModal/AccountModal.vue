@@ -94,45 +94,12 @@ export default {
   data() {
     return {
       ModalIsOpen: true,
-      my_information: {
-        first_name: "",
-        last_name: "",
-        email: "",
-        phone_number: "",
-        location: "",
-      },
-      my_profile: {
-        seller_image: "",
-        seller_name: "",
-        description: "",
-      },
-      listings: {
-        my_listings: [],
-      },
     };
   },
 
   methods: {
     CloseModal() {
       this.ModalIsOpen = false;
-    },
-    async update_user(userID){
-            const response = await fetch("http://localhost:4000/users/update/"+this.logged_userID, {
-                method:"PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(this.user_body_data)
-        });
-        const received_data = await response.json();     
-        },
-    updateInfo(){
-      
-    },
-    updateProfile(){
-      this.listings.my_listings = this.logged_user_obj.my_listings;
-      this.update_user(this.logged_userID);
-    },
-    updateListings(){
-      
     },
   },
 };
