@@ -93,7 +93,7 @@ defineProps({
 
 .product_image {
   width: 100%;
-  max-height: 300px;
+  height: 300px;
   object-fit: cover;
 }
 
