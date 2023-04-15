@@ -58,6 +58,7 @@ defineProps({
 .products_container {
   text-align: center;
   padding: 1em;
+  max-height: 600px;
 }
 
 .subheading_text {
@@ -84,6 +85,16 @@ defineProps({
 
 .image_wrapper {
   position: relative;
+  max-width: 500px;
+  max-height: 300px;
+  object-fit: contain;
+  
+}
+
+.product_image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
 }
 
 .heart_position {
