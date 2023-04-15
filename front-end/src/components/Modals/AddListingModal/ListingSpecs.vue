@@ -111,7 +111,6 @@ textarea:focus {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-
 }
 
 .row {
@@ -138,6 +137,37 @@ textarea:focus {
   width: 1px;
   background-color: #44473975;
   margin: 2em 1em;
+}
+
+@media (max-width: 600px) {
+  .Listing_Info_Container {
+  margin-top: 2em;
+  border: solid 1px #444739;
+  padding: 1em;
+}
+.input_dropdown_container{
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .title_input{
+        margin: 10px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+  .item_specs_container {
+  margin: 0;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.divider{
+  display: none;
+}
 }
 </style>
 

@@ -89,6 +89,10 @@ import MainButton from "../../Buttons/MainButton.vue";
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 600px) {
+
+}
 </style>
 
 <script>

@@ -136,6 +136,36 @@ textarea::placeholder {
 .material-symbols-outlined:hover {
   transform: scale(1.1);
 }
+
+@media (max-width: 600px) {
+  .Listing_Info_Container {
+  margin-top: 1em;
+  border: solid 1px #444739;
+  padding: 1em;}
+
+  input{
+ min-width: 200px;
+  height: 60px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.product_tag_input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .input_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 280px;
+  }
+
+};
+
 </style>
 <script>
 export default {
