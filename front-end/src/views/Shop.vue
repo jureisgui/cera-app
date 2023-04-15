@@ -6,6 +6,7 @@ import ProductCard from "../components/ShopComponents/ProductCard.vue";
 import Heart from "@/components/Buttons/Heart.vue";
 import ProductModal from "../components/Modals/ProductModal/ProductModal.vue";
 import Login from "../components/Modals/LoginModal/LoginModal.vue";
+import AccountModal from "../components/Modals/AccountModal/AccountModal.vue";
 
 defineProps({
   Logged_in: Boolean,
@@ -55,6 +56,10 @@ defineProps({
       v-if="login_modal"
       @pass_logged_user="pass_to_app"
       @close_login="pass_close_app"
+    />
+<AccountModal
+      v-if="AccountModalOpen"
+      @CloseModal="AccountModalOpen = false" class="account_modal_css"
     />
 </template>
 
@@ -119,12 +124,16 @@ defineProps({
   cursor: pointer;
 }
 
-.product_modal_css {
+.product_modal_css, .account_modal_css {
   position: absolute;
   background-color: white;
   width: 100%;
   top: 105px;
-  z-index: 10;
+  z-index: 1000;
+  bottom: 0;
+  left: 0; 
+  right: 0;
+  margin: auto;
 }
 
 .login {
@@ -179,6 +188,7 @@ export default {
       login_modal: false,
       ListingModalOpen: false,
       AccountModalOpen: false,
+     
     };
   },
   methods: {
@@ -216,6 +226,7 @@ export default {
     },
   },
   created() {
+    this.logged_userID=localStorage.getItem("logged_userID")
     this.fetch_all_listings();
   },
 };
