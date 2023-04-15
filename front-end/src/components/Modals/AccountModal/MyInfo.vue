@@ -33,7 +33,7 @@
             </div>
         </div>   
         <span class="update_btn"><MainButton main_button_prop="Update" button_icon_prop="refresh" @click="update_user" /></span>   
-        <!-- @click="update_user"  -->
+        
     </div>
 </template>
 
@@ -120,10 +120,8 @@ input:focus{
 </style>
 
 <script setup>
-import MainInput from '@/components/Inputs/MainInput.vue'
+
 import MainButton from '@/components/Buttons/MainButton.vue'
-
-
             
 </script>
 
@@ -143,14 +141,12 @@ export default {
         my_listings: [],
             },
         logged_userID:'',
-        // single_user:{}
         }   
     },
     methods: {
         async fetch_single_user(userID){
             const response = await fetch("http://localhost:4000/users/getuser/"+userID);
             const received_data = await response.json();
-            // this.single_user=received_data;
             this.user_body_data=received_data;
         },
         async update_user(){
@@ -165,7 +161,6 @@ export default {
     created(){
         this.logged_userID=localStorage.getItem("logged_userID")
         this.fetch_single_user(this.logged_userID)
-
     }
     
 }
