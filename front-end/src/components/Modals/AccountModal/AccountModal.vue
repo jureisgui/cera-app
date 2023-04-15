@@ -47,6 +47,7 @@ defineProps({
   top: 73px;
   z-index: 10;
   padding: 2em 10%;
+  bottom: 0;
 }
 
 .p-accordion-header {
