@@ -69,6 +69,32 @@ input{
     .input_width{
         width: 400px;
     }
+
+    @media (max-width: 600px) {
+      .Listing_Info_Container{
+        margin-top: 0;
+        border: solid 1px #444739;
+        padding: 1em;
+    }
+
+    .input_dropdown_container{
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .title_input{
+        margin: 10px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .input_width{
+        width: 280px;
+    }
+}
 </style>
 
 <script setup>

@@ -136,6 +136,10 @@ textarea::placeholder {
 .material-symbols-outlined:hover {
   transform: scale(1.1);
 }
+
+@media (max-width: 600px) {
+
+}
 </style>
 <script>
 export default {

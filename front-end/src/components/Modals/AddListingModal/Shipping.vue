@@ -58,6 +58,10 @@ sup{
         display: flex;
         gap: 10px;
     }
+
+    @media (max-width: 600px) {
+
+}
     </style>
 
 <script setup>

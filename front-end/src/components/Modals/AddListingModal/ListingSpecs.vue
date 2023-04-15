@@ -139,6 +139,10 @@ textarea:focus {
   background-color: #44473975;
   margin: 2em 1em;
 }
+
+@media (max-width: 600px) {
+
+}
 </style>
 
 <script setup>
