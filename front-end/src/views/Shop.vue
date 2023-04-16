@@ -5,6 +5,8 @@ import Categories from "../components/Categories.vue";
 import ProductCard from "../components/ShopComponents/ProductCard.vue";
 import Heart from "@/components/Buttons/Heart.vue";
 import ProductModal from "../components/Modals/ProductModal/ProductModal.vue";
+import Login from "../components/Modals/LoginModal/LoginModal.vue";
+import AccountModal from "../components/Modals/AccountModal/AccountModal.vue";
 
 defineProps({
   Logged_in: Boolean,
@@ -18,7 +20,10 @@ defineProps({
     Logo="src/assets/img/white_logo-01-01.svg"
     @show_login_modal="login_modal = true"
     :Logged_in="Logged_in"
+    @show_listing_modal="ListingModalOpen = true"
+    @show_account_modal="AccountModalOpen = true"
   />
+  <div class="blur" v-if="login_modal"></div>
   <SortBy />
   <Categories />
   <!-- Filter for title needs to be added -->
@@ -41,9 +46,20 @@ defineProps({
   </div>
   <div class="product_modal_div" v-if="product_modal_on" >
     <ProductModal
-    @CloseModal="product_modal_on = false" class="product_modal_css" :product_prop="selected_product"
+    @CloseModal="product_modal_on = false" class="product_modal_css" :product_prop="selected_product" :seller_name_prop="seller_name"
   />
 </div>
+
+<Login
+      class="login"
+      v-if="login_modal"
+      @pass_logged_user="pass_to_app"
+      @close_login="pass_close_app"
+    />
+<AccountModal
+      v-if="AccountModalOpen"
+      @CloseModal="AccountModalOpen = false" class="account_modal_css"
+    />
 </template>
 
 <style scoped>
@@ -92,7 +108,10 @@ defineProps({
   position: relative;
 }
 
-.product_image{
+
+.product_image {
+  width: 100%;
+  height: 300px;
   object-fit: cover;
 }
 
@@ -107,12 +126,33 @@ defineProps({
   cursor: pointer;
 }
 
-.product_modal_css {
+.product_modal_css, .account_modal_css {
   position: absolute;
   background-color: white;
   width: 100%;
   top: 105px;
-  z-index: 10;
+  z-index: 1000;
+  bottom: 0;
+  left: 0; 
+  right: 0;
+  margin: auto;
+}
+
+.login {
+  position: absolute;
+  top: 0;
+  left: 24%;
+  z-index: 10000;
+}
+
+.blur {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 998;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 800px) {
@@ -142,6 +182,22 @@ export default {
       ListingsArray: [],
       product_modal_on: false,
       selected_product: {},
+      single_user_body_data: {
+        first_name: "",
+        last_name: "",
+        email: "",
+        phone_number: "",
+        location: "",
+        seller_image: "",
+        seller_name: "",
+        description: "",
+        my_listings: [],
+      },
+      seller_name: "",
+      login_modal: false,
+      ListingModalOpen: false,
+      AccountModalOpen: false,
+     
     };
   },
   methods: {
@@ -151,12 +207,35 @@ export default {
       this.ListingsArray = received_data;
       console.log(received_data);
     },
+
+    async fetch_single_user(userID) {
+      const response = await fetch(
+        "http://localhost:4000/users/getuser/" + userID
+      );
+      const received_data = await response.json();
+      this.single_user_body_data = received_data;
+      this.seller_name = this.single_user_body_data.first_name + " " + this.single_user_body_data.last_name;
+      console.log(this.seller_name);
+      
+    },
+   
     openProductModal(listing) {
       this.selected_product = listing;
       this.product_modal_on = true;
+      console.log(this.selected_product.user_id);
+      this.fetch_single_user(this.selected_product.user_id);
+      
+    },
+
+    pass_to_app(user_obj) {
+      this.$emit("pass_logged_user", user_obj);
+    },
+    pass_close_app() {
+      this.login_modal = false;
     },
   },
   created() {
+    this.logged_userID=localStorage.getItem("logged_userID")
     this.fetch_all_listings();
   },
 };

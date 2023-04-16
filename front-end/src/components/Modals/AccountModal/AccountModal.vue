@@ -15,11 +15,13 @@ import MyListings from "./MyListings.vue";
 defineProps({
   Logged_in: Boolean,
   logged_user_obj: Object,
+  user_account: Object,
 });
 </script>
 
 <template>
   <div v-if="ModalIsOpen" class="modal_wrapper">
+  <br><br>
     <div class="back_arrow">
       <span @click="$emit('CloseModal')" class="material-symbols-outlined icon-colour">arrow_back_ios</span>
     </div>
@@ -44,9 +46,9 @@ defineProps({
   position: absolute;
   background-color: white;
   width: 100%;
-  top: 73px;
+  top: 0;
   z-index: 10;
-  padding: 2em 10%;
+  bottom: 0;
 }
 
 .p-accordion-header {
@@ -74,6 +76,16 @@ defineProps({
 
 .material-symbols-outlined:hover {
   transform: scale(1.2);
+}
+
+.blur {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 998;
+  background: rgba(0, 0, 0, 0.3);
 }
 </style>
 

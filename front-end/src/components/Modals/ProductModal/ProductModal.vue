@@ -7,7 +7,7 @@
           <span @click="$emit('CloseModal')" class="material-symbols-outlined"
             >arrow_back_ios</span
           >
-          <p class="body_text">Kitchenware</p>
+          <p class="body_text">{{product_prop.category}}</p>
         </div>
         <section class="product_desc">
           <div class="photo_gallery">
@@ -36,7 +36,7 @@
           </div>
           <div class="text_container">
             <h5 class="heading_text">{{product_prop.title}}</h5>
-            <h5 class="body_text">{{product_prop.user_id}}</h5>
+            <h5 class="body_text">{{seller_name_prop}}</h5>
             <h3 class="subheading_text">$ {{product_prop.price}}</h3>
             <p class="body_text">
               {{product_prop.item_description}}
@@ -96,6 +96,7 @@
   width: 100%;
   top: 105px;
   z-index: 10;
+  padding-bottom: 100px;
 }
 
 .material-symbols-outlined {
@@ -259,7 +260,8 @@ import "primeicons/primeicons.css";
 import Galleria from "primevue/galleria";
 
 defineProps({
-  product_prop: Object
+  product_prop: Object,
+  seller_name_prop: String
 });
 </script>
 
@@ -292,6 +294,7 @@ export default {
           alt: "Product Image",
         }        
       ],
+      
   };
   },
   mounted() {

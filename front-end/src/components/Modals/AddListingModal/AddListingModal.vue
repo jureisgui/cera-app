@@ -40,7 +40,7 @@ import MainButton from "../../Buttons/MainButton.vue";
           </div>
           <div class="submit_listing">
             <MainButton
-            @click="CloseModalSubmit"
+              @click="CloseModalSubmit"
               main_button_prop="Submit Listing"
               button_icon_prop="publish"
             />
@@ -91,7 +91,6 @@ import MainButton from "../../Buttons/MainButton.vue";
 }
 
 @media (max-width: 600px) {
-
 }
 </style>
 
@@ -123,18 +122,18 @@ export default {
         category: "",
         item_description: "",
         condition: {},
-        dimensions: { 
-          width: "", 
-          height: "", 
-          diameter: "", 
-          capacity: "" 
+        dimensions: {
+          width: "",
+          height: "",
+          diameter: "",
+          capacity: "",
         },
         price: 0,
         product_tags: [],
         product_images: [],
         shipping: {},
         specify_costs: {},
-        user_id: '',
+        user_id: "",
       },
       user_body_data: {
         my_listings: [],
@@ -146,20 +145,26 @@ export default {
       this.ModalIsOpen = false;
     },
     async create_new_listing_listingDB() {
-      const response = await fetch("http://localhost:4000/listings/addlisting", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(this.product_body_data),
-      });
+      const response = await fetch(
+        "http://localhost:4000/listings/addlisting",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(this.product_body_data),
+        }
+      );
       const received_data = await response.json();
       console.log(received_data);
     },
-    async update_user(userID){
-      const response = await fetch("http://localhost:4000/users/update/"+userID, {
-        method:"PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(this.user_body_data)
-      });
+    async update_user(userID) {
+      const response = await fetch(
+        "http://localhost:4000/users/update/" + userID,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(this.user_body_data),
+        }
+      );
       const received_data = await response.json();
     },
 
@@ -179,11 +184,15 @@ export default {
       this.product_body_data.shipping = this.shipping;
       this.product_body_data.specify_costs = this.specify_costs;
       this.product_body_data.user_id = localStorage.getItem("logged_userID");
-      this.user_body_data.my_listings = this.product_body_data;
+      // this.user_body_data.my_listings = this.product_body_data;
 
+      // Add the new listing to the user's my_listings array
+      const new_listing = JSON.parse(JSON.stringify(this.product_body_data));
+      this.user_body_data.my_listings.push(new_listing);
+
+      // Save the new listing to the database and update the user's data
       this.create_new_listing_listingDB();
       this.update_user(this.product_body_data.user_id);
-
     },
 
     CloseModalSubmit() {
@@ -191,7 +200,7 @@ export default {
       this.submitListing();
 
       // Call second click behavior
-      this.$emit('CloseModal');
+      this.$emit("CloseModal");
     },
   },
 };

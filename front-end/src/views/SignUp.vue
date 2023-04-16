@@ -1,6 +1,8 @@
 <template>
-  <Header Header_class="green" Logo="src/assets/img/white_logo-01-01.svg" @show_login_modal="login_modal=true" :Logged_in="Logged_in"  />
+  <Header Header_class="green" Logo="src/assets/img/white_logo-01-01.svg" @show_login_modal="login_modal=true" :Logged_in="Logged_in" @show_listing_modal="ListingModalOpen = true"
+  @show_account_modal="AccountModalOpen = true"  />
   <main>
+    <div class="blur" v-if="login_modal"></div>
     <Success
       @Close_Modal="modal_on = false"
       success_prop="Sign up"
@@ -63,6 +65,12 @@
       </div>
     </section>
   </main>
+  <Login
+      class="login"
+      v-if="login_modal"
+      @pass_logged_user="pass_to_app"
+      @close_login="pass_close_app"
+    />
 </template>
 
 <style scoped>
@@ -140,6 +148,23 @@ main {
   line-height: 1.3;
 }
 
+.login {
+  position: absolute;
+  top: 0;
+  left: 24%;
+  z-index: 1000;
+}
+
+.blur {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 998;
+  background: rgba(0, 0, 0, 0.3);
+}
+
 @media (max-width: 600px) {
   .signup_section {
   display: flex;
@@ -162,6 +187,7 @@ main {
 import Header from "../components/Header.vue";
 import LongBtn from "../components/Buttons/LongButton.vue";
 import Success from "../components/Success.vue";
+import Login from "../components/Modals/LoginModal/LoginModal.vue";
 
 defineProps({
   Logged_in: Boolean,
@@ -193,7 +219,10 @@ export default {
       email_valid: true,
       pw_valid: true,
       confirm_pw_valid: true,
-      created_user_id:''
+      created_user_id:'',
+      login_modal: false,
+      ListingModalOpen: false,
+      AccountModalOpen: false,
     }
   },
   methods: {
@@ -215,6 +244,13 @@ export default {
         body: JSON.stringify({email:this.user_body_data.email,password:this.login_body_data.password,user_id:this.created_user_id}),
       });
       const received_data = await response.json();
+    },
+
+    pass_to_app(user_obj) {
+      this.$emit("pass_logged_user", user_obj);
+    },
+    pass_close_app() {
+      this.login_modal = false;
     },
 
    submit_to_add_user() {
