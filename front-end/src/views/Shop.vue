@@ -7,6 +7,7 @@ import Heart from "@/components/Buttons/Heart.vue";
 import ProductModal from "../components/Modals/ProductModal/ProductModal.vue";
 import Login from "../components/Modals/LoginModal/LoginModal.vue";
 import AccountModal from "../components/Modals/AccountModal/AccountModal.vue";
+import AddListingModal from "../components/Modals/AddListingModal/AddListingModal.vue";
 
 defineProps({
   Logged_in: Boolean,
@@ -59,6 +60,11 @@ defineProps({
 <AccountModal
       v-if="AccountModalOpen"
       @CloseModal="AccountModalOpen = false" class="account_modal_css"
+    />
+
+<AddListingModal
+      v-if="ListingModalOpen"
+      @CloseModal="ListingModalOpen = false" class="add_listing_css"
     />
 </template>
 
@@ -137,6 +143,8 @@ defineProps({
   right: 0;
   margin: auto;
 }
+
+
 
 .login {
   position: absolute;
