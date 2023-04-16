@@ -4,7 +4,7 @@ import ListingsButtons from "@/components/Buttons/ListingEditDeleteButton.vue";
 
 <template>
     <section class="flex_wrapper">
-  <div v-for="listing in MyListingsArray" class="product-wrapper">
+  <div v-for="listing in filtered_listings" class="product-wrapper">
     <img :src="listing.product_images[0]" alt="Product Thumbnail" />
     <ListingsButtons />
   </div>
@@ -59,16 +59,18 @@ export default {
       this.MyListingsArray = received_data;
       
     },
-    filtered_listings() {
-      this.MyListingsArray = this.user_body_data.my_listings.filter(
-        (listing) => listing.user_id == this.logged_userID
-      );
-    },
   },
   created() {
     this.logged_userID = localStorage.getItem("logged_userID");
     this.fetch_single_user(this.logged_userID);
     this.fetch_all_listings();
+  },
+  computed: {
+    filtered_listings() {
+      return this.MyListingsArray.filter(
+        (listing) => listing.user_id == this.logged_userID
+      );
+    },
   },
 };
 </script>
