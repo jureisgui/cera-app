@@ -31,8 +31,7 @@ defineProps({
     <div
       v-for="listing in ListingsArray"
       class="products_container"
-      @click="openProductModal(listing)"
-    >
+      @click="openProductModal(listing)">
       <div class="image_wrapper">
         <img
           class="product_image"
@@ -72,9 +71,11 @@ defineProps({
 }
 
 .products_container {
-  text-align: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
   padding: 1em;
-  max-height: 600px;
 }
 
 .subheading_text {
@@ -95,17 +96,18 @@ defineProps({
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-bottom: 2em;
-  gap: 20px;
+  gap: 10px;
   text-align: center;
 }
 
 .image_wrapper {
-  position: relative;
-  max-width: 500px;
+  display: flex;
+  flex: 1;
   max-height: 300px;
-  object-fit: contain;
-  
+  width: 100%;
+  position: relative;
 }
+
 
 .product_image {
   width: 100%;
@@ -153,10 +155,17 @@ defineProps({
   background: rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 769px) {
+@media (max-width: 800px) {
   .shop-section {
     grid-template-columns: 1fr 1fr;
   }
+  .image_wrapper {
+  display: flex;
+  flex: 1;
+  min-height: 300px;
+  width: 100%;
+  position: relative;
+}
 }
 
 @media (max-width: 500px) {
