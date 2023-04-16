@@ -60,17 +60,18 @@ export default {
       
     },
   },
+  computed: {
+    filtered_listings() {
+      return this.MyListingsArray.filter(
+        (listing) => listing.user_id == this.logged_userID
+      )
+    },
+  },
   created() {
     this.logged_userID = localStorage.getItem("logged_userID");
     this.fetch_single_user(this.logged_userID);
     this.fetch_all_listings();
   },
-  computed: {
-    filtered_listings() {
-      return this.MyListingsArray.filter(
-        (listing) => listing.user_id == this.logged_userID
-      );
-    },
-  },
+ 
 };
 </script>
