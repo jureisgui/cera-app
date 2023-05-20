@@ -7,7 +7,7 @@
           <span @click="$emit('CloseModal')" class="material-symbols-outlined"
             >arrow_back_ios</span
           >
-          <p class="body_text">{{product_prop.category}}</p>
+          <!-- <p class="body_text">{{product_prop.category}}</p> -->
         </div>
         <section class="product_desc">
           <div class="photo_gallery">
@@ -64,10 +64,10 @@
 
         <div class="qa_div">
           <h2 class="heading_text">Questions and Answers</h2>
-          <div>
+          <!-- <div>
             <QA />
             <QA />
-          </div>
+          </div> -->
           <MainButton
             main_button_prop="Ask a Question"
             button_icon_prop="contact_support"
